@@ -3,8 +3,8 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-
   
+
   height: 100%;
   margin: 0;
   font-family:
@@ -1657,4 +1657,30 @@ main {
 .nav-right-half {
   width: auto;
   padding: 0 6px;
+}
+
+
+
+
+
+
+
+
+/* Mobile: remove the fixed vertical divider line in the navbar */
+@media (max-width: 768px) {
+  .navbar::before,
+  .navbar::after,
+  .nav-wrap::before,
+  .nav-wrap::after,
+  .nav-inner::before,
+  .nav-inner::after,
+  .nav-left::before,
+  .nav-left::after,
+  .nav-right::before,
+  .nav-right::after,
+  .nav-links::before,
+  .nav-links::after {
+    content: none !important;
+    display: none !important;
+  }
 }

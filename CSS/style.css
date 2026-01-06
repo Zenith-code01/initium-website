@@ -1592,50 +1592,52 @@ main {
 
 
 
-/* ===== Mobile: scale navbar proportionally (recommended) ===== */
 @media (max-width: 520px) {
-  :root{
-    --nav-scale: 0.82; /* 0.75~0.90 之间自己调，越小越紧凑 */
-  }
+  :root { --nav-scale: 0.82; }
 
-  /* 导航高度等比例变小 */
   .navbar{
     height: calc(var(--nav-h) * var(--nav-scale));
+    grid-template-columns: auto 1fr auto;
+    overflow: hidden;
   }
 
-  /* 所有导航文字的 line-height 跟着变小，避免“撑不下被裁” */
-  .nav-link{
-    line-height: calc(var(--nav-h) * var(--nav-scale));
-    font-size: calc(15px * var(--nav-scale));
-    padding: 0 calc(12px * var(--nav-scale));
-  }
-
-  /* 右侧按钮等比例变小 */
-  .nav-cta,
-  .lang-btn{
-    font-size: calc(13px * var(--nav-scale));
-    padding: calc(8px * var(--nav-scale)) calc(14px * var(--nav-scale));
-  }
-
-  /* logo 等比例变小 */
+  /* 左侧 logo */
   .brand-logo img{
     height: calc((var(--nav-h) - 16px) * var(--nav-scale));
   }
 
-  /* 右侧别再 50/50 平分（这是你现在挤爆的主要原因） */
+  /* ✅ 中间导航：不隐藏，改为“横向可滚动” */
+  .nav-mid{
+    display: flex !important;
+    overflow-x: auto;
+    overflow-y: hidden;
+    -webkit-overflow-scrolling: touch;
+    gap: 12px;
+    justify-content: flex-start; /* 别用 space-evenly，手机会浪费空间 */
+    padding: 0 10px;
+  }
+  .nav-mid::-webkit-scrollbar{ display:none; }
+
+  .nav-link{
+    line-height: calc(var(--nav-h) * var(--nav-scale));
+    font-size: calc(15px * var(--nav-scale));
+    padding: 0 10px;
+    flex: 0 0 auto; /* 关键：不被压扁 */
+  }
+
+  /* ✅ 右侧按钮缩小 */
+  .nav-cta, .lang-btn{
+    font-size: calc(13px * var(--nav-scale));
+    padding: calc(8px * var(--nav-scale)) calc(12px * var(--nav-scale));
+  }
+
+  /* 右侧别再 50/50 */
   .nav-right-half{
     width: auto;
     flex: 0 0 auto;
   }
-
-  /* 如果你手机还是显示中间菜单，那就强制隐藏掉 */
-  .nav-mid{ display: none !important; }
-
-  /* 导航布局更适合手机：左logo + 右按钮 */
-  .navbar{
-    grid-template-columns: auto 1fr auto;
-  }
 }
+
 
 
 

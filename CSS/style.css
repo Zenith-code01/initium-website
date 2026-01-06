@@ -686,6 +686,81 @@ main {
   bottom: 0;
 }
 
+/* ================= FIVE STATS BAR — Mobile Redesign ================= */
+.stat-number{
+  /* 关键：不要让 10–16% / 5M–50M / 3–24 被拆开 */
+  white-space: nowrap;
+  word-break: keep-all;
+  hyphens: none;
+}
+
+
+
+/* 建议：用真正的 en-dash，视觉更专业（可选）
+   你 HTML 里如果是 "-"，最好改成 "–"
+*/
+
+@media (max-width: 768px){
+  .stats-bar{
+    padding: 16px 0;
+  }
+
+  /* 70% 在手机太窄，直接拉满并加左右 padding */
+  .stats-inner{
+    width: min(94%, 560px);
+    padding: 0 12px;
+
+    /* ✅ 从 flex → grid */
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+
+    align-items: stretch;
+  }
+
+  .stat-item{
+    /* ✅ KPI 卡片化 */
+    background: rgba(255,255,255,0.82);
+    border: 1px solid rgba(0, 51, 69, 0.12);
+    border-radius: 14px;
+    padding: 14px 12px;
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
+    text-align: center;
+  }
+
+  .stat-number{
+    /* clamp：小屏自动收缩但保持大数字的气势 */
+    font-size: clamp(26px, 7vw, 34px);
+    font-weight: 800;
+    line-height: 1.05;
+    letter-spacing: 0.2px;
+  }
+
+  .stat-label{
+    margin-top: 6px;
+    font-size: 12px;
+    line-height: 1.25;
+    opacity: 0.85;
+  }
+
+  /* ✅ 第5个让它独占一行（Monthly 那个） */
+  .stats-inner .stat-item:nth-child(5){
+    grid-column: 1 / -1;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ================= Private Credit Fund Main Section ================= */
 

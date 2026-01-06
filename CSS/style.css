@@ -1,5 +1,10 @@
 html,
 body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+
+  
   height: 100%;
   margin: 0;
   font-family:
@@ -13,6 +18,7 @@ body {
     "Noto Sans CJK SC",
     Arial,
     sans-serif;
+
 }
 
 /* 整体竖向布局 */
@@ -283,12 +289,12 @@ body {
 
 
 /* ✅ 当前页面：保持显示 */
-.nav-link.is-active::after{
+.nav-link.is-active::after {
   transform: scaleX(1);
 }
 
 /* 当前页面文字也可稍微强调 */
-.nav-link.is-active{
+.nav-link.is-active {
   color: #ECE3D5;
   font-weight: 700;
 }
@@ -690,18 +696,19 @@ main {
 }
 
 /* 3) pcf 底部 fade-out（从 pcf 叠加到透明） */
-.pcf-hero::after{
-  content:"";
-  position:absolute;
-  left:0; right:0; bottom:0;
-  height: 96px;           /* 80~140 可调 */
-  pointer-events:none;
-  background: linear-gradient(
-    to bottom,
-    rgba(8,23,38,0.00) 0%,
-    rgba(8,23,38,0.55) 45%,
-    rgba(8,23,38,1.00) 100%
-  );
+.pcf-hero::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 96px;
+  /* 80~140 可调 */
+  pointer-events: none;
+  background: linear-gradient(to bottom,
+      rgba(8, 23, 38, 0.00) 0%,
+      rgba(8, 23, 38, 0.55) 45%,
+      rgba(8, 23, 38, 1.00) 100%);
 }
 
 .pcf-hero-bg {
@@ -976,52 +983,47 @@ main {
    Initium Divider (Dark → Light)
    =============================== */
 
-.ic-divider{
+.ic-divider {
   width: 100%;
   position: relative;
   pointer-events: none;
 }
 
 /* 深色 → 浅色 柔和过渡 */
-.ic-divider--dark-to-light{
-  height: 92px; /* 80–120 可调 */
-  background: linear-gradient(
-    to bottom,
-    rgba(0,51,69,1.00) 0%,
-    rgba(0,51,69,0.70) 35%,
-    rgba(249,247,243,0.92) 75%,
-    rgba(249,247,243,1.00) 100%
-  );
+.ic-divider--dark-to-light {
+  height: 92px;
+  /* 80–120 可调 */
+  background: linear-gradient(to bottom,
+      rgba(0, 51, 69, 1.00) 0%,
+      rgba(0, 51, 69, 0.70) 35%,
+      rgba(249, 247, 243, 0.92) 75%,
+      rgba(249, 247, 243, 1.00) 100%);
 }
 
 /* 金色金融高光线 */
-.ic-divider--dark-to-light::after{
-  content:"";
-  position:absolute;
+.ic-divider--dark-to-light::after {
+  content: "";
+  position: absolute;
   left: 50%;
   top: 46%;
   transform: translateX(-50%);
   width: min(76%, 1040px);
   height: 1px;
-  background: linear-gradient(
-    to right,
-    transparent,
-    rgba(238,182,14,0.40),
-    transparent
-  );
+  background: linear-gradient(to right,
+      transparent,
+      rgba(238, 182, 14, 0.40),
+      transparent);
   opacity: 0.95;
 }
 
 /* 轻微雾化，避免割裂 */
-.ic-divider--dark-to-light::before{
-  content:"";
-  position:absolute;
+.ic-divider--dark-to-light::before {
+  content: "";
+  position: absolute;
   inset: 0;
-  background: radial-gradient(
-    circle at 50% 18%,
-    rgba(255,255,255,0.06),
-    transparent 62%
-  );
+  background: radial-gradient(circle at 50% 18%,
+      rgba(255, 255, 255, 0.06),
+      transparent 62%);
   opacity: 0.7;
 }
 
@@ -1475,7 +1477,7 @@ main {
 /* =========================
    Legal Mini (Footer)
    ========================= */
-.legal-mini{
+.legal-mini {
   margin-top: 18px;
   padding-top: 14px;
   margin-bottom: 10px;
@@ -1483,7 +1485,7 @@ main {
   gap: 10px;
 }
 
-.legal-mini__text{
+.legal-mini__text {
   margin: 0;
   font-size: 12px;
   line-height: 1.5;
@@ -1491,7 +1493,7 @@ main {
   max-width: 980px;
 }
 
-.legal-mini__links{
+.legal-mini__links {
   display: flex;
   gap: 10px;
   align-items: center;
@@ -1499,19 +1501,19 @@ main {
   font-size: 12px;
 }
 
-.legal-mini__links a{
+.legal-mini__links a {
   color: inherit;
   opacity: 0.92;
   text-decoration: none;
   border-bottom: 1px solid transparent;
 }
 
-.legal-mini__links a:hover{
+.legal-mini__links a:hover {
   opacity: 1;
   border-bottom-color: currentColor;
 }
 
-.legal-mini__sep{
+.legal-mini__sep {
   opacity: 0.55;
 }
 
@@ -1520,16 +1522,16 @@ main {
 /* =========================
    Legal Pages (Privacy / Disclaimer)
    ========================= */
-.legal-page{
+.legal-page {
   margin-top: var(--nav-h, 88px);
 }
 
-.legal-container{
+.legal-container {
   width: min(960px, calc(100% - 48px));
   margin: 0 auto;
 }
 
-.legal-hero{
+.legal-hero {
   padding: 62px 0 34px;
   background:
     radial-gradient(900px 420px at 18% 20%, rgba(15, 173, 230, 0.18), transparent 55%),
@@ -1538,7 +1540,7 @@ main {
   color: #eaf3f7;
 }
 
-.legal-kicker{
+.legal-kicker {
   margin: 0;
   letter-spacing: 0.18em;
   text-transform: uppercase;
@@ -1546,14 +1548,14 @@ main {
   opacity: 0.9;
 }
 
-.legal-title{
+.legal-title {
   margin: 10px 0 10px;
   font-size: clamp(28px, 3vw, 44px);
   line-height: 1.15;
   font-weight: 800;
 }
 
-.legal-sub{
+.legal-sub {
   margin: 0;
   max-width: 60ch;
   font-size: 15px;
@@ -1561,26 +1563,26 @@ main {
   opacity: 0.95;
 }
 
-.legal-body{
+.legal-body {
   background: #f9f7f3;
   padding: 46px 0 72px;
   color: #0b2430;
 }
 
-.legal-prose h2{
+.legal-prose h2 {
   margin: 22px 0 10px;
   font-size: 18px;
   line-height: 1.35;
   color: #003345;
 }
 
-.legal-prose p{
+.legal-prose p {
   margin: 0 0 14px;
   font-size: 14px;
   line-height: 1.75;
 }
 
-.legal-updated{
+.legal-updated {
   margin-top: 26px;
   font-size: 12px;
   opacity: 0.75;
@@ -1597,11 +1599,17 @@ main {
    ========================= */
 
 /* 默认不缩放 */
-:root { --nav-scale: 1; }
+:root {
+  --nav-scale: 1;
+}
 
 /* 手机：整体缩小 */
 @media (max-width: 520px) {
-  :root { --nav-scale: 0.78; } /* 0.72~0.85 自己微调 */
+  :root {
+    --nav-scale: 0.78;
+  }
+
+  /* 0.72~0.85 自己微调 */
 }
 
 /* 让所有关键尺寸跟随缩放 */
@@ -1622,7 +1630,10 @@ main {
   overflow-y: hidden;
   -webkit-overflow-scrolling: touch;
 }
-.nav-mid::-webkit-scrollbar { display: none; }
+
+.nav-mid::-webkit-scrollbar {
+  display: none;
+}
 
 .nav-link {
   font-size: calc(15px * var(--nav-scale));
@@ -1647,11 +1658,3 @@ main {
   width: auto;
   padding: 0 6px;
 }
-
-
-
-
-
-
-
-

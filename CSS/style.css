@@ -199,6 +199,18 @@ body {
   /* 下留白 */
 }
 
+
+
+@media (max-width: 768px) {
+  .nav-left::after,
+  .nav-mid::after {
+    content: none !important;
+    display: none !important;
+  }
+}
+
+
+
 /* 中间淡淡的网格光感（不影响主体） */
 .nav-mid::before {
   content: "";

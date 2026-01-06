@@ -1,0 +1,383 @@
+/* ===============================
+   Company Snapshot (scoped)
+   =============================== */
+
+.cs-wrap{
+  background: var(--surface-dark);
+  color: #eaf3f7;
+  padding: 72px 0;
+  border-top: none; /* 先去掉，避免边界造成色差 */
+  margin-top: 0.5px;
+}
+
+.cs-container {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.cs-header {
+  max-width: 860px;
+  margin-bottom: 28px;
+}
+
+.cs-kicker {
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.cs-title {
+  margin: 10px 0 10px;
+  font-size: clamp(26px, 2.2vw, 36px);
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.cs-sub {
+  margin: 0;
+  font-size: 15px;
+  line-height: 1.65;
+  opacity: 0.9;
+}
+
+/* Grid */
+.cs-grid {
+  display: grid;
+  gap: 16px;
+  grid-template-columns: repeat(12, 1fr);
+  margin-top: 22px;
+}
+
+.cs-card{
+  grid-column: span 4;
+  background: var(--card-dark);
+  border: 1px solid var(--line-on-dark);
+  border-radius: 18px;
+  padding: 18px 18px 16px;
+  box-shadow: none; /* 阴影也会让同色看起来不一样 */
+}
+
+.cs-card--snap {
+  grid-column: span 4;
+}
+
+.cs-card-title {
+  font-weight: 700;
+  font-size: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0.9;
+  margin-bottom: 14px;
+}
+
+.cs-card-title--mini {
+  margin-top: 4px;
+  margin-bottom: 10px;
+}
+
+/* Key-value */
+.cs-kv {
+  display: grid;
+  grid-template-columns: 160px 1fr;
+  gap: 10px;
+  padding: 10px 0;
+  border-bottom: 1px dashed rgba(255, 255, 255, 0.12);
+}
+
+.cs-kv:last-of-type {
+  border-bottom: none;
+}
+
+.cs-k {
+  font-size: 13px;
+  opacity: 0.8;
+}
+
+.cs-v {
+  font-size: 13px;
+  line-height: 1.5;
+}
+
+.cs-divider {
+  height: 1px;
+  background: rgba(255,255,255,0.10);
+  margin: 14px 0;
+}
+
+/* Copy */
+.cs-kv--copy .cs-v {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.cs-code {
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+  padding: 6px 10px;
+  border-radius: 10px;
+}
+
+.cs-copy {
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  color: #eaf3f7;
+  padding: 6px 10px;
+  border-radius: 10px;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 12px;
+}
+.cs-copy:hover {
+  background: rgba(255,255,255,0.10);
+}
+
+.cs-copy.is-copied {
+  border-color: rgba(255,255,255,0.35);
+  background: rgba(255,255,255,0.14);
+}
+
+.cs-disclaimer {
+  margin: 12px 0 0;
+  font-size: 12px;
+  opacity: 0.75;
+  line-height: 1.5;
+}
+
+/* Funds */
+.cs-fund {
+  padding: 12px 0;
+  border-bottom: 1px dashed rgba(255,255,255,0.12);
+}
+.cs-fund:last-child {
+  border-bottom: none;
+}
+
+.cs-fund-h {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.cs-pill {
+  display: inline-flex;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  border: 1px solid rgba(255,255,255,0.18);
+  background: rgba(255,255,255,0.06);
+  opacity: 0.95;
+}
+
+.cs-fund-title {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cs-fund-sub {
+  margin: 8px 0 0;
+  font-size: 13px;
+  opacity: 0.88;
+  line-height: 1.6;
+}
+
+/* Logos */
+.cs-logos {
+  padding-top: 2px;
+}
+
+.cs-logo-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.cs-logo {
+  display: inline-flex;
+  padding: 8px 12px;
+  border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.16);
+  background: rgba(255,255,255,0.06);
+  font-weight: 700;
+  font-size: 12px;
+  letter-spacing: 0.02em;
+}
+
+.cs-note {
+  margin: 0;
+  font-size: 13px;
+  opacity: 0.88;
+  line-height: 1.6;
+}
+
+/* Rating */
+.cs-rating {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.cs-rating-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: 14px;
+  display: grid;
+  place-items: center;
+  font-weight: 800;
+  letter-spacing: 0.06em;
+  background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.14);
+}
+
+.cs-rating-title {
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+/* Services bullets */
+.cs-bullets {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 8px;
+}
+
+.cs-bullets li {
+  position: relative;
+  padding-left: 16px;
+  font-size: 13px;
+  opacity: 0.9;
+  line-height: 1.55;
+}
+
+.cs-bullets li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 0.62em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.65);
+}
+
+/* Accordions */
+.cs-accordions {
+  margin-top: 18px;
+  border-radius: 18px;
+  overflow: hidden;
+  background: var(--card-dark);
+  border: 1px solid var(--line-on-dark);
+}
+
+.cs-acc {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: #eaf3f7;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 18px;
+  cursor: pointer;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.cs-acc-title {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.cs-acc-icon {
+  width: 32px;
+  height: 32px;
+  border-radius: 10px;
+  display: grid;
+  place-items: center;
+  background: var(--card-dark-2);
+  border: 1px solid var(--line-on-dark);
+  font-weight: 900;
+}
+
+.cs-acc-panel {
+  padding: 0 18px 16px;
+}
+
+.cs-panel-inner {
+  padding-top: 10px;
+}
+
+/* Team grid */
+.cs-team-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cs-person {
+  background: var(--card-dark);
+  border: 1px solid var(--line-on-dark);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.cs-person-name {
+  font-weight: 800;
+  letter-spacing: 0.02em;
+}
+
+.cs-person-role {
+  font-size: 12px;
+  opacity: 0.85;
+  margin-top: 2px;
+}
+
+.cs-person-bio {
+  margin: 8px 0 0;
+  font-size: 13px;
+  line-height: 1.6;
+  opacity: 0.9;
+}
+
+/* Community */
+.cs-community-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.cs-community-card {
+  background: var(--card-dark);
+  border: 1px solid var(--line-on-dark);
+  border-radius: 16px;
+  padding: 14px;
+}
+
+.cs-community-title {
+  font-weight: 800;
+  margin-bottom: 6px;
+}
+
+/* Two-column bullet list */
+.cs-bullets--cols {
+  margin-top: 10px;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .cs-card { grid-column: span 12; }
+  .cs-team-grid { grid-template-columns: 1fr; }
+  .cs-community-grid { grid-template-columns: 1fr; }
+  .cs-kv { grid-template-columns: 1fr; }
+}
+
+

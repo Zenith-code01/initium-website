@@ -1,0 +1,1565 @@
+html,
+body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* 整体竖向布局 */
+body {
+  display: flex;
+  flex-direction: column;
+}
+
+/* ================= Navbar Redesign (keeps your colors) ================= */
+:root {
+  --nav-h: 60px;
+  /* 56 / 60 / note: 64 */
+
+  /* Brand Navy System */
+  --brand-navy: #003345;
+  /* 你的主色 */
+  --brand-navy-2: #022b3a;
+  /* 你的渐变第二色 */
+  --brand-ink: #081726;
+  /* 你现在用的深底（footer/hero） */
+
+  /* “深蓝区块统一背景”：用它来当所有深色 section 的底 */
+  --surface-dark: var(--brand-navy);
+  --surface-dark-2: var(--brand-navy-2);
+
+  /* 深色卡片：不要 rgba，避免叠加变灰 */
+  --card-dark: #062b3b;
+  --card-dark-2: #083246;
+
+  /* 白色线条/分隔 */
+  --line-on-dark: rgba(255, 255, 255, 0.10);
+
+
+}
+
+
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: var(--nav-h);
+  z-index: 1000;
+
+  display: grid;
+  grid-template-columns: 1.2fr 6fr 1.2fr;
+  align-items: stretch;
+
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
+}
+
+
+/* 左 / 中 / 右 三段保持你的颜色，但更精致 */
+.nav-left {
+  background: linear-gradient(180deg, var(--brand-navy), var(--brand-navy-2));
+  display: flex;
+  justify-content: center;
+  /* 水平居中 */
+  align-items: center;
+  /* 垂直居中 */
+  padding: 0 14px;
+  position: relative;
+}
+
+.nav-mid {
+  background: linear-gradient(180deg, var(--brand-navy), var(--brand-navy-2));
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  /* 水平均匀分布（关键） */
+  gap: 34px;
+  position: relative;
+  overflow: hidden;
+}
+
+.nav-right {
+  background: linear-gradient(180deg, var(--brand-navy), var(--brand-navy-2));
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  padding: 0;
+  position: relative;
+}
+
+
+/* 右侧两块：语言 + login 平分 */
+.nav-right-half {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+/* 语言按钮 */
+.lang-btn {
+  background: rgba(255, 255, 255, 0.10);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: rgba(255, 255, 255, 0.90);
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform .18s ease, background .18s ease;
+}
+
+.lang-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.14);
+}
+
+/* 下拉菜单 */
+.lang-dropdown {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 12px;
+
+  width: 150px;
+  list-style: none;
+  padding: 8px 0;
+  margin: 0;
+
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 14px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+
+  display: none;
+  z-index: 3000;
+}
+
+.lang-dropdown.show {
+  display: block;
+}
+
+.lang-dropdown li {
+  padding: 10px 14px;
+  font-size: 13px;
+  cursor: pointer;
+  color: #003345;
+}
+
+.lang-dropdown li:hover {
+  background: rgba(0, 51, 69, 0.06);
+}
+
+
+
+
+/* 分割线：让三段更“金融 UI” */
+.nav-left::after,
+.nav-mid::after {
+  content: "";
+  position: absolute;
+  right: 0;
+  width: 1px;
+  background: rgba(255, 255, 255, 0.18);
+
+  top: 12px;
+  /* 上留白 */
+  bottom: 12px;
+  /* 下留白 */
+}
+
+/* 中间淡淡的网格光感（不影响主体） */
+.nav-mid::before {
+  content: "";
+  position: absolute;
+  inset: -40px;
+  background:
+    radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.10), transparent 55%),
+    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08), transparent 55%),
+    repeating-linear-gradient(to right,
+      rgba(255, 255, 255, 0.06) 0px,
+      rgba(255, 255, 255, 0.06) 1px,
+      transparent 1px,
+      transparent 22px);
+  opacity: 0.25;
+  pointer-events: none;
+}
+
+/* ====== Brand ====== */
+.brand {
+  display: inline-flex;
+  /* 关键：不要用 flex + width:100% */
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: auto;
+  /* 关键 */
+  text-decoration: none;
+  /* 因为是 a 标签 */
+}
+
+.brand-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+}
+
+/* logo 图片：完整显示 + 跟随导航高度 */
+.brand-logo img {
+  height: calc(var(--nav-h) - 16px);
+  /* 关键：控制logo大小（可改 12~20） */
+  width: auto;
+  object-fit: contain;
+  /* 关键：不裁切，不变形 */
+  display: block;
+}
+
+
+
+
+
+/* ====== Links ====== */
+.nav-link {
+  position: relative;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.88);
+  font-size: 15px;
+  letter-spacing: 0.3px;
+  padding: 0 12px;
+  line-height: var(--nav-h);
+  /* ✅ 垂直居中并跟随高度 */
+  transition: transform .2s ease, color .2s ease;
+}
+
+.nav-link:hover {
+  color: rgba(255, 255, 255, 1);
+  transform: translateY(-1px);
+}
+
+/* 金融风下划线（hover 出现） */
+.nav-link::after {
+  content: "";
+  position: absolute;
+  left: 8px;
+  right: 8px;
+  bottom: 6px;
+  height: 2px;
+  border-radius: 999px;
+  background: #ECE3D5;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform .22s ease;
+}
+
+.nav-link:hover::after {
+  transform: scaleX(1);
+}
+
+
+/* ✅ 当前页面：保持显示 */
+.nav-link.is-active::after{
+  transform: scaleX(1);
+}
+
+/* 当前页面文字也可稍微强调 */
+.nav-link.is-active{
+  color: #ECE3D5;
+  font-weight: 700;
+}
+
+
+/* ====== CTA Button ====== */
+.nav-cta {
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+  font-size: 14px;
+  line-height: 1;
+  /* 防止按钮内部再撑高 */
+
+  color: #003345;
+  background: #ece3d5;
+  border: 1px solid rgba(0, 51, 69, 0.18);
+  padding: 8px 14px;
+  border-radius: 999px;
+
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+
+  transition: transform .18s ease, background .18s ease;
+}
+
+.nav-cta:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+
+
+/* 小屏：自动紧凑（不影响轮播和主体） */
+@media (max-width: 860px) {
+  .navbar {
+    grid-template-columns: 1.6fr 5fr 1.4fr;
+  }
+
+  .nav-mid {
+    gap: 16px;
+  }
+
+  .nav-link {
+    font-size: 13.5px;
+  }
+
+  .brand-name {
+    font-size: 14px;
+  }
+}
+
+/* main */
+main {
+  margin-top: var(--nav-h);
+}
+
+
+/* ================= CAROUSEL FULL WIDTH (RAM STYLE) ================= */
+.carousel-wrapper {
+  width: 100%;
+  height: calc((100vh - var(--nav-h)) * 0.75);
+  background: var(--surface-dark);
+}
+
+/* ✅ 轮播主体占满 */
+.carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background: linear-gradient(180deg, var(--brand-navy) 0%, var(--brand-navy-2) 100%);
+}
+
+/* ✅ 左侧固定背景（永远不变） */
+.hero-left-bg {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 58%;
+  height: 100%;
+  z-index: 2;
+  background: linear-gradient(90deg,
+      rgba(0, 51, 69, 0.96) 0%,
+      rgba(0, 51, 69, 0.96) 72%,
+      rgba(0, 51, 69, 0.40) 90%,
+      rgba(0, 51, 69, 0.00) 100%);
+}
+
+/* ✅ 左侧文字层（只换文字，不换背景） */
+.hero-text-layer {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 52%;
+  /* ✅ 从 58% 缩到 52% */
+  height: 100%;
+  z-index: 5;
+
+  padding-left: clamp(24px, 4vw, 64px);
+  padding-right: clamp(24px, 3vw, 48px);
+  /* ✅ 明确给右侧留安全区 */
+
+  display: flex;
+  align-items: center;
+  /* 垂直居中（结构级） */
+}
+
+/* 每条文案占满左侧区域（叠在一起，通过 class 控制显示） */
+.text-slide {
+  position: absolute;
+  max-width: 80ch;
+  /* ✅ 控制行长，避免太靠右 */
+  opacity: 0;
+  transform: translateX(-40px) translateY(4px);
+  transition: opacity .85s ease, transform .85s ease;
+  pointer-events: none;
+}
+
+/* ✅ 进场：从左到中，0->1 */
+.text-slide.is-active {
+  opacity: 1;
+  transform: translateX(0) translateY(4px);
+  pointer-events: auto;
+}
+
+/* ✅ 退场：从中到右，1->0 */
+.text-slide.is-exit {
+  opacity: 0;
+  transform: translateX(40px) translateY(4px);
+}
+
+/* 文案样式 */
+.hero-kicker {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 14px;
+}
+
+.hero-title {
+  margin: 0;
+  font-size: clamp(10px, 1.3vw, 30px);
+  line-height: 1.25;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+/* ✅ 右侧图片 track（你原来的无缝逻辑依赖 translateX） */
+.carousel-track {
+  height: 100%;
+  display: flex;
+  transition: transform .55s ease;
+  will-change: transform;
+  position: relative;
+  z-index: 1;
+}
+
+/* slide：只负责承载右图 */
+.carousel-slide.hero-slide {
+  position: relative;
+  flex: 0 0 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+/* ✅ 右侧背景图：斜切 + 缩放动画 */
+.hero-right {
+  position: absolute;
+  inset: 0;
+  background-image: var(--bg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  clip-path: polygon(58% 0%, 100% 0%, 100% 100%, 42% 100%);
+
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity .9s ease, transform 6.2s ease;
+  filter: saturate(1.05) contrast(1.05);
+}
+
+/* ✅ 当前图：渐显 + 慢慢放大（RAM 那种呼吸感） */
+.carousel-slide.is-active .hero-right {
+  opacity: 1;
+  transform: scale(1.15);
+}
+
+/* ✅ 斜分割线（更像 RAM） */
+/* .carousel::after {
+  content: "";
+  position: absolute;
+  top: -20%;
+  left: 58%;
+  width: 2px;
+  height: 140%;
+  background: rgba(255, 255, 255, 0.35);
+  transform: skewX(-18deg);
+  transform-origin: top;
+  z-index: 6;
+  opacity: 0.55;
+} */
+
+/* 小屏：不做斜切，改为全屏背景 + 文字面板 */
+@media (max-width: 900px) {
+  .hero-left-bg {
+    width: 100%;
+    background: rgba(0, 35, 48, 0.72);
+  }
+
+  .hero-text-layer {
+    width: 100%;
+  }
+
+  .hero-right {
+    clip-path: none;
+    opacity: 0.55;
+  }
+
+  .carousel::after {
+    display: none;
+  }
+}
+
+/* ===== 圆点 & 进度条（保留你原来的） ===== */
+
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, .35);
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-dot.is-active {
+  background: rgba(255, 255, 255, .95);
+}
+
+
+.carousel-progress-bar {
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width linear;
+}
+
+
+/* ===== 圆点 & 进度条：保持你原来的不动 ===== */
+.carousel-dots {
+  position: absolute;
+  left: 50px;
+  bottom: 40px;
+  display: flex;
+  gap: 8px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, .9);
+  background: rgba(255, 255, 255, .35);
+  cursor: pointer;
+  padding: 0;
+}
+
+.carousel-dot.is-active {
+  background: rgba(255, 255, 255, .95);
+}
+
+.carousel-progress {
+  position: absolute;
+  left: 50px;
+  bottom: 30px;
+  width: fit-content;
+  z-index: 10;
+}
+
+.carousel-progress-bar {
+  height: 2px;
+  width: 0;
+  background: white;
+  transition: width linear;
+}
+
+
+/* ================= FIVE STATS BAR (COMPACT VERSION) ================= */
+
+.stats-bar {
+  width: 100%;
+  background: #f9f7f3;
+  padding: 20px 0;
+
+  position: relative;
+  z-index: 2;
+}
+
+.stats-inner {
+  width: 70%;
+  margin: 0 auto;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.stat-item {
+  flex: 1;
+  text-align: center;
+}
+
+/* 主数字：明显放大 */
+.stat-number {
+  font-size: 40px;
+  font-weight: 700;
+  color: #003345;
+  letter-spacing: 0.5px;
+}
+
+/* 描述文字：同步放大但保持克制 */
+.stat-label {
+  margin-top: 6px;
+  font-size: 15px;
+  color: #003345;
+  opacity: 0.9;
+}
+
+
+/* ================= STATS BAR TRANSITIONS ================= */
+
+/* 上：深 → 浅（Hero 到 Stats） */
+.stats-transition-top {
+  margin-top: 0.5px;
+  height: 60px;
+  background: linear-gradient(to bottom,
+      rgba(8, 23, 38, 0.95),
+      rgba(8, 23, 38, 0.55),
+      rgba(249, 247, 243, 1));
+}
+
+/* 下：浅 → 深（Stats 到内容区） */
+.stats-transition-bottom {
+  height: 70px;
+  background: linear-gradient(to bottom,
+      rgba(249, 247, 243, 1),
+      rgba(249, 247, 243, 0.6),
+      rgba(8, 23, 38, 0.95));
+}
+
+/* stats bar 上下极细分割线（金融感） */
+.stats-bar::before,
+.stats-bar::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80%;
+  height: 1px;
+  background: linear-gradient(to right,
+      transparent,
+      rgba(0, 51, 69, 0.25),
+      transparent);
+}
+
+.stats-bar::before {
+  top: 0;
+}
+
+.stats-bar::after {
+  bottom: 0;
+}
+
+
+/* ================= Private Credit Fund Main Section ================= */
+
+.pcf-main {
+  background: #f9f7f3;
+}
+
+/* container */
+.pcf-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* ---------- HERO ---------- */
+.pcf-hero {
+  position: relative;
+  overflow: hidden;
+  background: #081726;
+  z-index: 1;
+}
+
+/* 3) pcf 底部 fade-out（从 pcf 叠加到透明） */
+.pcf-hero::after{
+  content:"";
+  position:absolute;
+  left:0; right:0; bottom:0;
+  height: 96px;           /* 80~140 可调 */
+  pointer-events:none;
+  background: linear-gradient(
+    to bottom,
+    rgba(8,23,38,0.00) 0%,
+    rgba(8,23,38,0.55) 45%,
+    rgba(8,23,38,1.00) 100%
+  );
+}
+
+.pcf-hero-bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transform: scale(1.02);
+}
+
+.pcf-hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(8, 23, 38, 0.92) 0%, rgba(8, 23, 38, 0.65) 55%, rgba(8, 23, 38, 0.88) 100%);
+}
+
+.pcf-hero-inner {
+  position: relative;
+  z-index: 2;
+  padding: 54px 0;
+  display: grid;
+  grid-template-columns: 1.25fr 1fr;
+  gap: 28px;
+  align-items: start;
+}
+
+.pcf-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.78);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 8px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(6px);
+}
+
+.pcf-hero-title {
+  margin: 14px 0 10px;
+  font-size: 38px;
+  line-height: 1.12;
+  font-weight: 800;
+  color: #fff;
+}
+
+.pcf-hero-sub {
+  margin: 0 0 16px;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* badges */
+.pcf-badges {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.pcf-badge {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+}
+
+.pcf-badge-ico {
+  width: 34px;
+  height: 34px;
+  opacity: 0.95;
+}
+
+.pcf-badge-top {
+  font-size: 13px;
+  font-weight: 700;
+  color: #fff;
+}
+
+.pcf-badge-btm {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+/* KPI card on the right */
+.pcf-kpi-card {
+  background: rgba(255, 255, 255, 0.92);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  padding: 18px 18px 12px;
+  box-shadow: 0 18px 40px rgba(0, 0, 0, 0.18);
+}
+
+.pcf-kpi-title {
+  font-size: 12px;
+  letter-spacing: 1.4px;
+  text-transform: uppercase;
+  color: rgba(0, 51, 69, 0.85);
+  margin-bottom: 10px;
+}
+
+.pcf-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.pcf-kpi {
+  padding: 10px 10px;
+  border-radius: 14px;
+  background: #f9f7f3;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.pcf-kpi-num {
+  font-size: 20px;
+  font-weight: 800;
+  color: #003345;
+}
+
+.pcf-kpi-lab {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: rgba(0, 51, 69, 0.88);
+}
+
+/* Make the 5th KPI span full width */
+.pcf-kpi-grid .pcf-kpi:nth-child(5) {
+  grid-column: 1 / -1;
+}
+
+/* ---------- CONTENT ---------- */
+.pcf-content {
+  padding: 56px 0 74px;
+}
+
+.pcf-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 26px;
+}
+
+.pcf-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  border-radius: 16px;
+  padding: 26px 26px 22px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.04);
+}
+
+.pcf-h3 {
+  margin: 0 0 12px;
+  font-size: 30px;
+  line-height: 1.15;
+  font-weight: 800;
+  color: #003345;
+}
+
+.pcf-h4 {
+  margin: 0 0 10px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 800;
+  color: #003345;
+}
+
+.pcf-p {
+  margin: 0 0 12px;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: rgba(0, 51, 69, 0.92);
+}
+
+/* Highlight with pattern */
+.pcf-highlight {
+  position: relative;
+  overflow: hidden;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #0b1f33, #081726);
+  margin: 22px 0 26px;
+}
+
+.pcf-highlight-pattern {
+  position: absolute;
+  right: -80px;
+  top: -120px;
+  width: 520px;
+  opacity: 0.12;
+  transform: rotate(6deg);
+}
+
+.pcf-highlight-inner {
+  position: relative;
+  z-index: 2;
+  padding: 30px 30px 26px;
+}
+
+.pcf-h3-on-dark {
+  color: #fff;
+}
+
+.pcf-p-on-dark {
+  color: rgba(255, 255, 255, 0.86);
+}
+
+/* checklist */
+.pcf-checklist {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 0;
+}
+
+.pcf-checklist li {
+  position: relative;
+  padding-left: 28px;
+  margin: 10px 0;
+  font-size: 15.5px;
+  line-height: 1.7;
+  color: rgba(0, 51, 69, 0.92);
+}
+
+.pcf-checklist li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 999px;
+  background: rgba(0, 51, 69, 0.10);
+  color: #003345;
+  font-weight: 800;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1100px) {
+  .pcf-container {
+    width: 88%;
+  }
+
+  .pcf-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .pcf-badges {
+    grid-template-columns: 1fr;
+  }
+
+  .pcf-grid-2 {
+    grid-template-columns: 1fr;
+  }
+
+  .pcf-hero-title {
+    font-size: 32px;
+  }
+
+  .pcf-h3 {
+    font-size: 26px;
+  }
+}
+
+
+
+/* ===============================
+   Initium Divider (Dark → Light)
+   =============================== */
+
+.ic-divider{
+  width: 100%;
+  position: relative;
+  pointer-events: none;
+}
+
+/* 深色 → 浅色 柔和过渡 */
+.ic-divider--dark-to-light{
+  height: 92px; /* 80–120 可调 */
+  background: linear-gradient(
+    to bottom,
+    rgba(0,51,69,1.00) 0%,
+    rgba(0,51,69,0.70) 35%,
+    rgba(249,247,243,0.92) 75%,
+    rgba(249,247,243,1.00) 100%
+  );
+}
+
+/* 金色金融高光线 */
+.ic-divider--dark-to-light::after{
+  content:"";
+  position:absolute;
+  left: 50%;
+  top: 46%;
+  transform: translateX(-50%);
+  width: min(76%, 1040px);
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    rgba(238,182,14,0.40),
+    transparent
+  );
+  opacity: 0.95;
+}
+
+/* 轻微雾化，避免割裂 */
+.ic-divider--dark-to-light::before{
+  content:"";
+  position:absolute;
+  inset: 0;
+  background: radial-gradient(
+    circle at 50% 18%,
+    rgba(255,255,255,0.06),
+    transparent 62%
+  );
+  opacity: 0.7;
+}
+
+
+
+
+
+
+
+
+
+/* ================= SINGLE ASSET CAROUSEL (NEW) ================= */
+.sa-carousel {
+  width: 100%;
+  margin-top: 80px;
+  margin-bottom: 88px;
+  padding: 56px 0;
+}
+
+/* ===== 让箭头站在 rail 的左右空白区域 ===== */
+.sa-carousel__shell {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 22px;
+  /* 箭头和 rail 的间距 */
+}
+
+/* 保持你原来的 76% rail，不需要改 */
+
+/* ===== 外侧箭头按钮 ===== */
+/* ===== 机构级：细线环形箭头 ===== */
+.sa-arrow {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 51, 69, 0.25);
+
+  background: rgba(255, 255, 255, 0.65);
+  backdrop-filter: blur(6px);
+
+  font-size: 22px;
+  font-weight: 500;
+  color: #003345;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  transition: all .25s ease;
+}
+
+.sa-arrow:hover {
+  border-color: rgba(0, 51, 69, 0.55);
+  background: rgba(255, 255, 255, 0.9);
+  transform: translateY(-1px);
+}
+
+/* 小屏：隐藏箭头（手机用点侧图/滑动） */
+@media (max-width: 900px) {
+  .sa-arrow {
+    display: none;
+  }
+
+  .sa-carousel__shell {
+    gap: 0;
+  }
+}
+
+/* ✅ stage：负责把 rail 放到屏幕正中 */
+.sa-carousel__stage {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ✅ rail：负责“整体比例 + 留白” —— 推荐比例：12 / 16 / 44 / 16 / 12 */
+.sa-carousel__rail {
+  width: 100%;
+  /* 100 - 12 - 12 = 76 */
+  height: 360px;
+  /* 可改：320~420 */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+}
+
+/* 卡片通用 */
+.sa-slide {
+  position: relative;
+  height: 100%;
+  border: 0;
+  padding: 0;
+  background: transparent;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+
+  box-shadow: 0 14px 34px rgba(0, 0, 0, 0.08);
+  transition: transform .35s ease, opacity .35s ease, box-shadow .35s ease;
+}
+
+.sa-slide__img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* ✅ 侧图：16%（在整页100里） -> 在 rail(76)里 = 16/76 = 21.0526% */
+.sa-slide--side {
+  width: 21.0526%;
+  opacity: 0.62;
+  transform: scale(0.92);
+}
+
+/* ✅ 中图：44%（在整页100里） -> 在 rail(76)里 = 44/76 = 57.8947% */
+.sa-slide--center {
+  width: 57.8947%;
+  opacity: 1;
+  transform: scale(1);
+  cursor: default;
+
+  box-shadow: 0 20px 46px rgba(0, 0, 0, 0.12);
+}
+
+/* 中间图文案层 */
+.sa-slide__caption {
+  position: absolute;
+  left: 18px;
+  right: 18px;
+  bottom: 16px;
+  padding: 14px 14px;
+  border-radius: 14px;
+  background: rgba(0, 0, 0, 0.38);
+  backdrop-filter: blur(6px);
+}
+
+.sa-slide__kicker {
+  font-size: 11px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 6px;
+}
+
+.sa-slide__title {
+  font-size: 14px;
+  line-height: 1.5;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 600;
+}
+
+/* dots */
+.sa-dots {
+  width: 100%;
+  margin-top: 22px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.sa-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0, 51, 69, 0.35);
+  background: rgba(0, 51, 69, 0.12);
+  cursor: pointer;
+}
+
+.sa-dot.is-active {
+  background: rgba(0, 51, 69, 0.80);
+  border-color: rgba(0, 51, 69, 0.80);
+}
+
+/* ✅ 小屏：只显示主图 */
+@media (max-width: 900px) {
+  .sa-carousel__rail {
+    width: 88%;
+    height: 320px;
+    gap: 0;
+  }
+
+  .sa-slide--side {
+    display: none;
+  }
+
+  .sa-slide--center {
+    width: 100%;
+  }
+}
+
+
+
+
+
+
+
+
+
+/* ================= Footer ================= */
+/* ================= Investor-only Footer (Initium) ================= */
+
+.footer-investor {
+  background: #081726;
+  color: rgba(255, 255, 255, 0.88);
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fi-container {
+  width: 70%;
+  margin: 0 auto;
+}
+
+/* ---- Top strip: trust + action ---- */
+.fi-top {
+  background: linear-gradient(180deg, rgba(0, 51, 69, 0.70), rgba(8, 23, 38, 0.95));
+  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.fi-top-inner {
+  padding: 28px 0;
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.fi-eyebrow {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.72);
+  margin-bottom: 8px;
+}
+
+.fi-title {
+  margin: 0 0 6px;
+  font-size: clamp(18px, 1.4vw, 26px);
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.95);
+}
+
+.fi-sub {
+  margin: 0;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+  max-width: 62ch;
+}
+
+.fi-top-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.fi-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 40px;
+  padding: 0 14px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 700;
+  font-size: 13px;
+  letter-spacing: 0.2px;
+  border: 1px solid transparent;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease, color .18s ease;
+}
+
+.fi-btn:hover {
+  transform: translateY(-1px);
+}
+
+.fi-btn-primary {
+  background: #ECE3D5;
+  color: #081726;
+  border-color: rgba(236, 227, 213, 0.85);
+}
+
+.fi-btn-ghost {
+  background: #ECE3D5;
+  color: #081726;
+  border-color: rgba(236, 227, 213, 0.85);
+}
+
+/* ---- Main grid ---- */
+.fi-main {
+  padding: 34px 0 26px;
+}
+
+.fi-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 0.9fr 0.9fr 1.1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.fi-logo {
+  height: 46px;
+  width: auto;
+  display: block;
+  margin-bottom: 12px;
+  opacity: 0.95;
+}
+
+.fi-brand-line {
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, 0.78);
+}
+
+.fi-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.fi-badge {
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.80);
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.fi-col-title {
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.70);
+  margin-bottom: 10px;
+}
+
+.fi-link {
+  display: block;
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: 13.5px;
+  line-height: 2.1;
+  border-bottom: 1px solid transparent;
+  transition: border-color .18s ease, color .18s ease;
+}
+
+.fi-link:hover {
+  color: rgba(255, 255, 255, 0.98);
+  border-bottom-color: rgba(238, 182, 14, 0.55);
+}
+
+/* Contact meta blocks */
+.fi-meta {
+  margin: 0 0 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.fi-meta:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
+}
+
+.fi-meta-title {
+  font-size: 12px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, 0.86);
+  margin-bottom: 6px;
+}
+
+.fi-meta-text {
+  font-size: 13px;
+  line-height: 1.65;
+  color: rgba(255, 255, 255, 0.74);
+}
+
+/* ---- Legal ---- */
+.fi-legal {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  background: rgba(0, 0, 0, 0.12);
+}
+
+.fi-legal-inner {
+  padding: 14px 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  font-size: 12px;
+  color: rgba(255, 255, 255, 0.62);
+}
+
+.fi-legal-link {
+  color: rgba(255, 255, 255, 0.66);
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.fi-legal-link:hover {
+  color: rgba(255, 255, 255, 0.86);
+  border-bottom-color: rgba(255, 255, 255, 0.25);
+}
+
+.fi-dot {
+  opacity: 0.5;
+  margin: 0 6px;
+}
+
+/* ---- Responsive ---- */
+@media (max-width: 1100px) {
+  .fi-container {
+    width: 88%;
+  }
+
+  .fi-top-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .fi-top-actions {
+    justify-content: flex-start;
+  }
+
+  .fi-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .fi-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .fi-legal-inner {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}
+
+
+
+
+
+/* =========================
+   Legal Mini (Footer)
+   ========================= */
+.legal-mini{
+  margin-top: 18px;
+  padding-top: 14px;
+  margin-bottom: 10px;
+  display: grid;
+  gap: 10px;
+}
+
+.legal-mini__text{
+  margin: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  opacity: 0.85;
+  max-width: 980px;
+}
+
+.legal-mini__links{
+  display: flex;
+  gap: 10px;
+  align-items: center;
+  flex-wrap: wrap;
+  font-size: 12px;
+}
+
+.legal-mini__links a{
+  color: inherit;
+  opacity: 0.92;
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+}
+
+.legal-mini__links a:hover{
+  opacity: 1;
+  border-bottom-color: currentColor;
+}
+
+.legal-mini__sep{
+  opacity: 0.55;
+}
+
+
+
+/* =========================
+   Legal Pages (Privacy / Disclaimer)
+   ========================= */
+.legal-page{
+  margin-top: var(--nav-h, 88px);
+}
+
+.legal-container{
+  width: min(960px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+.legal-hero{
+  padding: 62px 0 34px;
+  background:
+    radial-gradient(900px 420px at 18% 20%, rgba(15, 173, 230, 0.18), transparent 55%),
+    radial-gradient(900px 520px at 82% 35%, rgba(0, 51, 69, 0.55), transparent 62%),
+    #003345;
+  color: #eaf3f7;
+}
+
+.legal-kicker{
+  margin: 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: 0.9;
+}
+
+.legal-title{
+  margin: 10px 0 10px;
+  font-size: clamp(28px, 3vw, 44px);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.legal-sub{
+  margin: 0;
+  max-width: 60ch;
+  font-size: 15px;
+  line-height: 1.6;
+  opacity: 0.95;
+}
+
+.legal-body{
+  background: #f9f7f3;
+  padding: 46px 0 72px;
+  color: #0b2430;
+}
+
+.legal-prose h2{
+  margin: 22px 0 10px;
+  font-size: 18px;
+  line-height: 1.35;
+  color: #003345;
+}
+
+.legal-prose p{
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+
+.legal-updated{
+  margin-top: 26px;
+  font-size: 12px;
+  opacity: 0.75;
+}
+

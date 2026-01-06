@@ -1,0 +1,730 @@
+/* =========================
+   Initium Investors v2 (Recolor toward #003345)
+   - Deep Navy/Teal family centered on #003345
+   - Less "white wash", more institutional
+   - Scoped to .inv2 only
+   ========================= */
+
+.inv2 {
+    /* === Core background scale (aligned toward #003345) === */
+    --inv-bg: #00435b;
+    /* 主背景：003345 + 灰（偏冷） */
+    --inv-bg-soft: #0070a8;
+    /* 次级背景：ticker/分段 */
+    --inv-surface: rgb(239, 246, 247);
+    /* 卡片底：去掉过白感 */
+    --inv-surface-strong: rgba(255, 255, 255, 0.92);
+    --inv-border: #3f7f98;
+    /* 蓝灰边框（靠 003345） */
+
+    --inv-title-strong: #E6F4F8;
+    /* 冷白 + 青调 */
+    --inv-title-soft: #CDE7EF;
+    /* 副标题 */
+
+    /* === Text === */
+    --inv-ink: #003345;
+    /* 母色 */
+    --inv-text: #1B2E3A;
+    /* 正文（003345 稀释） */
+    --inv-muted: #05b69e;
+    /* 次级说明（不偏灰、偏蓝） */
+    --inv-ink-soft: #fafdff;
+
+    /* === Brand === */
+    --inv-primary: #0FADE6;
+    --inv-primary-2: #ffffff;
+    --inv-navy: #003345;
+
+    /* === Effects === */
+    --inv-shadow: 0 18px 44px rgba(0, 35, 54, 0.18);
+    --inv-shadow-soft: 0 10px 22px rgba(0, 35, 54, 0.14);
+    --inv-shadow2: 0 8px 18px rgba(0, 35, 54, 0.12);
+    /* ✅ 修复你原来未定义 */
+    --inv-radius: 16px;
+
+    background: var(--inv-bg);
+    color: var(--inv-text);
+    font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+/* container */
+.inv2 .inv2-container {
+    width: min(1200px, calc(100% - 48px));
+    margin: 0 auto;
+}
+
+/* ---------- HERO ---------- */
+.inv2 .inv2-hero {
+    background:
+        radial-gradient(1200px 600px at 18% 20%, rgba(15, 173, 230, .22), transparent 55%),
+        radial-gradient(900px 520px at 80% 35%, rgba(0, 51, 69, .28), transparent 60%),
+        /* ✅ 更亮的“蓝灰渐变”，替代原来几乎黑的底 */
+        linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02) 60%, rgba(255, 255, 255, 0));
+
+    border-bottom: 1px solid rgba(234, 243, 247, .10);
+
+    padding: 110px 0 0;
+}
+
+.inv2 .inv2-hero-grid {
+    display: grid;
+    grid-template-columns: 1.05fr 0.95fr;
+    gap: 46px;
+    align-items: center;
+    padding-bottom: 54px;
+}
+
+.inv2 .inv2-pill {
+    display: inline-flex;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 14px;
+    border: 1px solid var(--inv-border);
+    background: rgba(255, 255, 255, 0.62);
+    border-radius: 999px;
+    color: var(--inv-muted);
+    font-size: 12px;
+    letter-spacing: 0.02em;
+    box-shadow: var(--inv-shadow2);
+}
+
+.inv2 .inv2-pill .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 999px;
+    background: var(--inv-primary);
+}
+
+.inv2 .inv2-h1 {
+    margin: 18px 0 14px;
+    font-size: clamp(40px, 4.2vw, 62px);
+    line-height: 1.06;
+    color: var(--inv-ink);
+    font-weight: 800;
+}
+
+.inv2 .inv2-lead {
+    margin: 0;
+    max-width: 560px;
+    color: var(--inv-muted);
+    font-size: 16.5px;
+    line-height: 1.7;
+}
+
+/* “accent” 统一为品牌青（与你站内一致） */
+.inv2 .accent {
+    color: var(--inv-primary);
+}
+
+.inv2 .ink {
+    color: var(--inv-ink);
+}
+
+.inv2 .inv2-cta-row {
+    margin-top: 26px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+}
+
+/* ---------- BUTTONS ---------- */
+.inv2 .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px 18px;
+    border-radius: 14px;
+    font-weight: 700;
+    text-decoration: none;
+    border: 1px solid transparent;
+    cursor: pointer;
+    user-select: none;
+    transition: transform .15s ease, box-shadow .15s ease, filter .15s ease, border-color .15s ease, background .15s ease;
+}
+
+.inv2 .btn:active {
+    transform: translateY(1px);
+}
+
+.inv2 .btn-primary {
+    background: #ECE3D5;
+    color: #081726;
+    border-color: rgba(236, 227, 213, 0.85);
+}
+
+.inv2 .btn-primary:hover {
+    filter: brightness(1.04);
+    box-shadow: 0 16px 38px rgba(15, 173, 230, 0.26);
+}
+
+.inv2 .btn-ghost {
+    background: #ECE3D5;
+    color: #081726;
+    border-color: rgba(236, 227, 213, 0.85);
+}
+
+.inv2 .btn-ghost:hover {
+    border-color: rgba(15, 173, 230, 0.35);
+    box-shadow: 0 10px 20px rgba(0, 35, 54, 0.12);
+}
+
+.inv2 .inv2-qualifier {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.inv2 .badge {
+
+    color: var(--inv-navy);
+    padding: 8px 10px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 800;
+}
+
+.inv2 .mini {
+    color: var(--inv-muted);
+    font-size: 12px;
+    font-weight: 800;
+}
+
+/* ---------- RIGHT GLASS CARD ---------- */
+.inv2 .inv2-glass-card {
+    background: rgba(255, 255, 255, 0.72);
+    border: 1px solid var(--inv-border);
+    border-radius: 22px;
+    padding: 18px 18px 16px;
+    box-shadow: var(--inv-shadow);
+    backdrop-filter: blur(8px);
+}
+
+.inv2 .inv2-glass-head {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-bottom: 12px;
+}
+
+.inv2 .chip {
+    font-size: 12px;
+    font-weight: 800;
+    color: var(--inv-ink);
+    background: rgba(15, 173, 230, 0.10);
+    border: 1px solid rgba(15, 173, 230, 0.22);
+    padding: 8px 10px;
+    border-radius: 999px;
+}
+
+.inv2 .chip-soft {
+    background: rgba(0, 51, 69, 0.06);
+    border-color: rgba(0, 51, 69, 0.14);
+}
+
+.inv2 .chip-gold {
+    background: rgba(15, 173, 230, 0.10);
+    border-color: rgba(15, 173, 230, 0.22);
+}
+
+.inv2 .inv2-kpi-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 10px;
+}
+
+.inv2 .kpi {
+    background: rgba(255, 255, 255, 0.80);
+    border: 1px solid var(--inv-border);
+    border-radius: 16px;
+    padding: 14px 14px;
+    box-shadow: var(--inv-shadow2);
+}
+
+.inv2 .kpi-label {
+    color: var(--inv-muted);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.inv2 .kpi-value {
+    margin-top: 6px;
+    font-size: 18px;
+    font-weight: 900;
+    color: var(--inv-ink);
+}
+
+/* ---------- CHART PLACEHOLDER ---------- */
+.inv2 .inv2-chart {
+    margin-top: 14px;
+    border: 1px solid var(--inv-border);
+    border-radius: 16px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(240, 247, 251, 0.68) 100%);
+    padding: 14px;
+}
+
+.inv2 .chart-title {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--inv-ink);
+}
+
+.inv2 .chart-bars {
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: 10px;
+    align-items: end;
+    height: 84px;
+}
+
+.inv2 .chart-bars span {
+    display: block;
+    border-radius: 10px;
+    background: linear-gradient(180deg, rgba(15, 173, 230, 0.80), rgba(0, 51, 69, 0.22));
+    height: 40%;
+}
+
+.inv2 .chart-bars span:nth-child(2) {
+    height: 52%;
+}
+
+.inv2 .chart-bars span:nth-child(3) {
+    height: 68%;
+}
+
+.inv2 .chart-bars span:nth-child(4) {
+    height: 58%;
+}
+
+.inv2 .chart-bars span:nth-child(5) {
+    height: 74%;
+}
+
+.inv2 .chart-bars span:nth-child(6) {
+    height: 62%;
+}
+
+.inv2 .chart-note {
+    margin-top: 10px;
+    color: var(--inv-muted);
+    font-size: 11px;
+    line-height: 1.5;
+}
+
+/* ---------- TICKER (seamless ready) ---------- */
+.inv2 .inv2-ticker {
+    border-top: 1px solid var(--inv-border);
+    background: rgba(113, 151, 177, 0.9);
+    /* ✅ 用 bg-soft，整体靠 003345 */
+    overflow: hidden;
+}
+
+.inv2 .ticker-wrap {
+    display: flex;
+    width: max-content;
+    gap: 0;
+    animation: inv2Ticker 26s linear infinite;
+    will-change: transform;
+}
+
+.inv2 .ticker-track {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    gap: 18px;
+    padding: 12px 0;
+    color: rgb(0, 0, 0);
+    font-weight: 800;
+    font-size: 12px;
+}
+
+.inv2 .ticker-track .dot {
+    opacity: 0.6;
+}
+
+@keyframes inv2Ticker {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+/* ---------- TRUST STRIP ---------- */
+.inv2 .inv2-trust {
+    padding: 26px 0 6px;
+}
+
+.inv2 .inv2-trust-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.inv2 .trust-card {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-border);
+    border-radius: var(--inv-radius);
+    padding: 18px 18px;
+    box-shadow: var(--inv-shadow2);
+}
+
+.inv2 .trust-title {
+    font-weight: 900;
+    color: var(--inv-ink);
+}
+
+.inv2 .trust-desc {
+    margin-top: 6px;
+    color: var(--inv-muted);
+    line-height: 1.6;
+    font-size: 13px;
+}
+
+/* ---------- EDGE ---------- */
+.inv2 .inv2-edge {
+    padding: 70px 0 10px;
+}
+
+.inv2 .inv2-edge-grid {
+    display: grid;
+    grid-template-columns: 0.95fr 1.05fr;
+    gap: 22px;
+    align-items: start;
+}
+
+.inv2 .inv2-h2 {
+    margin: 0;
+    font-size: clamp(26px, 2.2vw, 34px);
+    color: #E6F4F8 !important;
+    text-shadow: 0 10px 26px rgba(0, 0, 0, 0.35);
+    font-weight: 900;
+}
+
+.inv2 .inv2-h1,
+.inv2 .inv2-h2,
+.inv2 h3 {
+    color: var(--inv-ink);
+}
+
+.inv2 .inv2-sub {
+    margin: 10px 0 0;
+    color: var(--inv-title-soft);
+    line-height: 1.7;
+}
+
+.inv2 .edge-cards {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 14px;
+}
+
+.inv2 .edge-card {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-border);
+    border-radius: 18px;
+    padding: 18px;
+    box-shadow: var(--inv-shadow2);
+}
+
+.inv2 .edge-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.inv2 .edge-tag {
+    font-size: 12px;
+    font-weight: 900;
+    color: var(--inv-navy);
+    background: rgba(15, 173, 230, 0.10);
+    border: 1px solid rgba(15, 173, 230, 0.20);
+    padding: 6px 10px;
+    border-radius: 999px;
+}
+
+.inv2 .edge-card h3 {
+    margin: 6px 0 8px;
+    color: var(--inv-ink);
+    font-weight: 900;
+}
+
+.inv2 .edge-card p {
+    margin: 0;
+    color: var(--inv-muted);
+    line-height: 1.65;
+}
+
+/* ---------- STRATEGY ---------- */
+.inv2 .inv2-strategy {
+    padding: 70px 0 10px;
+}
+
+.inv2 .inv2-head {
+    margin-bottom: 18px;
+}
+
+.inv2 .strategy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+}
+
+.inv2 .strategy-card {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-border);
+    border-radius: 22px;
+    padding: 22px;
+    box-shadow: var(--inv-shadow2);
+}
+
+.inv2 .strategy-badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 900;
+    padding: 7px 10px;
+    border-radius: 999px;
+    background: rgba(0, 51, 69, 0.06);
+    border: 1px solid rgba(0, 51, 69, 0.16);
+    color: var(--inv-navy);
+}
+
+.inv2 .badge-amber {
+    background: rgba(15, 173, 230, 0.10);
+    border-color: rgba(15, 173, 230, 0.22);
+    color: var(--inv-navy);
+}
+
+.inv2 .strategy-card h3 {
+    margin: 12px 0 10px;
+    color: var(--inv-ink);
+    font-weight: 900;
+}
+
+.inv2 .strategy-card ul {
+    margin: 0;
+    padding-left: 18px;
+    color: var(--inv-muted);
+    line-height: 1.75;
+}
+
+.inv2 .text-link {
+    display: inline-block;
+    margin-top: 12px;
+    font-weight: 900;
+    color: var(--inv-primary-2);
+    text-decoration: none;
+}
+
+.inv2 .text-link:hover {
+    text-decoration: underline;
+}
+
+/* ---------- PROCESS ---------- */
+.inv2 .inv2-process {
+    padding: 70px 0 20px;
+}
+
+.inv2 .process-steps {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-top: 14px;
+}
+
+.inv2 .step {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-border);
+    border-radius: 20px;
+    padding: 18px;
+    display: grid;
+    grid-template-columns: 64px 1fr;
+    gap: 12px;
+    box-shadow: var(--inv-shadow2);
+}
+
+.inv2 .step-no {
+    font-weight: 1000;
+    font-size: 22px;
+    color: rgba(15, 173, 230, 0.90);
+}
+
+.inv2 .step-title {
+    font-weight: 1000;
+    color: var(--inv-ink);
+}
+
+.inv2 .step-desc {
+    margin-top: 6px;
+    color: var(--inv-muted);
+    line-height: 1.65;
+}
+
+/* ---------- FINAL CTA ---------- */
+.inv2 .inv2-final {
+    padding: 70px 0 90px;
+    background: linear-gradient(180deg, transparent 0%, rgba(178, 195, 206, 0.55) 100%);
+}
+
+.inv2 .inv2-final-card {
+    background:
+        radial-gradient(820px 300px at 18% 30%, rgba(15, 173, 230, 0.12), transparent 62%),
+        radial-gradient(760px 260px at 85% 42%, rgba(0, 51, 69, 0.12), transparent 60%),
+        rgba(255, 255, 255, 0.82);
+    border: 1px solid var(--inv-border);
+    border-radius: 26px;
+    padding: 26px;
+    box-shadow: var(--inv-shadow);
+    display: grid;
+    grid-template-columns: 1.2fr 0.8fr;
+    gap: 18px;
+    align-items: center;
+}
+
+.inv2 .inv2-final-actions {
+    margin-top: 14px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.inv2 .inv2-mini-form {
+    background: rgba(255, 255, 255, 0.70);
+    border: 1px solid var(--inv-border);
+    border-radius: 20px;
+    padding: 16px;
+}
+
+.inv2 .mini-title {
+    font-weight: 1000;
+    color: var(--inv-ink);
+    margin-bottom: 10px;
+}
+
+.inv2 .mini-input {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+    padding: 12px 12px;
+    border-radius: 14px;
+    border: 1px solid var(--inv-border);
+    outline: none;
+    font-family: inherit;
+    background: rgba(255, 255, 255, 0.86);
+    color: var(--inv-text);
+}
+
+.inv2 .mini-input:focus {
+    border-color: rgba(15, 173, 230, 0.45);
+    box-shadow: 0 0 0 4px rgba(15, 173, 230, 0.14);
+}
+
+.inv2 .btn-full {
+    width: 100%;
+}
+
+.inv2 .mini-foot {
+    margin-top: 10px;
+    color: var(--inv-muted);
+    font-size: 12px;
+}
+
+/* ================= CARDS (safety unify) ================= */
+.inv2 .inv2-glass-card,
+.inv2 .metric-card,
+.inv2 .trust-card,
+.inv2 .edge-card,
+.inv2 .strategy-card,
+.inv2 .step {
+    background: var(--inv-surface);
+    border: 1px solid var(--inv-border);
+    box-shadow: var(--inv-shadow-soft);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 980px) {
+    .inv2 .inv2-hero-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inv2 .inv2-trust-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inv2 .inv2-edge-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inv2 .strategy-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .inv2 .process-steps {
+        grid-template-columns: 1fr;
+    }
+
+    .inv2 .inv2-final-card {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ---------- Optional: Reduce motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+    .inv2 .ticker-wrap {
+        animation: none;
+    }
+}
+
+
+/* =========================
+   From EDGE ↓ : make background white
+   ========================= */
+
+/* 1) 让 inv2 主背景变白（影响所有 section） */
+.inv2 {
+    background: #ffffff;
+    color: var(--inv-text);
+}
+
+/* 2) 把你想保留深色氛围的部分单独加回去（一般是 HERO + ticker） */
+.inv2 .inv2-hero {
+    background:
+        radial-gradient(1200px 600px at 18% 20%, rgba(15, 173, 230, .22), transparent 55%),
+        radial-gradient(900px 520px at 80% 35%, rgba(0, 51, 69, .28), transparent 60%),
+        linear-gradient(180deg, rgba(0, 51, 69, .90), rgba(0, 51, 69, .78) 60%, rgba(0, 51, 69, .70));
+    border-bottom: 1px solid var(--inv-border);
+}
+
+.inv2 .inv2-ticker {
+    background: rgba(255, 255, 255, 0.92);
+    border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+/* 3) EDGE/STRATEGY/PROCESS/FINAL 的标题副标题统一回深色（白底更专业） */
+.inv2 .inv2-edge .inv2-h2,
+.inv2 .inv2-strategy .inv2-h2,
+.inv2 .inv2-process .inv2-h2,
+.inv2 .inv2-final .inv2-h2 {
+    color: var(--inv-ink) !important;
+    text-shadow: none;
+}
+
+.inv2 .inv2-edge .inv2-sub,
+.inv2 .inv2-strategy .inv2-sub,
+.inv2 .inv2-process .inv2-sub,
+.inv2 .inv2-final .inv2-sub {
+    color: rgba(0, 51, 69, 0.72);
+}
+
+/* 4) FINAL 原来有一层背景渐变，把它也改成白底 */
+.inv2 .inv2-final {
+    background: #ffffff;
+}

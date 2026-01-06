@@ -1,0 +1,842 @@
+/* =========================
+   About Us (Initium) - NO IMAGES
+   ========================= */
+
+
+.about-main,
+.au-wrap {
+  padding-top: 0;
+}
+
+.about-main {
+  margin-top: var(--nav-h);
+}
+
+.au-wrap {
+  background: #f9f7f3;
+  color: #003345;
+}
+
+/* container */
+.au-container {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+}
+
+/* -------------------------
+   HERO (no image)
+   ------------------------- */
+/* =========================
+   ABOUT HERO – match Products deep navy style
+   ========================= */
+.au-hero {
+  position: relative;
+  overflow: hidden;
+
+  background:
+    /* 左上青色光晕 */
+    radial-gradient(
+      1200px 600px at 18% 20%,
+      rgba(15, 173, 230, 0.22),
+      transparent 55%
+    ),
+    /* 右侧深蓝层次 */
+    radial-gradient(
+      900px 520px at 80% 35%,
+      rgba(0, 51, 69, 0.35),
+      transparent 60%
+    ),
+    /* 主体深色渐变（关键） */
+    linear-gradient(
+      180deg,
+      rgba(0, 51, 69, 0.95),
+      rgba(0, 51, 69, 0.88) 60%,
+      rgba(0, 51, 69, 0.80)
+    );
+}
+
+
+.au-hero-inner {
+  position: relative;
+  z-index: 1;
+  padding: 72px 0 56px;
+  display: grid;
+  grid-template-columns: 1.35fr 0.95fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.au-eyebrow {
+  display: inline-block;
+  font-size: 12px;
+  letter-spacing: 1.8px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .78);
+  border: 1px solid rgba(255, 255, 255, .18);
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, .10);
+  /* fallback */
+  backdrop-filter: blur(6px);
+}
+
+.au-title {
+  margin: 14px 0 10px;
+  font-size: clamp(26px, 2.1vw, 42px);
+  line-height: 1.08;
+  font-weight: 800;
+  color: rgba(255, 255, 255, .98);
+  letter-spacing: -0.2px;
+
+  /* EN line breaking improvement */
+  text-wrap: balance;
+  max-width: 26ch;
+}
+
+.au-sub {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.75;
+  color: rgba(255, 255, 255, .86);
+  max-width: 64ch;
+}
+
+.au-hero-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.au-badges {
+  margin-top: 18px;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 12px;
+}
+
+.au-badge {
+  padding: 12px 12px;
+  border-radius: 14px;
+  background: rgba(255, 255, 255, .08);
+  border: 1px solid rgba(255, 255, 255, .14);
+  min-height: 72px;
+}
+
+.au-badge-top {
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(255, 255, 255, .96);
+  margin-bottom: 6px;
+}
+
+.au-badge-btm {
+  font-size: 12px;
+  line-height: 1.45;
+  color: rgba(255, 255, 255, .75);
+}
+
+/* right glance card */
+.au-glance {
+  background: rgba(255, 255, 255, .92);
+  border: 1px solid rgba(0, 0, 0, .08);
+  border-radius: 16px;
+  padding: 18px 18px 14px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .18);
+}
+
+.au-glance-kicker {
+  font-size: 12px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(0, 51, 69, .82);
+  margin-bottom: 10px;
+}
+
+.au-kpi-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.au-kpi {
+  background: #f9f7f3;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 14px;
+  padding: 10px 10px;
+}
+
+.au-kpi--wide {
+  grid-column: 1 / -1;
+}
+
+.au-kpi-num {
+  font-size: 18px;
+  font-weight: 900;
+  color: #003345;
+}
+
+.au-kpi-lab {
+  margin-top: 6px;
+  font-size: 12.5px;
+  color: rgba(0, 51, 69, .86);
+  line-height: 1.45;
+}
+
+.au-mini-note {
+  margin-top: 12px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(0, 51, 69, .62);
+}
+
+/* -------------------------
+   TRUST STRIP
+   ------------------------- */
+.au-trust {
+  background: #ffffff;
+  padding: 18px 0;
+  box-shadow: inset 0 -1px 0 rgba(255, 255, 255, .08);
+}
+
+.au-trust-inner {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.au-trust-item {
+  background: #003345;
+  border: 1px solid rgba(255, 255, 255, .12);
+  border-radius: 14px;
+  padding: 14px 14px;
+}
+
+.au-trust-cap {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, .75);
+  margin-bottom: 6px;
+}
+
+.au-trust-text {
+  font-size: 14px;
+  line-height: 1.7;
+  color: rgba(255, 255, 255, .86);
+}
+
+/* -------------------------
+   SECTIONS
+   ------------------------- */
+.au-section {
+  padding: 58px 0;
+  background: #ffffff;
+}
+
+.au-header {
+  max-width: 860px;
+  margin-bottom: 26px;
+}
+
+.au-kicker {
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0, 51, 69, .70);
+}
+
+.au-kicker--on-dark {
+  color: rgba(255, 255, 255, .70);
+}
+
+.au-h2 {
+  margin: 10px 0 10px;
+  font-size: clamp(22px, 1.8vw, 34px);
+  line-height: 1.15;
+  font-weight: 900;
+  color: #003345;
+}
+
+.au-h2--on-dark {
+  color: rgba(255, 255, 255, .96);
+}
+
+.au-h3 {
+  margin: 0 0 8px;
+  font-size: 18px;
+  font-weight: 900;
+  color: #003345;
+}
+
+.au-p {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: rgba(0, 51, 69, .92);
+}
+
+.au-p--on-dark {
+  color: rgba(255, 255, 255, .84);
+}
+
+/* cards */
+.au-grid-3 {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 18px;
+}
+
+.au-card {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  padding: 22px 22px;
+  box-shadow: 0 10px 26px rgba(0, 0, 0, .05);
+}
+
+.au-card-ico {
+  width: 30px;
+  height: 30px;
+  border-radius: 999px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 51, 69, .08);
+  color: #003345;
+  font-weight: 900;
+  margin-bottom: 10px;
+}
+
+/* pillars */
+.au-pillars {
+  display: grid;
+  gap: 14px;
+}
+
+.au-pillar {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 18px;
+  padding: 22px 22px 18px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .04);
+}
+
+.au-pillar-top {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.au-pillar-tag {
+  font-size: 11px;
+  letter-spacing: 1.6px;
+  text-transform: uppercase;
+  color: rgba(0, 51, 69, .78);
+  border: 1px solid rgba(0, 51, 69, .18);
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(0, 51, 69, .04);
+}
+
+.au-list {
+  margin: 12px 0 0;
+  padding-left: 18px;
+  color: rgba(0, 51, 69, .90);
+  line-height: 1.85;
+  font-size: 15px;
+}
+
+/* steps */
+.au-steps {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 12px;
+}
+
+.au-step {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  padding: 16px 16px;
+  display: flex;
+  gap: 14px;
+  align-items: flex-start;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .04);
+}
+
+.au-step-num {
+  width: 44px;
+  height: 44px;
+  border-radius: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 900;
+  color: #003345;
+  background: rgba(0, 51, 69, .08);
+  flex: 0 0 auto;
+}
+
+.au-step-title {
+  font-weight: 900;
+  margin-bottom: 4px;
+  color: #003345;
+}
+
+.au-step-text {
+  font-size: 14.5px;
+  line-height: 1.7;
+  color: rgba(0, 51, 69, .88);
+}
+
+/* team */
+.au-team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.au-person {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  padding: 16px 16px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .04);
+}
+
+.au-person-name {
+  font-weight: 900;
+  color: #003345;
+}
+
+.au-person-role {
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(0, 51, 69, .75);
+}
+
+/* two col */
+.au-two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  align-items: start;
+}
+
+.au-logos {
+  margin-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.au-logo {
+  font-size: 13px;
+  color: rgba(0, 51, 69, .88);
+  padding: 8px 10px;
+  border: 1px solid rgba(0, 51, 69, .16);
+  background: rgba(0, 51, 69, .04);
+  border-radius: 999px;
+}
+
+.au-locations {
+  margin-top: 14px;
+  display: grid;
+  gap: 10px;
+}
+
+.au-loc {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  padding: 14px 14px;
+}
+
+.au-loc-title {
+  font-weight: 900;
+  color: #003345;
+}
+
+.au-loc-sub {
+  margin-top: 6px;
+  font-size: 13px;
+  color: rgba(0, 51, 69, .70);
+}
+
+/* CSR */
+.au-csr {
+  border-radius: 18px;
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  box-shadow: 0 12px 28px rgba(0, 0, 0, .05);
+}
+
+.au-csr-inner {
+  padding: 26px 26px 22px;
+}
+
+.au-csr-grid {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.au-csr-card {
+  background: #f9f7f3;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  padding: 14px 14px;
+}
+
+.au-csr-title {
+  font-weight: 900;
+  color: #003345;
+  margin-bottom: 6px;
+}
+
+/* FAQ */
+.au-faq {
+  display: grid;
+  gap: 10px;
+}
+
+.au-qa {
+  background: #fff;
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 16px;
+  padding: 12px 14px;
+  box-shadow: 0 10px 24px rgba(0, 0, 0, .04);
+}
+
+.au-q {
+  cursor: pointer;
+  font-weight: 900;
+  color: #003345;
+  list-style: none;
+}
+
+.au-qa summary::-webkit-details-marker {
+  display: none;
+}
+
+.au-a {
+  margin-top: 10px;
+  color: rgba(0, 51, 69, .88);
+  line-height: 1.75;
+  font-size: 14.5px;
+}
+
+/* Buttons */
+.au-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 42px;
+  padding: 0 16px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 800;
+  font-size: 13px;
+  letter-spacing: .2px;
+  border: 1px solid transparent;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+}
+
+.au-btn:hover {
+  transform: translateY(-1px);
+}
+
+.au-btn--primary{
+  background: #ECE3D5;
+  color: #081726;
+  border-color: rgba(236, 227, 213, 0.85);
+}
+
+.au-btn--ghost {
+  background: #ECE3D5;
+  color: #081726;
+  border-color: rgba(236, 227, 213, 0.85);
+}
+
+/* ✅ 新增：浅色背景用 */
+.au-btn--ghost-light {
+  background: rgba(255, 255, 255, .70);
+  color: rgba(0, 51, 69, .92);
+  border-color: rgba(0, 51, 69, .18);
+}
+
+
+
+/* Final CTA */
+
+.au-final-cta-inner {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 18px;
+  align-items: center;
+}
+
+.au-final-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .au-hero-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .au-badges {
+    grid-template-columns: 1fr;
+  }
+
+  .au-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .au-trust-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .au-team-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .au-two-col {
+    grid-template-columns: 1fr;
+  }
+
+  .au-csr-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .au-final-cta-inner {
+    grid-template-columns: 1fr;
+  }
+
+  .au-final-actions {
+    justify-content: flex-start;
+  }
+}
+
+/* Extra-wide */
+@media (min-width: 1400px) {
+  .au-title {
+    max-width: 18ch;
+  }
+}
+
+
+/* =========================
+   NEW CTA: Signature card (separate from footer)
+   ========================= */
+
+.au-next {
+  background: #f9f7f3;
+  /* ✅ 用浅色“断开”深色页脚 */
+  padding: 64px 0 40px;
+  position: relative;
+}
+
+/* 上方做一道“金色细分割线”，让它成为页面的收尾段落 */
+.au-next::before {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 22px;
+  transform: translateX(-50%);
+  width: min(1100px, calc(100% - 48px));
+  height: 1px;
+  background: linear-gradient(to right, transparent, rgba(238, 182, 14, .55), transparent);
+  opacity: .95;
+}
+
+/* 外壳轻微渐变，让卡片更“浮” */
+.au-next-shell {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+  position: relative;
+}
+
+.au-next-container {
+  position: relative;
+}
+
+.au-next-card {
+  background: rgba(255, 255, 255, .88);
+  border: 1px solid rgba(0, 0, 0, .06);
+  border-radius: 22px;
+  box-shadow: 0 18px 42px rgba(0, 0, 0, .10);
+  overflow: hidden;
+
+  display: grid;
+  grid-template-columns: 1.25fr .75fr;
+  gap: 0;
+}
+
+/* 左侧内容：机构感的排版 */
+.au-next-left {
+  padding: 26px 26px 24px;
+}
+
+.au-next-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  font-size: 12px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(0, 51, 69, .72);
+}
+
+.au-next-kicker::after {
+  content: "";
+  width: 48px;
+  height: 1px;
+  background: rgba(238, 182, 14, .70);
+}
+
+.au-next-title {
+  margin: 12px 0 10px;
+  font-size: clamp(22px, 2.0vw, 34px);
+  line-height: 1.12;
+  font-weight: 900;
+  color: #003345;
+  max-width: 28ch;
+  text-wrap: balance;
+}
+
+.au-next-sub {
+  margin: 0;
+  font-size: 15.5px;
+  line-height: 1.8;
+  color: rgba(0, 51, 69, .88);
+  max-width: 70ch;
+}
+
+.au-next-tags {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.au-tag {
+  padding: 8px 12px;
+  border-radius: 999px;
+  font-size: 13px;
+  font-weight: 800;
+  color: rgba(0, 51, 69, .88);
+  background: rgba(0, 51, 69, .04);
+  border: 1px solid rgba(0, 51, 69, .14);
+}
+
+/* 右侧：做成“操作面板”，与左侧内容区形成强区分 */
+.au-next-right {
+  padding: 26px 22px 22px;
+  background:
+    radial-gradient(1200px 300px at -20% 20%, rgba(238, 182, 14, .18), transparent 55%),
+    linear-gradient(180deg, rgba(0, 51, 69, .04), rgba(0, 51, 69, .01));
+  border-left: 1px solid rgba(0, 0, 0, .06);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  justify-content: center;
+}
+
+.au-next-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  border-radius: 999px;
+  text-decoration: none;
+  font-weight: 900;
+  font-size: 13px;
+  letter-spacing: .2px;
+  border: 1px solid transparent;
+  transition: transform .18s ease, background .18s ease, border-color .18s ease;
+  user-select: none;
+}
+
+.au-next-btn:hover {
+  transform: translateY(-1px);
+}
+
+.au-next-btn--primary {
+  background: #ECE3D5;
+  color: #081726;
+  border-color: rgba(236, 227, 213, 0.85);
+}
+
+.au-next-btn--ghost {
+  background: rgba(255, 255, 255, .70);
+  color: rgba(0, 51, 69, .92);
+  border-color: rgba(0, 51, 69, .18);
+}
+
+.au-next-note {
+  margin-top: 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: rgba(0, 51, 69, .62);
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.au-next-note .au-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(238, 182, 14, .85);
+  margin-top: 5px;
+  flex: 0 0 auto;
+}
+
+/* Responsive */
+@media (max-width: 980px) {
+  .au-next {
+    padding: 54px 0 28px;
+  }
+
+  .au-next-card {
+    grid-template-columns: 1fr;
+  }
+
+  .au-next-right {
+    border-left: none;
+    border-top: 1px solid rgba(0, 0, 0, .06);
+  }
+
+  .au-next-title {
+    max-width: 34ch;
+  }
+}
+
+.au-next-btn--ghost-light {
+  background: #ECE3D5;
+  color: #081726;
+  border-color: rgba(236, 227, 213, 0.85);
+}
+
+.au-title,
+.au-next-title {
+  text-wrap: balance;
+  word-break: normal;
+}
+
+.au-q:focus-visible {
+  outline: 2px solid rgba(238, 182, 14, .65);
+  outline-offset: 4px;
+}

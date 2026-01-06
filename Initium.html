@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initium Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="icon" href="./Images/Initium.png" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/company-snapshot.css" />
+
+
+
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+
+        <!-- 左侧：品牌（整体可点击回 Home） -->
+        <div class="nav-left">
+            <a href="./Initium.html" class="brand" aria-label="Go to home">
+                <span class="brand-logo">
+                    <img src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital Logo" />
+                </span>
+            </a>
+        </div>
+
+        <!-- 中间：导航 -->
+        <nav class="nav-mid" aria-label="Primary">
+            <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
+            <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
+            <a href="./Products.html" class="nav-link" data-i18n="nav_products">Products</a>
+            <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
+        </nav>
+
+        <!-- 右侧：语言 + 登录（左右平均） -->
+        <div class="nav-right">
+
+            <div class="nav-right-half nav-login">
+                <a href="./login.html" class="nav-cta" data-i18n="nav_login">Log in</a>
+            </div>
+
+            <div class="nav-right-half lang-selector">
+                <button class="lang-btn" type="button">EN ▾</button>
+                <ul class="lang-dropdown">
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </header>
+
+    <!-- 网站主体 -->
+    <main>
+
+        <section class="carousel-wrapper">
+
+            <!-- ✅ 轮播主体：100% 宽 -->
+            <section class="carousel" id="carousel">
+
+                <!-- ✅ 左侧固定背景：永远不动 -->
+                <div class="hero-left-bg" aria-hidden="true"></div>
+
+                <!-- ✅ 左侧文字轮播：只换文字 + 动画 -->
+                <div class="hero-text-layer" id="heroTextLayer">
+                    <div class="text-slide is-active">
+                        <div class="hero-kicker" data-i18n="hero_kicker_1">OVERVIEW</div>
+                        <h1 class="hero-title" data-i18n="hero_title_1">
+                            Initium Capital delivers professional investment solutions across
+                            Commercial Property, Property Development and Private Credit,
+                            enabling investors to access stable, asset-backed opportunities
+                            in prime locations throughout Australia.
+                        </h1>
+                    </div>
+
+                    <div class="text-slide">
+                        <div class="hero-kicker" data-i18n="hero_kicker_2">INVESTORS</div>
+                        <h1 class="hero-title" data-i18n="hero_title_2">
+                            We challenge ourselves in developing investment products and
+                            services catering to the evolving needs of investors in a competitive
+                            market.
+                        </h1>
+                    </div>
+
+                    <div class="text-slide">
+                        <div class="hero-kicker" data-i18n="hero_kicker_3">PRIVATE CREDIT</div>
+                        <h1 class="hero-title" data-i18n="hero_title_3">
+                            Short-duration, asset-backed opportunities supported by robust
+                            underwriting, security structure and risk controls.
+                        </h1>
+                    </div>
+                </div>
+
+                <!-- ✅ 右侧图片轮播：保持你原来的无缝结构 -->
+                <div class="carousel-track" id="carouselTrack">
+                    <div class="carousel-slide hero-slide" style="--bg:url('/Images/1.jpg');">
+                        <div class="hero-right" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="carousel-slide hero-slide" style="--bg:url('/Images/2.png');">
+                        <div class="hero-right" aria-hidden="true"></div>
+                    </div>
+
+                    <div class="carousel-slide hero-slide" style="--bg:url('/Images/3.png');">
+                        <div class="hero-right" aria-hidden="true"></div>
+                    </div>
+                </div>
+
+                <!-- 左下角圆点 -->
+                <div class="carousel-dots" id="carouselDots" aria-label="carousel dots"></div>
+
+                <!-- 时间进度条 -->
+                <div class="carousel-progress">
+                    <div class="carousel-progress-bar" id="carouselProgress"></div>
+                </div>
+
+            </section>
+        </section>
+
+
+        <!-- 上过渡：深色 Hero → Stats -->
+        <div class="stats-transition-top"></div>
+
+        <!-- ================= FIVE STATS BAR ================= -->
+        <section class="stats-bar">
+            <div class="stats-inner">
+
+                <div class="stat-item">
+                    <div class="stat-number">10–16%</div>
+                    <div class="stat-label" data-i18n="stat_label_1">Investor Target Return</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">5m – 50m</div>
+                    <div class="stat-label" data-i18n="stat_label_2">Deal Size Focus</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">3 – 24</div>
+                    <div class="stat-label" data-i18n="stat_label_3">Months Duration</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">$250k</div>
+                    <div class="stat-label" data-i18n="stat_label_4">Minimum Investment</div>
+                </div>
+
+                <div class="stat-item">
+                    <div class="stat-number">Monthly</div>
+                    <div class="stat-label" data-i18n="stat_label_5">Investor Distributions</div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- 下过渡：Stats → 深色内容 -->
+        <div class="stats-transition-bottom"></div>
+
+
+        <!-- ================= MAIN CONTENT (Below Stats Bar) ================= -->
+        <section class="pcf-main">
+
+            <!-- Top hero strip with image + tagline -->
+            <div class="pcf-hero">
+                <img class="pcf-hero-bg" src="./Images/initium_skyline.png" alt="Initium skyline">
+                <div class="pcf-hero-overlay"></div>
+
+                <div class="pcf-container pcf-hero-inner">
+
+                    <!-- ✅ LEFT：替换成第一张图的长段文字（样式保持第二张图不变） -->
+                    <div class="pcf-hero-left">
+                        <div class="pcf-eyebrow" data-i18n="pcf_eyebrow">Initium Private Credit Fund</div>
+
+                        <h2 class="pcf-hero-title" data-i18n="pcf_hero_title">
+                            The Initium Private Credit Fund has built a strong track record, delivering consistent
+                            investor returns over time.
+                        </h2>
+
+                        <p class="pcf-hero-sub" data-i18n="pcf_hero_sub">
+                            The fund reflects a disciplined credit strategy and a focus on high-quality, secured lending
+                            opportunities.
+                        </p>
+                    </div>
+
+                    <!-- ✅ RIGHT：替换成第一张图的 3 个指标（样式保持第二张图不变） -->
+                    <div class="pcf-hero-right">
+
+                    </div>
+
+                </div>
+            </div>
+
+
+
+            <!-- Smooth transition: PCF -> Company Snapshot 分割线-->
+
+
+            <!-- ================= COMPANY SNAPSHOT (INSERT BEFORE FOOTER) ================= -->
+            <section class="cs-wrap" aria-label="Company Snapshot">
+                <div class="cs-container">
+
+                    <header class="cs-header">
+                        <div class="cs-kicker" data-i18n="cs_kicker">COMPANY OVERVIEW</div>
+                        <h2 class="cs-title" data-i18n="cs_title">Initium Capital — Company Snapshot</h2>
+                        <p class="cs-sub" data-i18n="cs_sub">
+                            Founded in 2021 by two family offices and partners with deep expertise across commercial
+                            real estate, asset management and private banking. We focus on institutional-grade,
+                            asset-backed opportunities
+                            for UHNW clients and family offices.
+                        </p>
+                    </header>
+
+                    <div class="cs-grid">
+
+                        <!-- Snapshot card -->
+                        <article class="cs-card cs-card--snap">
+                            <div class="cs-card-title" data-i18n="cs_snap_title">Company Snapshot</div>
+
+                            <div class="cs-kv">
+                                <div class="cs-k" data-i18n="cs_label_founded">Founded</div>
+                                <div class="cs-v" data-i18n="cs_founded">2021</div>
+                            </div>
+
+                            <div class="cs-kv">
+                                <div class="cs-k" data-i18n="cs_founders_label">Founded by</div>
+                                <div class="cs-v" data-i18n="cs_founders_value">
+                                    Huang Family Office · Hayson Family Office · Bo Zhuang
+                                </div>
+                            </div>
+
+                            <div class="cs-kv">
+                                <div class="cs-k" data-i18n="cs_positioning_label">Positioning</div>
+                                <div class="cs-v" data-i18n="cs_positioning_value">
+                                    One-stop financial services for UHNW clients and family offices.
+                                </div>
+                            </div>
+
+                            <div class="cs-kv">
+                                <div class="cs-k" data-i18n="cs_focus_label">Focus</div>
+                                <div class="cs-v" data-i18n="cs_focus_value">
+                                    Commercial property investment, property development and private credit strategies.
+                                </div>
+                            </div>
+
+
+
+
+                        </article>
+
+                        <!-- Funds card -->
+                        <article class="cs-card">
+                            <div class="cs-card-title" data-i18n="cs_funds_title">Our Funds</div>
+
+
+                            <div class="cs-fund">
+                                <div class="cs-fund-h">
+                                    <span class="cs-pill" data-i18n="cs_pill_credit">Private Credit</span>
+                                    <h3 class="cs-fund-title" data-i18n="cs_fund_3">Initium Private Credit Fund</h3>
+                                </div>
+                                <p class="cs-fund-sub" data-i18n="cs_fund_3_sub">
+                                    Short-duration, asset-backed lending opportunities with robust underwriting and risk
+                                    controls.
+                                </p>
+                            </div>
+
+                            <div class="cs-fund">
+                                <div class="cs-fund-h">
+                                    <span class="cs-pill" data-i18n="cs_pill_core">Core</span>
+                                    <h3 class="cs-fund-title" data-i18n="cs_fund_1">Initium Commercial Property Fund
+                                    </h3>
+                                </div>
+                                <p class="cs-fund-sub" data-i18n="cs_fund_1_sub">
+                                    Prime retail & commercial assets in Sydney’s tier-one locations, supported by active
+                                    asset management.
+                                </p>
+                            </div>
+
+                            <div class="cs-fund">
+                                <div class="cs-fund-h">
+                                    <span class="cs-pill" data-i18n="cs_pill_dev">Development</span>
+                                    <h3 class="cs-fund-title" data-i18n="cs_fund_2">Initium Mosman Development Fund</h3>
+                                </div>
+                                <p class="cs-fund-sub" data-i18n="cs_fund_2_sub">
+                                    Project-focused strategy seeking value creation through disciplined planning and
+                                    execution.
+                                </p>
+                            </div>
+
+
+                        </article>
+
+                        <!-- Platforms + Rating card -->
+                        <article class="cs-card">
+                            <div class="cs-card-title" data-i18n="cs_platforms_title">Platforms & Research</div>
+
+                            <div class="cs-logos">
+                                <div class="cs-logo-row">
+                                    <!-- 平台名字一般不翻译 -->
+                                    <span class="cs-logo">Netwealth</span>
+                                    <span class="cs-logo">HUB24</span>
+                                    <span class="cs-logo">Mason Stevens</span>
+                                    <span class="cs-logo">Macquarie Wrap</span>
+                                </div>
+                                <p class="cs-note" data-i18n="cs_platforms_note">
+                                    Availability across leading Australian platforms improves accessibility, reporting
+                                    transparency and
+                                    investor experience.
+                                </p>
+                            </div>
+
+
+
+                            <div class="cs-rating">
+                                <div class="cs-rating-badge">SQM</div>
+                                <div class="cs-rating-text">
+                                    <div class="cs-rating-title" data-i18n="cs_rating_title">Research & Rating</div>
+                                    <p class="cs-note" data-i18n="cs_rating_note">
+                                        Supported by independent research coverage, reinforcing our commitment to robust
+                                        investment governance.
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div class="cs-divider"></div>
+
+                            <div class="cs-services">
+                                <div class="cs-card-title cs-card-title--mini" data-i18n="cs_services_title">Services
+                                </div>
+                                <ul class="cs-bullets">
+                                    <li data-i18n="cs_service_1">Fund investment management</li>
+                                    <li data-i18n="cs_service_2">Private wealth management</li>
+                                    <li data-i18n="cs_service_3">Property advisory & management</li>
+                                    <li data-i18n="cs_service_4">Lending solutions</li>
+                                    <li data-i18n="cs_service_5">Family office setup & advisory</li>
+                                </ul>
+                            </div>
+                        </article>
+
+                    </div>
+
+                    <!-- Accordions -->
+                    <section class="cs-accordions" aria-label="More about Initium Capital">
+
+                        <!-- Team -->
+                        <button class="cs-acc" type="button" data-acc="team" aria-expanded="false">
+                            <span class="cs-acc-title" data-i18n="cs_acc_team">Leadership & Team</span>
+                            <span class="cs-acc-icon" aria-hidden="true">+</span>
+                        </button>
+
+                        <div class="cs-acc-panel" id="csAcc-team" hidden>
+                            <div class="cs-panel-inner">
+                                <div class="cs-team-grid">
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Victor Huang</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_founder">Founding Partner</div>
+                                        <p class="cs-person-bio" data-i18n="cs_victor_bio"></p>
+                                    </div>
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Max Hayson</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_founder">Founding Partner</div>
+                                        <p class="cs-person-bio" data-i18n="cs_max_bio"></p>
+                                    </div>
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Bo Zhuang</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_founder">Founding Partner</div>
+                                        <p class="cs-person-bio" data-i18n="cs_bo_bio"></p>
+                                    </div>
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Mark Kim</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_bd">Business Director</div>
+                                        <p class="cs-person-bio" data-i18n="cs_mark_bio"></p>
+                                    </div>
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Stanley Tsang</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_director">Director</div>
+                                        <p class="cs-person-bio" data-i18n="cs_stanley_bio"></p>
+                                    </div>
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Will Jiang</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_director">Director</div>
+                                        <p class="cs-person-bio" data-i18n="cs_will_bio"></p>
+                                    </div>
+
+                                    <div class="cs-person">
+                                        <div class="cs-person-name">Libin Zhang</div>
+                                        <div class="cs-person-role" data-i18n="cs_role_assistant">Assistant Manager
+                                        </div>
+                                        <p class="cs-person-bio" data-i18n="cs_libin_bio"></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Heritage -->
+                        <button class="cs-acc" type="button" data-acc="heritage" aria-expanded="false">
+                            <span class="cs-acc-title" data-i18n="cs_acc_heritage">Family Office Heritage</span>
+                            <span class="cs-acc-icon" aria-hidden="true">+</span>
+                        </button>
+
+                        <div class="cs-acc-panel" id="csAcc-heritage" hidden>
+                            <div class="cs-panel-inner">
+                                <p class="cs-note" data-i18n="cs_heritage_p1"></p>
+
+                                <ul class="cs-bullets cs-bullets--cols">
+                                    <li data-i18n="cs_heritage_li_1">Skygarden — Pitt St Mall</li>
+                                    <li data-i18n="cs_heritage_li_2">Manly Wharf retail development</li>
+                                    <li data-i18n="cs_heritage_li_3">Kogarah Town Shopping Centre</li>
+                                    <li data-i18n="cs_heritage_li_4">Metropole Shopping Centre (Cremorne)</li>
+                                    <li data-i18n="cs_heritage_li_5">Southpoint Shopping Centre (Hillsdale)</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <!-- Community -->
+                        <button class="cs-acc" type="button" data-acc="community" aria-expanded="false">
+                            <span class="cs-acc-title" data-i18n="cs_acc_community">Community & Sponsorship</span>
+                            <span class="cs-acc-icon" aria-hidden="true">+</span>
+                        </button>
+
+                        <div class="cs-acc-panel" id="csAcc-community" hidden>
+                            <div class="cs-panel-inner">
+                                <div class="cs-community-grid">
+
+                                    <div class="cs-community-card">
+                                        <div class="cs-community-title">Starlight Children’s Foundation</div>
+                                        <p class="cs-note" data-i18n="cs_csr_1"></p>
+                                    </div>
+
+                                    <div class="cs-community-card">
+                                        <div class="cs-community-title">Very Special Kids (VSK)</div>
+                                        <p class="cs-note" data-i18n="cs_csr_2"></p>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+
+                    </section>
+
+
+
+                </div>
+            </section>
+            <!-- ================= END COMPANY SNAPSHOT ================= -->
+
+
+
+            <!-- Content area（保持你原来的不变） -->
+            <div class="pcf-content">
+                <div class="pcf-container">
+
+                    <!-- Two-column cards -->
+                    <div class="pcf-grid-2">
+                        <article class="pcf-card">
+                            <h3 class="pcf-h3" data-i18n="card_philosophy_title">Our Philosophy</h3>
+
+                            <p class="pcf-p" data-i18n="card_philosophy_p1">
+                                At Initium Capital, understanding and achieving our clients’ goals are at the core of
+                                our company values. Our philosophy has always been to back our beliefs with actions.
+                            </p>
+
+                            <p class="pcf-p" data-i18n="card_philosophy_p2">
+                                We spent a year personally testing and investing in the market to ensure zero losses or
+                                zero-interest investments. Our primary focus is on single-asset lending, with the
+                                ultimate
+                                goal of transitioning to a pooled fund structure.
+                            </p>
+
+                            <p class="pcf-p" data-i18n="card_philosophy_p3">
+                                We remain steadfast in this commitment, recognizing the importance of aligning our
+                                interests with those of our clients in the commercial real estate debt market.
+                            </p>
+                        </article>
+
+                        <article class="pcf-card">
+                            <h3 class="pcf-h3" data-i18n="card_background_title">Background &amp; Expertise</h3>
+
+                            <p class="pcf-p" data-i18n="card_background_p1">
+                                Before the official launch of the Initium Capital Private Credit Fund, we conducted a
+                                thorough internal review with the board. Our philosophy has always been to back our
+                                words with actions.
+                            </p>
+
+                            <p class="pcf-p" data-i18n="card_background_p2">
+                                Initium adopts a dual-pronged approach to transaction assessment. First, our credit team
+                                conducts an evaluation, followed by a review by Initium Management’s in-house real
+                                estate
+                                experts.
+                            </p>
+
+                            <p class="pcf-p" data-i18n="card_background_p3">
+                                As a wholly owned subsidiary of Initium Group, Initium Management has a strong
+                                reputation in real estate development, providing significant advantages for Initium
+                                and its investors.
+                            </p>
+                        </article>
+                    </div>
+
+
+                    <!-- Pull quote / highlight with texture image -->
+                    <div class="pcf-highlight">
+                        <img class="pcf-highlight-pattern" src="./Images/initium_pattern.png" alt="">
+                        <div class="pcf-highlight-inner">
+                            <h3 class="pcf-h3 pcf-h3-on-dark" data-i18n="highlight_title">
+                                Single Asset Investment
+                            </h3>
+
+                            <p class="pcf-p pcf-p-on-dark" data-i18n="highlight_p">
+                                Our single-asset investments allow investors and their advisors to select opportunities
+                                based on their risk and return preferences. Investors can set their own risk parameters
+                                and focus on any preferred sub-asset class, geographic region, or investment term.
+                            </p>
+                        </div>
+                    </div>
+
+
+
+                    <!-- ================= SINGLE ASSET CAROUSEL (NEW) ================= -->
+                    <section class="sa-carousel" id="saCarousel" aria-label="Single Asset Carousel">
+
+                        <div class="sa-carousel__stage">
+
+                            <!-- 左箭头：在空白处 -->
+                            <button class="sa-arrow sa-arrow--left" type="button" aria-label="Previous slide"
+                                id="saPrev">
+                                ‹
+                            </button>
+
+                            <!-- ✅ rail：控制整体居中 + 比例 -->
+                            <div class="sa-carousel__rail">
+
+                                <!-- 左预览 -->
+                                <button class="sa-slide sa-slide--side sa-slide--left" type="button"
+                                    aria-label="Previous slide">
+                                    <img class="sa-slide__img" src="./Images/slide-1.jpg" alt="">
+                                </button>
+
+                                <!-- 中央主图 -->
+                                <div class="sa-slide sa-slide--center" aria-live="polite">
+                                    <img class="sa-slide__img" src="./Images/slide-2.jpg"
+                                        alt="Single Asset Investment - Case Study 2">
+
+                                </div>
+
+                                <!-- 右预览 -->
+                                <button class="sa-slide sa-slide--side sa-slide--right" type="button"
+                                    aria-label="Next slide">
+                                    <img class="sa-slide__img" src="./Images/slide-3.jpg" alt="">
+                                </button>
+
+                            </div>
+
+                            <!-- 右箭头：在空白处 -->
+                            <button class="sa-arrow sa-arrow--right" type="button" aria-label="Next slide" id="saNext">
+                                ›
+                            </button>
+                        </div>
+
+                        <div class="sa-dots" id="saDots" aria-label="carousel dots"></div>
+                    </section>
+
+
+
+
+
+                    <!-- Detail grid -->
+                    <div class="pcf-grid-2">
+                        <article class="pcf-card">
+                            <h4 class="pcf-h4" data-i18n="detail_title_1">Real Estate Asset Focus</h4>
+                            <p class="pcf-p" data-i18n="detail_intro_1">We arrange loans secured by the following types
+                                of real estate assets:</p>
+                            <ul class="pcf-checklist">
+                                <li data-i18n="detail_asset_1">Major metropolitan areas, with a focus on key cities such
+                                    as Sydney, Melbourne, and
+                                    Brisbane.</li>
+                                <li data-i18n="detail_asset_2">Secured property values typically range from $5 million
+                                    to $50 million, with
+                                    relatively strong liquidity for both acquisitions and refinancing.</li>
+                                <li data-i18n="detail_asset_3">Non-specialized real estate assets, including residential
+                                    land, completed
+                                    apartments, general commercial properties, and construction loans.</li>
+                            </ul>
+                        </article>
+
+                        <article class="pcf-card">
+                            <h4 class="pcf-h4" data-i18n="detail_title_2">Underwriting Metrics</h4>
+                            <p class="pcf-p" data-i18n="detail_intro_2">As part of the credit assessment process,
+                                Initium Capital considers key
+                                underwriting metrics, including:</p>
+                            <ul class="pcf-checklist">
+                                <li data-i18n="detail_metric_1">Location and site amenities</li>
+                                <li data-i18n="detail_metric_2">Land acquisition value and terms, relative to
+                                    independent professional valuations
+                                </li>
+                                <li data-i18n="detail_metric_3">Conditions precedent, ongoing covenants, and conditions
+                                    subsequent</li>
+                                <li data-i18n="detail_metric_4">Security structure</li>
+                                <li data-i18n="detail_metric_5">LVR/LTC ratios</li>
+                                <li data-i18n="detail_metric_6">Borrower’s income, other net assets, and repayment
+                                    history</li>
+                            </ul>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+
+    </main>
+
+
+
+
+
+
+
+    <!-- 页脚 -->
+    <footer class="footer-investor" aria-label="Investor footer">
+        <!-- Top action strip -->
+        <section class="fi-top">
+            <div class="fi-container fi-top-inner">
+                <div class="fi-top-copy">
+                    <div class="fi-eyebrow" data-i18n="footer_top_eyebrow">FOR INVESTORS</div>
+                    <h3 class="fi-title" data-i18n="footer_top_title">Institutional-grade, asset-backed opportunities.
+                    </h3>
+                    <p class="fi-sub" data-i18n="footer_top_sub">
+                        Private credit strategies supported by disciplined underwriting, clear security structure,
+                        and risk controls.
+                    </p>
+                </div>
+
+                <div class="fi-top-actions">
+                    <a class="fi-btn fi-btn-primary" href="./Investors.html" data-i18n="footer_btn_request">Request
+                        Information</a>
+                    <a class="fi-btn fi-btn-ghost" href="./login.html" data-i18n="footer_btn_login">Investor Login</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main grid -->
+        <section class="fi-main">
+            <div class="fi-container fi-grid">
+                <!-- Brand -->
+                <div class="fi-brand">
+                    <img class="fi-logo" src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital">
+                    <p class="fi-brand-line" data-i18n="footer_brand_line">
+                        Australian investment manager focused on private credit and real asset strategies.
+                    </p>
+
+                    <div class="fi-badges" aria-label="Key attributes">
+                        <span class="fi-badge">Asset-backed</span>
+                        <span class="fi-badge">Short duration</span>
+                        <span class="fi-badge">Risk disciplined</span>
+                    </div>
+                </div>
+
+                <!-- Strategies -->
+                <nav class="fi-col" aria-label="Investment strategies">
+                    <div class="fi-col-title" data-i18n="footer_col_strategies">Strategies</div>
+                    <a class="fi-link" href="./Products.html#private-credit"
+                        data-i18n="footer_link_private_credit">Private Credit</a>
+                    <a class="fi-link" href="./Products.html#commercial-property"
+                        data-i18n="footer_link_commercial">Commercial Property</a>
+                    <a class="fi-link" href="./Products.html#development-finance"
+                        data-i18n="footer_link_development">Development Finance</a>
+                    <a class="fi-link" href="./Portfolio.html" data-i18n="footer_link_portfolio">Portfolio Overview</a>
+                </nav>
+
+                <!-- Investor resources -->
+                <nav class="fi-col" aria-label="Investor resources">
+                    <div class="fi-col-title" data-i18n="footer_col_resources">Investor Resources</div>
+                    <a class="fi-link" href="./Investors.html#how-it-works" data-i18n="how_it_works">How it works</a>
+                    <a class="fi-link" href="./Investors.html#documents" data-i18n="documents">Fund Documents</a>
+                    <a class="fi-link" href="./Investors.html#distributions" data-i18n="distributions">Distributions</a>
+                    <a class="fi-link" href="./ContactUs.html" data-i18n="contact">Speak with the team</a>
+                </nav>
+
+                <!-- Contact -->
+                <div class="fi-col" aria-label="Contact details">
+                    <div class="fi-col-title" data-i18n="footer_col_contact">Contact</div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_city_1">Sydney</div>
+                        <div class="fi-meta-text">Level 1, 3/599 Pacific Highway<br />St Leonards NSW 2065</div>
+                    </div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_city_2">Melbourne</div>
+                        <div class="fi-meta-text">Level 50, 120 Collins Street<br />Melbourne VIC 3000</div>
+                    </div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_phone">Phone</div>
+                        <a class="fi-link" href="tel:+611300140486">1300 140 486</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal mini disclaimer -->
+        <section class="fi-legal-mini">
+            <div class="fi-container">
+                <div class="legal-mini">
+                    <p class="legal-mini__text" data-i18n="legal_mini">
+                        General information only. Not financial advice. Please read our Disclaimer and Privacy Policy.
+                    </p>
+
+                    <div class="legal-mini__links">
+                        <a href="./Disclaimer.html" data-i18n="legal_disclaimer_link">Disclaimer</a>
+                        <span class="legal-mini__sep">•</span>
+                        <a href="./Privacy.html" data-i18n="legal_privacy_link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal -->
+        <section class="fi-legal">
+            <div class="fi-container fi-legal-inner">
+                <div class="fi-legal-left">© 2025 Initium Capital. All rights reserved.</div>
+                <div class="fi-legal-right">
+                    <a class="fi-legal-link" href="./terms.html" data-i18n="footer_legal_terms">Website Terms</a>
+                    <span class="fi-dot">·</span>
+                    <a class="fi-legal-link" href="./privacy.html" data-i18n="footer_legal_privacy">Privacy</a>
+                    <span class="fi-dot">·</span>
+                    <a class="fi-legal-link" href="./disclaimer.html" data-i18n="footer_legal_disclaimer">Disclaimer</a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+
+    <script src="./JS/carousel.js"></script>
+    <script src="./JS/i18n.js"></script>
+    <script src="./JS/sa-carousel.js"></script>
+    <script src="./JS/company-snapshot.js"></script>
+
+</body>
+
+</html>

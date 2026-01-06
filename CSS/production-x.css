@@ -1,0 +1,253 @@
+/* =========================
+   Production X (Initium)
+   Scoped: .prodx
+   ========================= */
+
+.prodx {
+  background: #f9f7f3;
+  color: #003345;
+  padding: 72px 0;
+}
+
+.prodx-container {
+  width: min(1160px, calc(100% - 48px));
+  margin: 0 auto;
+  font-family: "Montserrat", system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+}
+
+.prodx-head {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 18px;
+  align-items: start;
+  margin-bottom: 18px;
+}
+
+.prodx-kicker {
+  margin: 0;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.prodx-title {
+  margin: 10px 0 8px;
+  font-size: clamp(26px, 2.2vw, 36px);
+  line-height: 1.15;
+  font-weight: 800;
+}
+
+.prodx-sub {
+  margin: 0;
+  max-width: 780px;
+  font-size: 14px;
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+.prodx-controls {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(180px, 1fr)) auto;
+  gap: 12px;
+  align-items: end;
+}
+
+.prodx-control label {
+  display: block;
+  font-size: 12px;
+  opacity: 0.9;
+  margin: 0 0 6px;
+}
+
+.prodx-control select {
+  width: 100%;
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 51, 69, 0.18);
+  padding: 0 12px;
+  background: #fff;
+  color: #003345;
+  font-size: 13px;
+  outline: none;
+}
+
+.prodx-control select:focus {
+  border-color: rgba(0, 51, 69, 0.38);
+}
+
+.prodx-btn {
+  height: 42px;
+  border-radius: 12px;
+  border: 1px solid rgba(0, 51, 69, 0.18);
+  padding: 0 16px;
+  background: #003345;
+  color: #eaf3f7;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.prodx-btn:hover {
+  opacity: 0.92;
+}
+
+.prodx-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin: 14px 0 18px;
+}
+
+.prodx-chip {
+  display: inline-flex;
+  align-items: center;
+  height: 32px;
+  padding: 0 12px;
+  border-radius: 999px;
+  background: rgba(0, 51, 69, 0.08);
+  border: 1px solid rgba(0, 51, 69, 0.14);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.prodx-note {
+  font-size: 12px;
+  opacity: 0.85;
+}
+
+.prodx-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.prodx-card {
+  overflow: hidden;
+  border-radius: 18px;
+  background: #ffffff;
+  border: 1px solid rgba(0, 51, 69, 0.12);
+  box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
+  display: grid;
+  grid-template-rows: 160px auto;
+}
+
+.prodx-media {
+  position: relative;
+  background: #0b2230;
+}
+
+.prodx-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.prodx-badges {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.prodx-badge {
+  background: rgba(255, 255, 255, 0.88);
+  color: #f7f7f7;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  backdrop-filter: blur(8px);
+}
+
+.prodx-body {
+  padding: 14px 14px 16px;
+  display: grid;
+  gap: 10px;
+}
+
+.prodx-address {
+  margin: 0;
+  font-size: 14px;
+  font-weight: 800;
+  line-height: 1.35;
+}
+
+.prodx-intro {
+  margin: 0;
+  font-size: 12.5px;
+  line-height: 1.6;
+  opacity: 0.9;
+  min-height: 44px;
+}
+
+.prodx-kpis {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 4px;
+}
+
+.prodx-kpi {
+  border-radius: 14px;
+  border: 1px solid rgba(0, 51, 69, 0.12);
+  background: rgba(0, 51, 69, 0.04);
+  padding: 10px 10px;
+}
+
+.prodx-kpi .t {
+  font-size: 11px;
+  opacity: 0.8;
+  margin: 0 0 6px;
+}
+
+.prodx-kpi .v {
+  font-size: 14px;
+  font-weight: 800;
+  margin: 0;
+}
+
+.prodx-foot {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 2px;
+  font-size: 11px;
+  opacity: 0.85;
+}
+
+.prodx-link {
+  font-weight: 800;
+  color: #003345;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(0, 51, 69, 0.25);
+}
+
+.prodx-link:hover {
+  opacity: 0.85;
+}
+
+@media (max-width: 980px) {
+  .prodX-head { }
+  .prodX-controls { }
+  .prodx-controls {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+  .prodx-btn {
+    grid-column: 1 / -1;
+  }
+  .prodx-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 620px) {
+  .prodx-grid {
+    grid-template-columns: 1fr;
+  }
+}

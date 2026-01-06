@@ -1,0 +1,955 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Initium | Investor Products Lab</title>
+
+  <!-- Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <style>
+    :root{
+      --brand-navy:#003345;
+      --brand-ink:#081726;
+      --brand-teal:#0FADD6;
+      --paper:#f6f7f8;
+      --card:#ffffff;
+      --stroke:rgba(0,0,0,.10);
+      --muted:rgba(255,255,255,.75);
+      --text:#0e1b22;
+      --sub:#4b5a62;
+      --shadow: 0 18px 60px rgba(0,0,0,.18);
+      --shadow-soft: 0 10px 30px rgba(0,0,0,.10);
+      --radius: 18px;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0;
+      font-family:"Montserrat",system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;
+      background: var(--paper);
+      color: var(--text);
+    }
+    a{color:inherit;text-decoration:none}
+
+    /* ====== Top Nav (minimal) ====== */
+    .topbar{
+      position: sticky;
+      top:0;
+      z-index: 20;
+      background: rgba(0,51,69,.92);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid rgba(255,255,255,.12);
+    }
+    .topbar-inner{
+      width:min(1180px, calc(100% - 40px));
+      margin:0 auto;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      height:64px;
+      gap:14px;
+    }
+    .brand{
+      display:flex;align-items:center;gap:12px;
+      color:#fff;
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    .brand-badge{
+      width:38px;height:38px;border-radius:12px;
+      display:grid;place-items:center;
+      background: rgba(255,255,255,.12);
+      border: 1px solid rgba(255,255,255,.18);
+      font-weight:800;
+    }
+    .nav-actions{
+      display:flex;align-items:center;gap:10px;
+    }
+    .chip{
+      display:inline-flex;align-items:center;gap:8px;
+      height:36px;padding:0 12px;border-radius:999px;
+      border:1px solid rgba(255,255,255,.16);
+      background: rgba(255,255,255,.08);
+      color:#fff;font-weight:600;font-size:13px;
+      cursor:pointer;
+      user-select:none;
+    }
+    .chip:hover{background: rgba(255,255,255,.12)}
+    .chip.primary{
+      border-color: rgba(15,173,214,.55);
+      background: rgba(15,173,214,.18);
+    }
+
+    /* ====== Hero ====== */
+    .hero{
+      background:
+        radial-gradient(1100px 520px at 18% 18%, rgba(15,173,214,.26), transparent 55%),
+        radial-gradient(900px 540px at 82% 38%, rgba(0,51,69,.65), transparent 60%),
+        linear-gradient(180deg, var(--brand-ink), var(--brand-navy));
+      color:#fff;
+      padding: 54px 0 30px;
+      border-bottom: 1px solid rgba(255,255,255,.08);
+    }
+    .wrap{
+      width:min(1180px, calc(100% - 40px));
+      margin:0 auto;
+    }
+    .hero-grid{
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 26px;
+      align-items:stretch;
+    }
+    @media (max-width: 980px){
+      .hero-grid{grid-template-columns:1fr}
+    }
+    .kicker{
+      letter-spacing:.18em;
+      text-transform:uppercase;
+      font-size:12px;
+      color: rgba(255,255,255,.80);
+      font-weight:700;
+    }
+    .hero h1{
+      margin:10px 0 10px;
+      font-size: clamp(28px, 3.2vw, 44px);
+      line-height:1.1;
+      font-weight:800;
+    }
+    .hero p{
+      margin:0;
+      color: rgba(255,255,255,.82);
+      max-width: 60ch;
+      line-height:1.6;
+    }
+    .hero-panel{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(255,255,255,.06);
+      box-shadow: 0 18px 60px rgba(0,0,0,.25);
+      overflow:hidden;
+    }
+    .hero-panel-head{
+      padding:16px 18px;
+      display:flex;align-items:center;justify-content:space-between;gap:10px;
+      border-bottom:1px solid rgba(255,255,255,.12);
+    }
+    .hero-panel-title{
+      font-weight:800;
+      letter-spacing:.02em;
+    }
+    .hero-panel-body{
+      padding:16px 18px 18px;
+      display:grid;
+      gap:12px;
+    }
+    .mini{
+      display:flex;align-items:flex-start;gap:12px;
+      padding:12px 12px;
+      border-radius:14px;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(255,255,255,.06);
+    }
+    .dot{
+      width:10px;height:10px;border-radius:999px;margin-top:5px;
+      background: rgba(15,173,214,.95);
+      box-shadow: 0 0 0 6px rgba(15,173,214,.14);
+      flex:0 0 auto;
+    }
+    .mini strong{display:block;font-size:13px}
+    .mini span{display:block;font-size:12.5px;color:rgba(255,255,255,.78);line-height:1.5}
+
+    /* ====== Controls ====== */
+    .controls{
+      padding: 18px 0 0;
+      display:flex;
+      flex-wrap:wrap;
+      align-items:center;
+      justify-content:space-between;
+      gap:12px;
+    }
+    .seg{
+      display:flex;align-items:center;gap:8px;flex-wrap:wrap;
+      background:#fff;
+      padding:8px;
+      border-radius:999px;
+      border:1px solid var(--stroke);
+      box-shadow: var(--shadow-soft);
+    }
+    .seg button{
+      height:36px;
+      padding:0 14px;
+      border-radius:999px;
+      border:0;
+      background:transparent;
+      font-weight:700;
+      cursor:pointer;
+      color:#1d2b33;
+    }
+    .seg button.active{
+      background: rgba(0,51,69,.95);
+      color:#fff;
+    }
+    .search{
+      display:flex;align-items:center;gap:10px;
+      background:#fff;
+      border:1px solid var(--stroke);
+      border-radius:999px;
+      padding:0 14px;
+      height:44px;
+      min-width: min(520px, 100%);
+      box-shadow: var(--shadow-soft);
+    }
+    .search input{
+      width:100%;
+      border:0;
+      outline:none;
+      font-size:14px;
+      font-weight:600;
+      color:#1a2a32;
+    }
+    .hint{
+      font-size:12px;color:#5b6a72;font-weight:600;
+    }
+
+    /* ====== Grid ====== */
+    main{
+      padding: 22px 0 70px;
+    }
+    .grid{
+      margin-top: 16px;
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 18px;
+    }
+    @media (max-width: 1040px){ .grid{grid-template-columns: repeat(2, 1fr);} }
+    @media (max-width: 640px){ .grid{grid-template-columns: 1fr;} }
+
+    .card{
+      position:relative;
+      border-radius: 20px;
+      background: var(--card);
+      border: 1px solid var(--stroke);
+      box-shadow: var(--shadow-soft);
+      overflow:hidden;
+      transition: transform .18s ease, box-shadow .18s ease;
+      cursor: pointer;
+      min-height: 368px;
+    }
+    .card:hover{
+      transform: translateY(-4px);
+      box-shadow: var(--shadow);
+    }
+
+    .media{
+      position:relative;
+      height: 170px;
+      overflow:hidden;
+      background: #0b2230;
+    }
+    .media img{
+      width:100%;height:100%;
+      object-fit: cover;
+      transform: scale(1.02);
+      transition: transform .25s ease, filter .25s ease;
+      filter: saturate(1.04) contrast(1.02);
+    }
+    .card:hover .media img{
+      transform: scale(1.08);
+      filter: saturate(1.10) contrast(1.06);
+    }
+
+    .badges{
+      position:absolute;
+      top:12px;left:12px;
+      display:flex;gap:8px;flex-wrap:wrap;
+      z-index: 2;
+    }
+    .badge{
+      height:28px;
+      padding:0 10px;
+      border-radius:999px;
+      display:inline-flex;align-items:center;
+      font-size:12px;font-weight:800;
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
+      background: rgba(0,0,0,.25);
+      backdrop-filter: blur(8px);
+    }
+    .badge.live{
+      border-color: rgba(15,173,214,.55);
+      background: rgba(15,173,214,.22);
+    }
+    .badge.full{
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.14);
+    }
+    .badge.rank{
+      border-color: rgba(0,51,69,.55);
+      background: rgba(0,51,69,.55);
+    }
+
+    .body{
+      padding: 14px 16px 16px;
+      display:flex;
+      flex-direction:column;
+      gap: 12px;
+    }
+    .title{
+      font-weight:900;
+      letter-spacing:.01em;
+      font-size: 16px;
+      line-height: 1.25;
+      margin: 0;
+      color:#0f1f27;
+    }
+    .meta{
+      display:flex;
+      flex-wrap:wrap;
+      gap: 8px 12px;
+      color:#4c5b63;
+      font-size: 12.5px;
+      font-weight:650;
+    }
+    .meta .pill{
+      display:inline-flex;align-items:center;
+      gap:6px;
+      padding: 6px 10px;
+      border-radius:999px;
+      background: rgba(0,51,69,.06);
+      border: 1px solid rgba(0,51,69,.10);
+    }
+
+    .kpis{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 10px;
+      margin-top: 2px;
+    }
+    .kpi{
+      border-radius: 14px;
+      padding: 10px 10px;
+      border: 1px solid rgba(0,0,0,.08);
+      background: linear-gradient(180deg, rgba(255,255,255,.92), rgba(255,255,255,.80));
+    }
+    .kpi .lbl{
+      font-size: 11px;
+      font-weight: 800;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color:#5a6a73;
+      margin-bottom: 6px;
+    }
+    .kpi .val{
+      font-size: 16px;
+      font-weight: 900;
+      color:#0e1b22;
+    }
+
+    .summary{
+      margin: 0;
+      font-size: 12.8px;
+      line-height: 1.6;
+      color:#415159;
+      min-height: 52px;
+    }
+
+    /* Hover overlay: "default vs hover" */
+    .hover-panel{
+      position:absolute;
+      inset: 0;
+      background:
+        radial-gradient(900px 420px at 20% 10%, rgba(15,173,214,.22), transparent 55%),
+        linear-gradient(180deg, rgba(0,51,69,.92), rgba(8,23,38,.96));
+      color:#fff;
+      opacity:0;
+      transform: translateY(6px);
+      transition: opacity .18s ease, transform .18s ease;
+      padding: 16px;
+      display:flex;
+      flex-direction:column;
+      justify-content:space-between;
+      pointer-events:none;
+    }
+    .card:hover .hover-panel{
+      opacity:1;
+      transform: translateY(0);
+    }
+    .hover-top{
+      display:flex;justify-content:space-between;gap:10px;align-items:flex-start;
+    }
+    .hover-title{
+      font-weight:900;
+      font-size: 14px;
+      line-height:1.25;
+    }
+    .hover-sub{
+      margin-top: 8px;
+      font-size: 12.5px;
+      color: rgba(255,255,255,.80);
+      line-height: 1.55;
+    }
+    .hover-footer{
+      display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;
+      margin-top: 14px;
+      padding-top: 12px;
+      border-top:1px solid rgba(255,255,255,.14);
+    }
+    .cta{
+      height: 38px;
+      padding: 0 14px;
+      border-radius: 999px;
+      border: 1px solid rgba(15,173,214,.55);
+      background: rgba(15,173,214,.20);
+      color:#fff;
+      font-weight:900;
+      font-size: 13px;
+      display:inline-flex;align-items:center;gap:8px;
+    }
+    .cta.muted{
+      border-color: rgba(255,255,255,.22);
+      background: rgba(255,255,255,.10);
+    }
+
+    /* Modal */
+    .modal-backdrop{
+      position:fixed;inset:0;
+      background: rgba(0,0,0,.55);
+      display:none;
+      align-items:center;
+      justify-content:center;
+      z-index: 50;
+      padding: 24px;
+    }
+    .modal-backdrop.show{display:flex;}
+    .modal{
+      width:min(980px, 100%);
+      background:#fff;
+      border-radius: 22px;
+      overflow:hidden;
+      border:1px solid rgba(0,0,0,.12);
+      box-shadow: var(--shadow);
+    }
+    .modal-head{
+      background: linear-gradient(180deg, rgba(0,51,69,.98), rgba(8,23,38,.98));
+      color:#fff;
+      padding: 16px 18px;
+      display:flex;align-items:flex-start;justify-content:space-between;gap:12px;
+    }
+    .modal-head h3{margin:0;font-size:16px;font-weight:900}
+    .modal-head .x{
+      cursor:pointer;
+      height:34px;width:34px;border-radius:12px;
+      display:grid;place-items:center;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(255,255,255,.08);
+      font-weight:900;
+      user-select:none;
+    }
+    .modal-body{
+      padding: 16px 18px 18px;
+      display:grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+    }
+    @media (max-width: 900px){
+      .modal-body{grid-template-columns:1fr}
+    }
+    .modal-img{
+      border-radius: 18px;
+      overflow:hidden;
+      border: 1px solid rgba(0,0,0,.10);
+      height: 280px;
+      background:#0b2230;
+    }
+    .modal-img img{width:100%;height:100%;object-fit:cover}
+    .modal-kpis{
+      display:grid;grid-template-columns: repeat(2, 1fr);gap:10px;
+    }
+    .modal-kpi{
+      border-radius: 16px;
+      border: 1px solid rgba(0,0,0,.10);
+      padding: 12px;
+      background: #fbfbfc;
+    }
+    .modal-kpi .lbl{font-size:11px;font-weight:900;letter-spacing:.08em;text-transform:uppercase;color:#62727c}
+    .modal-kpi .val{margin-top:6px;font-size:16px;font-weight:900;color:#0f1f27}
+    .modal-text{
+      grid-column: 1 / -1;
+      border-top:1px solid rgba(0,0,0,.08);
+      padding-top: 14px;
+      color:#24343c;
+      line-height:1.7;
+      font-size: 13.5px;
+    }
+    .foot{
+      padding: 22px 0 50px;
+      color:#5b6a72;
+      font-size: 12px;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Topbar -->
+  <div class="topbar">
+    <div class="topbar-inner">
+      <div class="brand">
+        <div class="brand-badge">IP</div>
+        <div>Initium Investor Products Lab</div>
+      </div>
+
+      <div class="nav-actions">
+        <div class="chip" id="btnReload">Reload</div>
+        <div class="chip primary" id="btnLang">中文</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Hero -->
+  <section class="hero">
+    <div class="wrap">
+      <div class="hero-grid">
+        <div>
+          <div class="kicker" data-i18n="kicker">INVESTOR VIEW</div>
+          <h1 data-i18n="heroTitle">Institutional Private Credit Opportunities</h1>
+          <p data-i18n="heroSub">
+            This lab page is built to validate the SharePoint-driven product module: filtering, sorting, bilingual copy, and investor-friendly display.
+          </p>
+
+          <div class="controls">
+            <div class="seg" role="tablist" aria-label="Filter">
+              <button class="active" data-filter="all" data-i18n="segAll">All</button>
+              <button data-filter="first" data-i18n="segFirst">First Mortgage</button>
+              <button data-filter="second" data-i18n="segSecond">Second Mortgage</button>
+              <button data-filter="live" data-i18n="segLive">Live</button>
+              <button data-filter="full" data-i18n="segFull">Fully Subscribed</button>
+            </div>
+
+            <div class="search">
+              <span class="hint" data-i18n="searchLabel">Search</span>
+              <input id="q" type="text" placeholder="e.g. Sydney, Parramatta, Commercial..." />
+            </div>
+          </div>
+        </div>
+
+        <div class="hero-panel">
+          <div class="hero-panel-head">
+            <div class="hero-panel-title" data-i18n="panelTitle">Module Checklist</div>
+            <div class="kicker" style="letter-spacing:.14em;opacity:.85">SP → WEB</div>
+          </div>
+          <div class="hero-panel-body">
+            <div class="mini">
+              <div class="dot"></div>
+              <div>
+                <strong data-i18n="m1t">SharePoint as source of truth</strong>
+                <span data-i18n="m1d">Fields map directly to UI components; no duplicated content in front-end.</span>
+              </div>
+            </div>
+            <div class="mini">
+              <div class="dot"></div>
+              <div>
+                <strong data-i18n="m2t">Investor-friendly disclosure</strong>
+                <span data-i18n="m2d">No borrower-sensitive data; only rank, risk proxy (LVR), term and returns.</span>
+              </div>
+            </div>
+            <div class="mini">
+              <div class="dot"></div>
+              <div>
+                <strong data-i18n="m3t">Bilingual UI</strong>
+                <span data-i18n="m3d">UI labels from dictionary; deal summaries from EN/ZH fields.</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="foot" data-i18n="note">
+        Tip: Replace <code>DATA_URL</code> with your Power Automate JSON endpoint when ready.
+      </div>
+    </div>
+  </section>
+
+  <!-- Main -->
+  <main>
+    <div class="wrap">
+      <div id="grid" class="grid"></div>
+    </div>
+  </main>
+
+  <!-- Modal -->
+  <div id="backdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="modal" role="dialog" aria-modal="true">
+      <div class="modal-head">
+        <div>
+          <h3 id="modalTitle">—</h3>
+          <div id="modalBadges" style="margin-top:10px; display:flex; gap:8px; flex-wrap:wrap;"></div>
+        </div>
+        <div class="x" id="modalClose">×</div>
+      </div>
+      <div class="modal-body">
+        <div class="modal-img"><img id="modalImg" alt=""/></div>
+        <div class="modal-kpis">
+          <div class="modal-kpi"><div class="lbl" data-i18n="kpiReturn">Target Return</div><div class="val" id="mReturn">—</div></div>
+          <div class="modal-kpi"><div class="lbl" data-i18n="kpiTerm">Term</div><div class="val" id="mTerm">—</div></div>
+          <div class="modal-kpi"><div class="lbl" data-i18n="kpiLvr">LVR</div><div class="val" id="mLvr">—</div></div>
+          <div class="modal-kpi"><div class="lbl" data-i18n="kpiFacility">Facility</div><div class="val" id="mFac">—</div></div>
+        </div>
+        <div class="modal-text" id="modalText">—</div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // =========================
+    // CONFIG
+    // =========================
+    // Later: set this to your Power Automate JSON endpoint.
+    // Example: const DATA_URL = "https://.../investorproducts.json";
+    const DATA_URL = ""; // leave empty to use mock data
+
+    // =========================
+    // i18n (UI only) — matches your "overall translation" idea
+    // =========================
+    const i18n = {
+      en: {
+        kicker: "INVESTOR VIEW",
+        heroTitle: "Institutional Private Credit Opportunities",
+        heroSub: "This lab page is built to validate the SharePoint-driven product module: filtering, sorting, bilingual copy, and investor-friendly display.",
+        panelTitle: "Module Checklist",
+        m1t: "SharePoint as source of truth",
+        m1d: "Fields map directly to UI components; no duplicated content in front-end.",
+        m2t: "Investor-friendly disclosure",
+        m2d: "No borrower-sensitive data; only rank, risk proxy (LVR), term and returns.",
+        m3t: "Bilingual UI",
+        m3d: "UI labels from dictionary; deal summaries from EN/ZH fields.",
+        segAll: "All",
+        segFirst: "First Mortgage",
+        segSecond: "Second Mortgage",
+        segLive: "Live",
+        segFull: "Fully Subscribed",
+        searchLabel: "Search",
+        note: "Tip: Replace DATA_URL with your Power Automate JSON endpoint when ready.",
+        kpiReturn: "Target Return",
+        kpiTerm: "Term",
+        kpiLvr: "LVR",
+        kpiFacility: "Facility",
+        ctaLive: "View details",
+        ctaFull: "Fully subscribed",
+        labelLocation: "Location",
+        labelRank: "Rank",
+        labelStatus: "Status",
+        labelMonths: "months"
+      },
+      zh: {
+        kicker: "投资人视图",
+        heroTitle: "机构级私募信贷机会展示",
+        heroSub: "该实验页面用于验证 SharePoint 驱动的产品模块：筛选、排序、中英文切换与投资人友好展示。",
+        panelTitle: "模块检查清单",
+        m1t: "SharePoint 作为唯一数据源",
+        m1d: "字段与页面组件一一对应，前端不重复维护内容。",
+        m2t: "投资人可披露口径",
+        m2d: "不展示借款人敏感信息，仅展示顺位、LVR、期限与回报。",
+        m3t: "全站式中英文切换",
+        m3d: "界面词汇来自字典；项目简介来自 EN/ZH 字段。",
+        segAll: "全部",
+        segFirst: "第一抵押",
+        segSecond: "第二抵押",
+        segLive: "进行中",
+        segFull: "已满额",
+        searchLabel: "搜索",
+        note: "提示：准备对接时，将 DATA_URL 替换为 Power Automate 输出的 JSON 地址。",
+        kpiReturn: "目标回报",
+        kpiTerm: "期限",
+        kpiLvr: "LVR",
+        kpiFacility: "规模",
+        ctaLive: "查看详情",
+        ctaFull: "已满额",
+        labelLocation: "地区",
+        labelRank: "类型",
+        labelStatus: "状态",
+        labelMonths: "个月"
+      }
+    };
+
+    let lang = "en";
+    const $ = (sel) => document.querySelector(sel);
+    const $$ = (sel) => Array.from(document.querySelectorAll(sel));
+
+    function setLang(next){
+      lang = next;
+      // UI text
+      $$("[data-i18n]").forEach(el => {
+        const key = el.getAttribute("data-i18n");
+        if(i18n[lang] && i18n[lang][key]) el.textContent = i18n[lang][key];
+      });
+      // button label
+      $("#btnLang").textContent = (lang === "en") ? "中文" : "EN";
+      // placeholder
+      $("#q").placeholder = (lang === "en")
+        ? "e.g. Sydney, Parramatta, Commercial..."
+        : "例如：Sydney、Parramatta、Commercial...";
+      // rerender
+      render();
+    }
+
+    // =========================
+    // Data: SharePoint-like shape
+    // =========================
+    const mock = [
+      // 8 First
+      {Title:"Sydney Residential First Mortgage I",projectStatus:"LIVE TRANSACTION",mortgageType:"First Mortgage",Location:"Chatswood NSW",termMonths:9,targetReturnPA:9.5,lvr:58,facilityAmount:6000000,projectSummaryEN:"Senior secured first mortgage over a residential asset with conservative leverage.",projectSummaryZH:"以住宅资产作为抵押的第一顺位贷款项目，杠杆率保守。",heroImageUrl:"https://images.unsplash.com/photo-1568605114967-8130f3a36994",isFeatured:"Yes",displayOrder:100},
+      {Title:"Melbourne Commercial First Mortgage",projectStatus:"LIVE TRANSACTION",mortgageType:"First Mortgage",Location:"Southbank VIC",termMonths:12,targetReturnPA:10.0,lvr:60,facilityAmount:8500000,projectSummaryEN:"First-ranking mortgage secured by a prime commercial property.",projectSummaryZH:"以核心商业物业作为抵押的第一抵押贷款项目。",heroImageUrl:"https://images.unsplash.com/photo-1503387762-592deb58ef4e",isFeatured:"No",displayOrder:200},
+      {Title:"Brisbane Residential First Mortgage",projectStatus:"LIVE TRANSACTION",mortgageType:"First Mortgage",Location:"New Farm QLD",termMonths:6,targetReturnPA:9.0,lvr:55,facilityAmount:4200000,projectSummaryEN:"Short-term first mortgage refinance backed by residential collateral.",projectSummaryZH:"以成熟住宅物业为抵押的短期第一抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1570129477492-45c003edd2be",isFeatured:"No",displayOrder:300},
+      {Title:"Sydney Industrial First Mortgage",projectStatus:"LIVE TRANSACTION",mortgageType:"First Mortgage",Location:"Alexandria NSW",termMonths:12,targetReturnPA:10.2,lvr:62,facilityAmount:7200000,projectSummaryEN:"Senior secured loan over a metropolitan industrial warehouse.",projectSummaryZH:"以工业仓储资产为抵押的第一顺位贷款项目。",heroImageUrl:"https://images.unsplash.com/photo-1581092919535-7146f9d7c8a4",isFeatured:"No",displayOrder:400},
+      {Title:"Perth Residential First Mortgage",projectStatus:"FULLY SUBSCRIBED",mortgageType:"First Mortgage",Location:"Subiaco WA",termMonths:9,targetReturnPA:9.3,lvr:57,facilityAmount:3800000,projectSummaryEN:"Fully subscribed first mortgage supported by suburban residential property.",projectSummaryZH:"已满额的住宅类第一抵押贷款项目。",heroImageUrl:"https://images.unsplash.com/photo-1560185127-6ed189bf02f4",isFeatured:"No",displayOrder:500},
+      {Title:"Sydney Mixed-Use First Mortgage",projectStatus:"LIVE TRANSACTION",mortgageType:"First Mortgage",Location:"Burwood NSW",termMonths:12,targetReturnPA:10.5,lvr:63,facilityAmount:9000000,projectSummaryEN:"First mortgage over a mixed-use retail and residential asset.",projectSummaryZH:"以商住混合资产作为抵押的第一抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1484154218962-a197022b5858",isFeatured:"Yes",displayOrder:600},
+      {Title:"Adelaide Development First Mortgage",projectStatus:"LIVE TRANSACTION",mortgageType:"First Mortgage",Location:"Norwood SA",termMonths:9,targetReturnPA:9.8,lvr:59,facilityAmount:5000000,projectSummaryEN:"Senior secured development loan with defined construction milestones.",projectSummaryZH:"具备明确建设节点的开发类第一抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1600585154340-be6161a56a0c",isFeatured:"No",displayOrder:700},
+      {Title:"Canberra Residential First Mortgage",projectStatus:"FULLY SUBSCRIBED",mortgageType:"First Mortgage",Location:"Braddon ACT",termMonths:6,targetReturnPA:9.2,lvr:54,facilityAmount:3100000,projectSummaryEN:"Fully subscribed short-duration first mortgage.",projectSummaryZH:"已满额的短期第一抵押贷款项目。",heroImageUrl:"https://images.unsplash.com/photo-1564013799919-ab600027ffc6",isFeatured:"No",displayOrder:800},
+
+      // 12 Second
+      {Title:"Sydney Second Mortgage Yield I",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Parramatta NSW",termMonths:9,targetReturnPA:13.5,lvr:72,facilityAmount:3000000,projectSummaryEN:"Second-ranking mortgage offering enhanced yield.",projectSummaryZH:"在第一抵押保护下提供增强收益的第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1502672260266-1c1ef2d93688",isFeatured:"Yes",displayOrder:900},
+      {Title:"Melbourne Second Mortgage Mezzanine",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Box Hill VIC",termMonths:12,targetReturnPA:14.0,lvr:75,facilityAmount:4500000,projectSummaryEN:"Subordinated mortgage investment with yield premium.",projectSummaryZH:"具有收益溢价的次级抵押投资项目。",heroImageUrl:"https://images.unsplash.com/photo-1494526585095-c41746248156",isFeatured:"No",displayOrder:1000},
+      {Title:"Brisbane Second Mortgage Income",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Fortitude Valley QLD",termMonths:6,targetReturnPA:13.0,lvr:70,facilityAmount:2800000,projectSummaryEN:"Short-term second mortgage providing enhanced income.",projectSummaryZH:"提供增强收益的短期第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1449844908441-8829872d2607",isFeatured:"No",displayOrder:1100},
+      {Title:"Sydney Commercial Second Mortgage",projectStatus:"FULLY SUBSCRIBED",mortgageType:"Second Mortgage",Location:"Mascot NSW",termMonths:12,targetReturnPA:14.5,lvr:78,facilityAmount:5200000,projectSummaryEN:"Fully subscribed second-ranking exposure to a commercial asset.",projectSummaryZH:"已满额的商业资产第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1486325212027-8081e485255e",isFeatured:"No",displayOrder:1200},
+      {Title:"Perth Second Mortgage Development",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"West Perth WA",termMonths:9,targetReturnPA:15.0,lvr:76,facilityAmount:4000000,projectSummaryEN:"Second mortgage supporting residential development.",projectSummaryZH:"支持住宅开发的高收益第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1501183638710-841dd1904471",isFeatured:"No",displayOrder:1300},
+      {Title:"Sydney Second Mortgage Bridge Loan",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Ryde NSW",termMonths:6,targetReturnPA:13.8,lvr:73,facilityAmount:2600000,projectSummaryEN:"Short-term subordinated bridge loan with defined exit strategy.",projectSummaryZH:"具备明确退出路径的短期第二抵押过桥贷款。",heroImageUrl:"https://images.unsplash.com/photo-1505691938895-1758d7feb511",isFeatured:"No",displayOrder:1400},
+      {Title:"Melbourne Mixed-Use Second Mortgage",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Richmond VIC",termMonths:12,targetReturnPA:14.2,lvr:74,facilityAmount:4800000,projectSummaryEN:"Second-ranking exposure to a mixed-use inner-suburb asset.",projectSummaryZH:"以内城区商住混合资产为基础的第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1497366216548-37526070297c",isFeatured:"No",displayOrder:1500},
+      {Title:"Adelaide Second Mortgage Income",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Glenelg SA",termMonths:9,targetReturnPA:13.6,lvr:71,facilityAmount:2400000,projectSummaryEN:"Income-focused second mortgage backed by coastal residential property.",projectSummaryZH:"以沿海住宅物业为基础的收益型第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1507089947368-19c1da9775ae",isFeatured:"No",displayOrder:1600},
+      {Title:"Sydney CBD Second Mortgage",projectStatus:"FULLY SUBSCRIBED",mortgageType:"Second Mortgage",Location:"Sydney CBD NSW",termMonths:12,targetReturnPA:15.2,lvr:79,facilityAmount:6000000,projectSummaryEN:"Fully subscribed higher-yield second mortgage exposure to a CBD commercial asset.",projectSummaryZH:"已满额的CBD商业资产高收益第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1460472178825-e5240623afd5",isFeatured:"Yes",displayOrder:1700},
+      {Title:"Brisbane Second Mortgage Refinance",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"South Brisbane QLD",termMonths:9,targetReturnPA:14.0,lvr:75,facilityAmount:3500000,projectSummaryEN:"Second mortgage refinancing facility with attractive yield premium.",projectSummaryZH:"具备收益溢价的再融资第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267",isFeatured:"No",displayOrder:1800},
+      {Title:"Sydney Second Mortgage Short-Term",projectStatus:"LIVE TRANSACTION",mortgageType:"Second Mortgage",Location:"Hurstville NSW",termMonths:6,targetReturnPA:13.3,lvr:70,facilityAmount:2200000,projectSummaryEN:"Short-duration second mortgage offering enhanced income.",projectSummaryZH:"期限较短、收益高于第一抵押的第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1502673530728-f79b4cab31b1",isFeatured:"No",displayOrder:1900},
+      {Title:"Canberra Second Mortgage Income",projectStatus:"FULLY SUBSCRIBED",mortgageType:"Second Mortgage",Location:"Kingston ACT",termMonths:9,targetReturnPA:14.1,lvr:73,facilityAmount:3100000,projectSummaryEN:"Fully subscribed second mortgage facility.",projectSummaryZH:"已满额的第二抵押项目。",heroImageUrl:"https://images.unsplash.com/photo-1472220625704-91e1462799b2",isFeatured:"No",displayOrder:2000},
+    ];
+
+    let data = [];
+    let filter = "all";
+
+    function moneyAUD(n){
+      if(n === null || n === undefined || n === "") return "—";
+      const v = Number(n);
+      if(Number.isNaN(v)) return String(n);
+      return "A$" + v.toLocaleString("en-AU", {maximumFractionDigits: 0});
+    }
+    function pct(n){
+      if(n === null || n === undefined || n === "") return "—";
+      const v = Number(n);
+      if(Number.isNaN(v)) return String(n);
+      return v.toFixed(v % 1 === 0 ? 0 : 1) + "%";
+    }
+
+    function normYes(v){
+      const s = String(v || "").toLowerCase();
+      return s === "yes" || s === "true" || s === "1";
+    }
+
+    function applyFilter(items){
+      const q = ($("#q").value || "").trim().toLowerCase();
+      let out = items.slice();
+
+      // filter tab
+      if(filter === "first") out = out.filter(x => (x.mortgageType || "").toLowerCase().includes("first"));
+      if(filter === "second") out = out.filter(x => (x.mortgageType || "").toLowerCase().includes("second"));
+      if(filter === "live") out = out.filter(x => String(x.projectStatus).toUpperCase() === "LIVE TRANSACTION");
+      if(filter === "full") out = out.filter(x => String(x.projectStatus).toUpperCase() === "FULLY SUBSCRIBED");
+
+      // search
+      if(q){
+        out = out.filter(x => {
+          const hay = [
+            x.Title, x.Location, x.mortgageType, x.projectStatus,
+            x.projectSummaryEN, x.projectSummaryZH
+          ].join(" ").toLowerCase();
+          return hay.includes(q);
+        });
+      }
+
+      // featured first, then displayOrder
+      out.sort((a,b) => {
+        const af = normYes(a.isFeatured) ? 0 : 1;
+        const bf = normYes(b.isFeatured) ? 0 : 1;
+        if(af !== bf) return af - bf;
+        return (Number(a.displayOrder)||999999) - (Number(b.displayOrder)||999999);
+      });
+
+      return out;
+    }
+
+    function badgeHTML(item){
+      const st = String(item.projectStatus || "").toUpperCase();
+      const isLive = st === "LIVE TRANSACTION";
+      const rank = (item.mortgageType || "").toLowerCase().includes("first") ? "FIRST" : "SECOND";
+      return `
+        <div class="badges">
+          <span class="badge ${isLive ? "live" : "full"}">${st || "—"}</span>
+          <span class="badge rank">${rank}</span>
+        </div>
+      `;
+    }
+
+    function summaryForLang(item){
+      // your design: deal summary is stored as EN/ZH fields, not from UI dictionary
+      return (lang === "en") ? (item.projectSummaryEN || "") : (item.projectSummaryZH || item["Project Summary (ZH)"] || "");
+    }
+
+    function render(){
+      const grid = $("#grid");
+      const items = applyFilter(data);
+      grid.innerHTML = items.map((it, idx) => {
+        const st = String(it.projectStatus || "").toUpperCase();
+        const isLive = st === "LIVE TRANSACTION";
+        const ctaText = isLive ? i18n[lang].ctaLive : i18n[lang].ctaFull;
+
+        return `
+          <article class="card" data-idx="${idx}" aria-label="Deal card">
+            <div class="media">
+              ${badgeHTML(it)}
+              <img src="${it.heroImageUrl || ""}" alt="">
+            </div>
+
+            <div class="body">
+              <h3 class="title">${it.Title || "—"}</h3>
+
+              <div class="meta">
+                <span class="pill">${i18n[lang].labelLocation}: ${it.Location || "—"}</span>
+                <span class="pill">${i18n[lang].labelRank}: ${it.mortgageType || "—"}</span>
+                <span class="pill">${i18n[lang].labelStatus}: ${it.projectStatus || "—"}</span>
+              </div>
+
+              <div class="kpis">
+                <div class="kpi">
+                  <div class="lbl" data-i18n="kpiReturn">${i18n[lang].kpiReturn}</div>
+                  <div class="val">${pct(it.targetReturnPA)} p.a.</div>
+                </div>
+                <div class="kpi">
+                  <div class="lbl" data-i18n="kpiTerm">${i18n[lang].kpiTerm}</div>
+                  <div class="val">${Number(it.termMonths)||"—"} ${i18n[lang].labelMonths}</div>
+                </div>
+                <div class="kpi">
+                  <div class="lbl" data-i18n="kpiLvr">${i18n[lang].kpiLvr}</div>
+                  <div class="val">${pct(it.lvr)}</div>
+                </div>
+              </div>
+
+              <p class="summary">${summaryForLang(it)}</p>
+            </div>
+
+            <!-- Hover overlay -->
+            <div class="hover-panel">
+              <div>
+                <div class="hover-top">
+                  <div class="hover-title">${it.Title || "—"}</div>
+                  <div class="badge ${isLive ? "live" : "full"}">${st || "—"}</div>
+                </div>
+                <div class="hover-sub">
+                  ${summaryForLang(it)}
+                </div>
+              </div>
+
+              <div class="hover-footer">
+                <div style="font-weight:900; letter-spacing:.02em">
+                  ${moneyAUD(it.facilityAmount)}
+                </div>
+                <span class="cta ${isLive ? "" : "muted"}">${ctaText} →</span>
+              </div>
+            </div>
+          </article>
+        `;
+      }).join("");
+
+      // attach click -> modal
+      $$(".card").forEach((card, i) => {
+        card.addEventListener("click", () => openModal(items[i]));
+      });
+    }
+
+    function openModal(item){
+      $("#modalTitle").textContent = item.Title || "—";
+
+      const st = String(item.projectStatus || "").toUpperCase();
+      const isLive = st === "LIVE TRANSACTION";
+      const rank = (item.mortgageType || "").toLowerCase().includes("first") ? "FIRST" : "SECOND";
+
+      $("#modalBadges").innerHTML = `
+        <span class="badge ${isLive ? "live" : "full"}">${st || "—"}</span>
+        <span class="badge rank">${rank}</span>
+        <span class="badge" style="border-color:rgba(255,255,255,.18);background:rgba(255,255,255,.10)">${item.Location || "—"}</span>
+      `;
+
+      $("#modalImg").src = item.heroImageUrl || "";
+      $("#mReturn").textContent = `${pct(item.targetReturnPA)} p.a.`;
+      $("#mTerm").textContent = `${Number(item.termMonths)||"—"} ${i18n[lang].labelMonths}`;
+      $("#mLvr").textContent = pct(item.lvr);
+      $("#mFac").textContent = moneyAUD(item.facilityAmount);
+      $("#modalText").textContent = summaryForLang(item);
+
+      $("#backdrop").classList.add("show");
+      $("#backdrop").setAttribute("aria-hidden","false");
+    }
+    function closeModal(){
+      $("#backdrop").classList.remove("show");
+      $("#backdrop").setAttribute("aria-hidden","true");
+    }
+
+    // =========================
+    // Load data
+    // =========================
+    async function load(){
+      // If you set DATA_URL, fetch it; else use mock.
+      if(!DATA_URL){
+        data = mock;
+        render();
+        return;
+      }
+      try{
+        const res = await fetch(DATA_URL, {cache:"no-store"});
+        if(!res.ok) throw new Error("HTTP " + res.status);
+        const json = await res.json();
+        // Expect array of items with SharePoint column names.
+        data = Array.isArray(json) ? json : (json.items || json.value || []);
+        if(!Array.isArray(data) || data.length === 0) data = mock;
+        render();
+      }catch(e){
+        console.warn("Fetch failed, using mock:", e);
+        data = mock;
+        render();
+      }
+    }
+
+    // =========================
+    // Events
+    // =========================
+    $$(".seg button").forEach(btn => {
+      btn.addEventListener("click", () => {
+        $$(".seg button").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        filter = btn.dataset.filter;
+        render();
+      });
+    });
+
+    $("#q").addEventListener("input", () => render());
+
+    $("#btnLang").addEventListener("click", () => {
+      setLang(lang === "en" ? "zh" : "en");
+    });
+
+    $("#btnReload").addEventListener("click", () => load());
+
+    $("#modalClose").addEventListener("click", closeModal);
+    $("#backdrop").addEventListener("click", (e) => {
+      if(e.target === $("#backdrop")) closeModal();
+    });
+    document.addEventListener("keydown", (e) => {
+      if(e.key === "Escape") closeModal();
+    });
+
+    // init
+    setLang("en");
+    load();
+  </script>
+</body>
+</html>

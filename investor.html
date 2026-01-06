@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initium Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="icon" href="./Images/Initium.png" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/company-snapshot.css" />
+    <link rel="stylesheet" href="./CSS/investors.css" />
+
+
+
+</head>
+
+
+
+
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+
+        <!-- 左侧：品牌（整体可点击回 Home） -->
+        <div class="nav-left">
+            <a href="./Initium.html" class="brand" aria-label="Go to home">
+                <span class="brand-logo">
+                    <img src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital Logo" />
+                </span>
+            </a>
+        </div>
+
+        <!-- 中间：导航 -->
+        <nav class="nav-mid" aria-label="Primary">
+            <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
+            <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
+            <a href="./Products.html" class="nav-link" data-i18n="nav_products">Products</a>
+            <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
+        </nav>
+
+        <!-- 右侧：语言 + 登录（左右平均） -->
+        <div class="nav-right">
+
+            <div class="nav-right-half nav-login">
+                <a href="./login.html" class="nav-cta" data-i18n="nav_login">Log in</a>
+            </div>
+
+            <div class="nav-right-half lang-selector">
+                <button class="lang-btn" type="button">EN ▾</button>
+                <ul class="lang-dropdown">
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <main class="inv2">
+
+        <!-- ================= HERO (Investor-first) ================= -->
+        <section class="inv2-hero">
+            <div class="inv2-container inv2-hero-grid">
+
+                <div class="inv2-hero-left">
+                    <div class="inv2-pill">
+                        <span class="dot"></span>
+                        <span data-i18n="inv2_pill">Investor Access • Private Credit • Real Assets</span>
+                    </div>
+
+                    <h1 class="inv2-h1">
+                        <span data-i18n="inv2_h1_pre" style="color: white;">Earn</span>
+                        <span class="accent" data-i18n="inv2_h1_accent" style="color: white;">stable income</span><br />
+                        <span data-i18n="inv2_h1_mid" style="color: white;">backed by</span>
+                        <span class="ink" data-i18n="inv2_h1_ink" style="color: white;">real assets</span>
+                    </h1>
+
+                    <p class="inv2-lead" data-i18n="inv2_lead" style="color: white;">
+                        Initium Capital structures senior-secured private credit opportunities
+                        with disciplined underwriting, clear exits, and capital preservation at the core.
+                    </p>
+
+                    <div class="inv2-cta-row">
+                        <a class="btn btn-primary" href="#" data-i18n="inv2_btn_pack">Request Investor Pack</a>
+                        <a class="btn btn-ghost" href="#" data-i18n="inv2_btn_overview">View Strategy Overview</a>
+                    </div>
+
+                    <div class="inv2-qualifier">
+                        <span class="badge" data-i18n="inv2_badge_qualified" style="color: white;">Wholesale / Sophisticated Investors</span>
+                        <span class="mini" data-i18n="inv2_disclaimer_short" style="color: white;">Information only • Not financial
+                            advice</span>
+                    </div>
+                </div>
+
+                <div class="inv2-hero-right">
+                    <div class="inv2-glass-card">
+                        <div class="inv2-glass-head">
+                            <span class="chip" data-i18n="inv2_chip_lens">Portfolio Lens</span>
+                            <span class="chip chip-soft" data-i18n="inv2_chip_senior">Senior Secured</span>
+                            <span class="chip chip-gold" data-i18n="inv2_chip_income">Income</span>
+                        </div>
+
+                        <div class="inv2-kpi-grid">
+                            <div class="kpi">
+                                <div class="kpi-label" data-i18n="inv2_kpi_1_label">Target Net Return</div>
+                                <div class="kpi-value accent">10–16% p.a.</div>
+                            </div>
+                            <div class="kpi">
+                                <div class="kpi-label" data-i18n="inv2_kpi_2_label">Typical Tenor</div>
+                                <div class="kpi-value">3–24 months</div>
+                            </div>
+                            <div class="kpi">
+                                <div class="kpi-label" data-i18n="inv2_kpi_3_label">Security</div>
+                                <div class="kpi-value" data-i18n="inv2_kpi_3_value">1st Mortgage</div>
+                            </div>
+                            <div class="kpi">
+                                <div class="kpi-label" data-i18n="inv2_kpi_4_label">Downside Focus</div>
+                                <div class="kpi-value" data-i18n="inv2_kpi_4_value">Conservative LVRs</div>
+                            </div>
+                        </div>
+
+                        <div class="inv2-chart">
+                            <div class="chart-title" data-i18n="inv2_chart_title">Income Profile (Illustrative)</div>
+                            <div class="chart-bars">
+                                <span></span><span></span><span></span><span></span><span></span><span></span>
+                            </div>
+                            <div class="chart-note" data-i18n="inv2_chart_note">
+                                Illustrative only • Past performance is not indicative of future results.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- ticker -->
+            <div class="inv2-ticker">
+
+                <div class="ticker-wrap">
+                    <div class="ticker-track">
+                        <span data-i18n="inv2_ticker_1">Senior-secured structures</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_2">Clear exit pathways</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_3">Independent valuations</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_4">Active monitoring</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_5">Asset-backed protection</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_6">Short duration focus</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_1">Senior-secured structures</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_2">Clear exit pathways</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_3">Independent valuations</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_4">Active monitoring</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_5">Asset-backed protection</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_6">Short duration focus</span>
+                    </div>
+
+                    <div class="ticker-track">
+                        <span data-i18n="inv2_ticker_1">Senior-secured structures</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_2">Clear exit pathways</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_3">Independent valuations</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_4">Active monitoring</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_5">Asset-backed protection</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_6">Short duration focus</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_1">Senior-secured structures</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_2">Clear exit pathways</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_3">Independent valuations</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_4">Active monitoring</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_5">Asset-backed protection</span>
+                        <span>•</span>
+                        <span data-i18n="inv2_ticker_6">Short duration focus</span>
+                    </div>
+
+                </div>
+
+
+            </div>
+        </section>
+
+        <!-- ================= TRUST STRIP ================= -->
+        <section class="inv2-trust">
+            <div class="inv2-container inv2-trust-grid">
+                <div class="trust-card">
+                    <div class="trust-title" data-i18n="inv2_trust_1_t">Underwriting Discipline</div>
+                    <div class="trust-desc" data-i18n="inv2_trust_1_p">Diligence-led assessment with conservative
+                        structuring.</div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-title" data-i18n="inv2_trust_2_t">Security & Documentation</div>
+                    <div class="trust-desc" data-i18n="inv2_trust_2_p">Senior ranking, robust legal protections and
+                        covenants.</div>
+                </div>
+                <div class="trust-card">
+                    <div class="trust-title" data-i18n="inv2_trust_3_t">Monitoring & Exits</div>
+                    <div class="trust-desc" data-i18n="inv2_trust_3_p">Active oversight with defined repayment pathways.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EDGE ================= -->
+        <section class="inv2-edge">
+            <div class="inv2-container inv2-edge-grid">
+                <div>
+                    <h2 class="inv2-h2" data-i18n="inv2_edge_title">Why investors choose private credit</h2>
+                    <p class="inv2-sub" data-i18n="inv2_edge_sub">
+                        Designed for income resilience and structural protection, especially when public markets are
+                        volatile.
+                    </p>
+                </div>
+
+                <div class="edge-cards">
+                    <div class="edge-card">
+                        <div class="edge-top">
+                            <span class="icon">↗</span>
+                            <span class="edge-tag" data-i18n="inv2_edge_tag_1">Income</span>
+                        </div>
+                        <h3 data-i18n="inv2_edge_1_t">Consistent yield profile</h3>
+                        <p data-i18n="inv2_edge_1_p">Cashflow-oriented structure with defined terms and repayment
+                            sources.</p>
+                    </div>
+
+                    <div class="edge-card">
+                        <div class="edge-top">
+                            <span class="icon">🛡</span>
+                            <span class="edge-tag" data-i18n="inv2_edge_tag_2">Protection</span>
+                        </div>
+                        <h3 data-i18n="inv2_edge_2_t">Senior-secured downside focus</h3>
+                        <p data-i18n="inv2_edge_2_p">Priority ranking + asset-backed security designed to protect
+                            capital.</p>
+                    </div>
+
+                    <div class="edge-card">
+                        <div class="edge-top">
+                            <span class="icon">⏱</span>
+                            <span class="edge-tag" data-i18n="inv2_edge_tag_3">Duration</span>
+                        </div>
+                        <h3 data-i18n="inv2_edge_3_t">Shorter duration flexibility</h3>
+                        <p data-i18n="inv2_edge_3_p">Shorter tenors reduce rate sensitivity and improve portfolio
+                            agility.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= STRATEGY ================= -->
+        <section class="inv2-strategy">
+            <div class="inv2-container">
+                <div class="inv2-head">
+                    <h2 class="inv2-h2" data-i18n="inv2_strategy_title">Strategy set</h2>
+                    <p class="inv2-sub" data-i18n="inv2_strategy_sub">Simple, readable, investor-style positioning — not
+                        marketing copy.</p>
+                </div>
+
+                <div class="strategy-grid">
+                    <article class="strategy-card">
+                        <div class="strategy-badge" data-i18n="inv2_strategy_badge_1">Core</div>
+                        <h3 data-i18n="inv2_strategy_1_t">Senior Secured Property Lending</h3>
+                        <ul>
+                            <li data-i18n="inv2_strategy_1_li1">1st mortgage security</li>
+                            <li data-i18n="inv2_strategy_1_li2">Conservative leverage with valuation discipline</li>
+                            <li data-i18n="inv2_strategy_1_li3">Defined exit plans and monitoring cadence</li>
+                        </ul>
+                        <a class="text-link" href="#" data-i18n="inv2_strategy_1_link">See risk controls →</a>
+                    </article>
+
+                    <article class="strategy-card">
+                        <div class="strategy-badge badge-amber" data-i18n="inv2_strategy_badge_2">Opportunistic</div>
+                        <h3 data-i18n="inv2_strategy_2_t">Bridging & Special Situations</h3>
+                        <ul>
+                            <li data-i18n="inv2_strategy_2_li1">Time-sensitive opportunities with clear catalysts</li>
+                            <li data-i18n="inv2_strategy_2_li2">Enhanced premium aligned to structure</li>
+                            <li data-i18n="inv2_strategy_2_li3">Strict documentation and fallback exits</li>
+                        </ul>
+                        <a class="text-link" href="#" data-i18n="inv2_strategy_2_link">View illustrative examples →</a>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= PROCESS ================= -->
+        <section class="inv2-process">
+            <div class="inv2-container">
+                <div class="inv2-head">
+                    <h2 class="inv2-h2" data-i18n="inv2_process_title">Risk framework</h2>
+                    <p class="inv2-sub" data-i18n="inv2_process_sub">What investors care about: the repeatable process.
+                    </p>
+                </div>
+
+                <div class="process-steps">
+                    <div class="step">
+                        <div class="step-no">01</div>
+                        <div class="step-body">
+                            <div class="step-title" data-i18n="inv2_step_1_t">Origination & Screening</div>
+                            <div class="step-desc" data-i18n="inv2_step_1_p">Initial filtering based on structure, asset
+                                quality, and exit credibility.</div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-no">02</div>
+                        <div class="step-body">
+                            <div class="step-title" data-i18n="inv2_step_2_t">Valuation & Legal Diligence</div>
+                            <div class="step-desc" data-i18n="inv2_step_2_p">Independent valuation, title checks, and
+                                enforceable security documentation.</div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-no">03</div>
+                        <div class="step-body">
+                            <div class="step-title" data-i18n="inv2_step_3_t">Structuring & Covenants</div>
+                            <div class="step-desc" data-i18n="inv2_step_3_p">LVR discipline, covenants, and
+                                investor-aligned protections.</div>
+                        </div>
+                    </div>
+
+                    <div class="step">
+                        <div class="step-no">04</div>
+                        <div class="step-body">
+                            <div class="step-title" data-i18n="inv2_step_4_t">Monitoring & Exit</div>
+                            <div class="step-desc" data-i18n="inv2_step_4_p">Active oversight, milestones tracking, and
+                                predefined exit pathways.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= FINAL CTA ================= -->
+        <section class="inv2-final">
+            <div class="inv2-container inv2-final-card">
+                <div>
+                    <h2 class="inv2-h2" data-i18n="inv2_final_title">Get the Investor Pack</h2>
+                    <p class="inv2-sub" data-i18n="inv2_final_sub" style="color: black;">
+                        Receive strategy summary, risk framework, and illustrative deal snapshots.
+                    </p>
+
+                    <div class="inv2-final-actions">
+                        <a class="btn btn-primary" href="#" data-i18n="inv2_final_btn_1">Request Pack</a>
+                        <a class="btn btn-ghost" href="#" data-i18n="inv2_final_btn_2">Book a Call</a>
+                    </div>
+                </div>
+
+                <div class="inv2-mini-form">
+                    <div class="mini-title" data-i18n="inv2_form_title">Quick request</div>
+
+                    <input class="mini-input" data-i18n-placeholder="inv2_form_name_ph" placeholder="Full name" />
+                    <input class="mini-input" data-i18n-placeholder="inv2_form_email_ph" placeholder="Email" />
+
+                    <button class="btn btn-primary btn-full" type="button" data-i18n="inv2_form_submit">Send</button>
+                    <div class="mini-foot" data-i18n="inv2_form_note">We’ll respond within 1 business day.</div>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+
+
+
+
+    <!-- 页脚 -->
+    <footer class="footer-investor" aria-label="Investor footer">
+        <!-- Top action strip -->
+        <section class="fi-top">
+            <div class="fi-container fi-top-inner">
+                <div class="fi-top-copy">
+                    <div class="fi-eyebrow" data-i18n="footer_top_eyebrow">FOR INVESTORS</div>
+                    <h3 class="fi-title" data-i18n="footer_top_title">Institutional-grade, asset-backed opportunities.
+                    </h3>
+                    <p class="fi-sub" data-i18n="footer_top_sub">
+                        Private credit strategies supported by disciplined underwriting, clear security structure,
+                        and risk controls.
+                    </p>
+                </div>
+
+                <div class="fi-top-actions">
+                    <a class="fi-btn fi-btn-primary" href="./Investors.html" data-i18n="footer_btn_request">Request
+                        Information</a>
+                    <a class="fi-btn fi-btn-ghost" href="./login.html" data-i18n="footer_btn_login">Investor Login</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main grid -->
+        <section class="fi-main">
+            <div class="fi-container fi-grid">
+                <!-- Brand -->
+                <div class="fi-brand">
+                    <img class="fi-logo" src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital">
+                    <p class="fi-brand-line" data-i18n="footer_brand_line">
+                        Australian investment manager focused on private credit and real asset strategies.
+                    </p>
+
+                    <div class="fi-badges" aria-label="Key attributes">
+                        <span class="fi-badge">Asset-backed</span>
+                        <span class="fi-badge">Short duration</span>
+                        <span class="fi-badge">Risk disciplined</span>
+                    </div>
+                </div>
+
+                <!-- Strategies -->
+                <nav class="fi-col" aria-label="Investment strategies">
+                    <div class="fi-col-title" data-i18n="footer_col_strategies">Strategies</div>
+                    <a class="fi-link" href="./Products.html#private-credit"
+                        data-i18n="footer_link_private_credit">Private Credit</a>
+                    <a class="fi-link" href="./Products.html#commercial-property"
+                        data-i18n="footer_link_commercial">Commercial Property</a>
+                    <a class="fi-link" href="./Products.html#development-finance"
+                        data-i18n="footer_link_development">Development Finance</a>
+                    <a class="fi-link" href="./Portfolio.html" data-i18n="footer_link_portfolio">Portfolio Overview</a>
+                </nav>
+
+                <!-- Investor resources -->
+                <nav class="fi-col" aria-label="Investor resources">
+                    <div class="fi-col-title" data-i18n="footer_col_resources">Investor Resources</div>
+                    <a class="fi-link" href="./Investors.html#how-it-works" data-i18n="how_it_works">How it works</a>
+                    <a class="fi-link" href="./Investors.html#documents" data-i18n="documents">Fund Documents</a>
+                    <a class="fi-link" href="./Investors.html#distributions" data-i18n="distributions">Distributions</a>
+                    <a class="fi-link" href="./ContactUs.html" data-i18n="contact">Speak with the team</a>
+                </nav>
+
+                <!-- Contact -->
+                <div class="fi-col" aria-label="Contact details">
+                    <div class="fi-col-title" data-i18n="footer_col_contact">Contact</div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_city_1">Sydney</div>
+                        <div class="fi-meta-text">Level 1, 3/599 Pacific Highway<br />St Leonards NSW 2065</div>
+                    </div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_city_2">Melbourne</div>
+                        <div class="fi-meta-text">Level 50, 120 Collins Street<br />Melbourne VIC 3000</div>
+                    </div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_phone">Phone</div>
+                        <a class="fi-link" href="tel:+611300140486">1300 140 486</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal mini disclaimer -->
+        <section class="fi-legal-mini">
+            <div class="fi-container">
+                <div class="legal-mini">
+                    <p class="legal-mini__text" data-i18n="legal_mini">
+                        General information only. Not financial advice. Please read our Disclaimer and Privacy Policy.
+                    </p>
+
+                    <div class="legal-mini__links">
+                        <a href="./Disclaimer.html" data-i18n="legal_disclaimer_link">Disclaimer</a>
+                        <span class="legal-mini__sep">•</span>
+                        <a href="./Privacy.html" data-i18n="legal_privacy_link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal -->
+        <section class="fi-legal">
+            <div class="fi-container fi-legal-inner">
+                <div class="fi-legal-left">© 2025 Initium Capital. All rights reserved.</div>
+                <div class="fi-legal-right">
+                    <a class="fi-legal-link" href="./terms.html" data-i18n="footer_legal_terms">Website Terms</a>
+                    <span class="fi-dot">·</span>
+                    <a class="fi-legal-link" href="./privacy.html" data-i18n="footer_legal_privacy">Privacy</a>
+                    <span class="fi-dot">·</span>
+                    <a class="fi-legal-link" href="./disclaimer.html" data-i18n="footer_legal_disclaimer">Disclaimer</a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+
+    <script src="./JS/carousel.js"></script>
+    <script src="./JS/i18n.js"></script>
+    <script src="./JS/sa-carousel.js"></script>
+    <script src="./JS/company-snapshot.js"></script>
+
+
+
+
+</body>
+
+
+
+
+
+
+
+
+
+
+
+</html>

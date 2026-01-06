@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initium Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="icon" href="./Images/Initium.png" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/company-snapshot.css" />
+    <link rel="stylesheet" href="./CSS/contact-us.css" />
+
+</head>
+
+
+
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+
+        <!-- 左侧：品牌（整体可点击回 Home） -->
+        <div class="nav-left">
+            <a href="./Initium.html" class="brand" aria-label="Go to home">
+                <span class="brand-logo">
+                    <img src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital Logo" />
+                </span>
+            </a>
+        </div>
+
+        <!-- 中间：导航 -->
+        <nav class="nav-mid" aria-label="Primary">
+            <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
+            <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
+            <a href="./Products.html" class="nav-link" data-i18n="nav_products">Products</a>
+            <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
+        </nav>
+
+        <!-- 右侧：语言 + 登录（左右平均） -->
+        <div class="nav-right">
+
+            <div class="nav-right-half nav-login">
+                <a href="./login.html" class="nav-cta" data-i18n="nav_login">Log in</a>
+            </div>
+
+            <div class="nav-right-half lang-selector">
+                <button class="lang-btn" type="button">EN ▾</button>
+                <ul class="lang-dropdown">
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+    <main class="contact-main">
+
+        <!-- HERO -->
+        <section class="contact-hero">
+            <div class="contact-hero__inner">
+                <p class="contact-kicker" data-i18n="cu_kicker">CONTACT</p>
+                <h1 class="contact-title" data-i18n="cu_title">Get in touch with Initium Capital</h1>
+                <p class="contact-sub" data-i18n="cu_sub">
+                    Reach out for investor enquiries, partnership opportunities, or general questions.
+                </p>
+            </div>
+        </section>
+
+        <!-- CONTENT -->
+        <section class="contact-wrap">
+            <div class="contact-container">
+
+                <!-- LEFT: INFO -->
+                <aside class="contact-card contact-card--info">
+                    <h2 class="contact-card__title" data-i18n="cu_info_title">Contact details</h2>
+                    <p class="contact-card__desc" data-i18n="cu_info_desc">
+                        We aim to respond within 1–2 business days.
+                    </p>
+
+                    <div class="contact-list">
+                        <div class="contact-item">
+                            <div class="contact-item__icon" aria-hidden="true">📍</div>
+                            <div class="contact-item__body">
+                                <div class="contact-item__label" data-i18n="cu_addr_label">Office</div>
+                                <div class="contact-item__value" data-i18n="cu_addr_value">
+                                    Sydney, NSW, Australia
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon" aria-hidden="true">✉️</div>
+                            <div class="contact-item__body">
+                                <div class="contact-item__label" data-i18n="cu_email_label">Email</div>
+                                <a class="contact-item__value contact-link" href="mailto:info@initiumcapital.com.au"
+                                    data-i18n="cu_email_value">
+                                    info@initiumcapital.com.au
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon" aria-hidden="true">📞</div>
+                            <div class="contact-item__body">
+                                <div class="contact-item__label" data-i18n="cu_phone_label">Phone</div>
+                                <a class="contact-item__value contact-link" href="tel:+61200000000"
+                                    data-i18n="cu_phone_value">
+                                    +61 2 8372 2404
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="contact-item">
+                            <div class="contact-item__icon" aria-hidden="true">🕒</div>
+                            <div class="contact-item__body">
+                                <div class="contact-item__label" data-i18n="cu_hours_label">Hours</div>
+                                <div class="contact-item__value" data-i18n="cu_hours_value">
+                                    Mon–Fri, 9:00am – 5:00pm (AEST/AEDT)
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="contact-divider"></div>
+
+                    <div class="contact-mini">
+                        <h3 class="contact-mini__title" data-i18n="cu_investor_title">Investor enquiries</h3>
+                        <p class="contact-mini__text" data-i18n="cu_investor_text">
+                            Please include your expected investment amount and time horizon so we can route your
+                            message.
+                        </p>
+                    </div>
+                </aside>
+
+                <!-- RIGHT: FORM -->
+                <section class="contact-card contact-card--form">
+                    <h2 class="contact-card__title" data-i18n="cu_form_title">Send a message</h2>
+                    <p class="contact-card__desc" data-i18n="cu_form_desc">
+                        Use the form below and we’ll get back to you as soon as possible.
+                    </p>
+
+                    <!-- 仅做前端展示：action="#"；你后续可接 EmailJS / 后端 -->
+                    <form class="contact-form" id="contactForm" action="#" method="post" novalidate>
+                        <div class="contact-grid">
+                            <div class="field">
+                                <label class="field__label" for="cuName" data-i18n="cu_name">Full name</label>
+                                <input class="field__input" id="cuName" name="name" type="text"
+                                    placeholder="e.g., Alex Chen" data-i18n-ph="cu_name_ph" />
+                            </div>
+
+                            <div class="field">
+                                <label class="field__label" for="cuEmail" data-i18n="cu_email">Email</label>
+                                <input class="field__input" id="cuEmail" name="email" type="email"
+                                    placeholder="e.g., alex@email.com" data-i18n-ph="cu_email_ph" />
+                            </div>
+
+                            <div class="field contact-grid__full">
+                                <label class="field__label" for="cuSubject" data-i18n="cu_subject">Subject</label>
+                                <input class="field__input" id="cuSubject" name="subject" type="text"
+                                    placeholder="Investor enquiry / Partnership / General"
+                                    data-i18n-ph="cu_subject_ph" />
+                            </div>
+
+                            <div class="field contact-grid__full">
+                                <label class="field__label" for="cuMessage" data-i18n="cu_message">Message</label>
+                                <textarea class="field__textarea" id="cuMessage" name="message" rows="7"
+                                    placeholder="Tell us what you need and any helpful context…"
+                                    data-i18n-ph="cu_message_ph"></textarea>
+                            </div>
+                        </div>
+
+                        <label class="contact-consent"
+                            style="display:flex; gap:10px; align-items:flex-start; margin:10px 0;">
+                            <input type="checkbox" id="cuConsent" name="consent" style="margin-top:3px;">
+                            <span>
+                                By submitting, you agree that your information may be used to respond to your enquiry.
+                                <a href="./Privacy.html" target="_blank" rel="noopener" style="color: white;">Privacy Policy</a>
+                            </span>
+                        </label>
+
+
+                        <div class="contact-actions">
+                            <button class="contact-btn" type="submit" id="cuSubmit" data-i18n="cu_submit">
+                                Submit
+                            </button>
+                            <p class="contact-note" id="cuNote" data-i18n="cu_note">
+                                By submitting, you agree that your information may be used to respond to your enquiry.
+                            </p>
+                        </div>
+
+                        <!-- 前端成功提示（可选） -->
+                        <div class="contact-toast" id="cuToast" role="status" aria-live="polite" hidden>
+                            <span data-i18n="cu_toast">Thanks — your message has been prepared for submission.</span>
+                        </div>
+                    </form>
+                </section>
+
+            </div>
+        </section>
+
+        <!-- COMPLIANCE -->
+        <section class="contact-footnote">
+            <div class="contact-footnote__inner">
+                <p class="contact-footnote__text" data-i18n="cu_disclaimer">
+                    Disclaimer: The information on this website is general in nature and does not constitute financial
+                    advice.
+                    Any investment involves risk. Please consider your objectives and seek professional advice where
+                    appropriate.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+    <!-- 页脚 -->
+    <footer class="footer-investor" aria-label="Investor footer">
+        <!-- Top action strip -->
+        <section class="fi-top">
+            <div class="fi-container fi-top-inner">
+                <div class="fi-top-copy">
+                    <div class="fi-eyebrow" data-i18n="footer_top_eyebrow">FOR INVESTORS</div>
+                    <h3 class="fi-title" data-i18n="footer_top_title">Institutional-grade, asset-backed opportunities.
+                    </h3>
+                    <p class="fi-sub" data-i18n="footer_top_sub">
+                        Private credit strategies supported by disciplined underwriting, clear security structure,
+                        and risk controls.
+                    </p>
+                </div>
+
+                <div class="fi-top-actions">
+                    <a class="fi-btn fi-btn-primary" href="./Investors.html" data-i18n="footer_btn_request">Request
+                        Information</a>
+                    <a class="fi-btn fi-btn-ghost" href="./login.html" data-i18n="footer_btn_login">Investor Login</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Main grid -->
+        <section class="fi-main">
+            <div class="fi-container fi-grid">
+                <!-- Brand -->
+                <div class="fi-brand">
+                    <img class="fi-logo" src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital">
+                    <p class="fi-brand-line" data-i18n="footer_brand_line">
+                        Australian investment manager focused on private credit and real asset strategies.
+                    </p>
+
+                    <div class="fi-badges" aria-label="Key attributes">
+                        <span class="fi-badge">Asset-backed</span>
+                        <span class="fi-badge">Short duration</span>
+                        <span class="fi-badge">Risk disciplined</span>
+                    </div>
+                </div>
+
+                <!-- Strategies -->
+                <nav class="fi-col" aria-label="Investment strategies">
+                    <div class="fi-col-title" data-i18n="footer_col_strategies">Strategies</div>
+                    <a class="fi-link" href="./Products.html#private-credit"
+                        data-i18n="footer_link_private_credit">Private Credit</a>
+                    <a class="fi-link" href="./Products.html#commercial-property"
+                        data-i18n="footer_link_commercial">Commercial Property</a>
+                    <a class="fi-link" href="./Products.html#development-finance"
+                        data-i18n="footer_link_development">Development Finance</a>
+                    <a class="fi-link" href="./Portfolio.html" data-i18n="footer_link_portfolio">Portfolio Overview</a>
+                </nav>
+
+                <!-- Investor resources -->
+                <nav class="fi-col" aria-label="Investor resources">
+                    <div class="fi-col-title" data-i18n="footer_col_resources">Investor Resources</div>
+                    <a class="fi-link" href="./Investors.html#how-it-works" data-i18n="how_it_works">How it works</a>
+                    <a class="fi-link" href="./Investors.html#documents" data-i18n="documents">Fund Documents</a>
+                    <a class="fi-link" href="./Investors.html#distributions" data-i18n="distributions">Distributions</a>
+                    <a class="fi-link" href="./ContactUs.html" data-i18n="contact">Speak with the team</a>
+                </nav>
+
+                <!-- Contact -->
+                <div class="fi-col" aria-label="Contact details">
+                    <div class="fi-col-title" data-i18n="footer_col_contact">Contact</div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_city_1">Sydney</div>
+                        <div class="fi-meta-text">Level 1, 3/599 Pacific Highway<br />St Leonards NSW 2065</div>
+                    </div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_city_2">Melbourne</div>
+                        <div class="fi-meta-text">Level 50, 120 Collins Street<br />Melbourne VIC 3000</div>
+                    </div>
+
+                    <div class="fi-meta">
+                        <div class="fi-meta-title" data-i18n="contact_phone">Phone</div>
+                        <a class="fi-link" href="tel:+611300140486">1300 140 486</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+
+        <!-- Legal mini disclaimer -->
+        <section class="fi-legal-mini">
+            <div class="fi-container">
+                <div class="legal-mini">
+                    <p class="legal-mini__text" data-i18n="legal_mini">
+                        General information only. Not financial advice. Please read our Disclaimer and Privacy Policy.
+                    </p>
+
+                    <div class="legal-mini__links">
+                        <a href="./Disclaimer.html" data-i18n="legal_disclaimer_link">Disclaimer</a>
+                        <span class="legal-mini__sep">•</span>
+                        <a href="./Privacy.html" data-i18n="legal_privacy_link">Privacy Policy</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Legal -->
+        <section class="fi-legal">
+            <div class="fi-container fi-legal-inner">
+                <div class="fi-legal-left">© 2025 Initium Capital. All rights reserved.</div>
+                <div class="fi-legal-right">
+                    <a class="fi-legal-link" href="./terms.html" data-i18n="footer_legal_terms">Website Terms</a>
+                    <span class="fi-dot">·</span>
+                    <a class="fi-legal-link" href="./privacy.html" data-i18n="footer_legal_privacy">Privacy</a>
+                    <span class="fi-dot">·</span>
+                    <a class="fi-legal-link" href="./disclaimer.html" data-i18n="footer_legal_disclaimer">Disclaimer</a>
+                </div>
+            </div>
+        </section>
+    </footer>
+
+
+    <script src="./JS/carousel.js"></script>
+    <script src="./JS/i18n.js"></script>
+    <script src="./JS/sa-carousel.js"></script>
+    <script src="./JS/company-snapshot.js"></script>
+    <script src="./JS/contact-us.js"></script>
+
+</body>
+
+
+
+
+</html>

@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title data-i18n="disclaimer_title_tag">Disclaimer | Initium Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="./CSS/style.css" />
+</head>
+
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+
+        <!-- 左侧：品牌（整体可点击回 Home） -->
+        <div class="nav-left">
+            <a href="./Initium.html" class="brand" aria-label="Go to home">
+                <span class="brand-logo">
+                    <img src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital Logo" />
+                </span>
+            </a>
+        </div>
+
+        <!-- 中间：导航 -->
+        <nav class="nav-mid" aria-label="Primary">
+            <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
+            <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
+            <a href="./Products.html" class="nav-link" data-i18n="nav_products">Products</a>
+            <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
+        </nav>
+
+        <!-- 右侧：语言 + 登录（左右平均） -->
+        <div class="nav-right">
+
+            <div class="nav-right-half nav-login">
+                <a href="./login.html" class="nav-cta" data-i18n="nav_login">Log in</a>
+            </div>
+
+            <div class="nav-right-half lang-selector">
+                <button class="lang-btn" type="button">EN ▾</button>
+                <ul class="lang-dropdown">
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </header>
+
+    <main class="legal-page">
+        <section class="legal-hero">
+            <div class="legal-container">
+                <p class="legal-kicker" data-i18n="legal_kicker">LEGAL</p>
+                <h1 class="legal-title" data-i18n="disclaimer_h1">Disclaimer</h1>
+                <p class="legal-sub" data-i18n="disclaimer_sub">
+                    Important information about the content on this website.
+                </p>
+            </div>
+        </section>
+
+        <section class="legal-body">
+            <div class="legal-container legal-prose">
+
+                <h2 data-i18n="disclaimer_h2_1">General information only</h2>
+                <p data-i18n="disclaimer_p_1">
+                    The information on this website is provided for general information purposes only and does not
+                    constitute financial product advice, legal advice, tax advice, or an offer or solicitation to
+                    invest.
+                </p>
+
+                <h2 data-i18n="disclaimer_h2_2">No reliance</h2>
+                <p data-i18n="disclaimer_p_2">
+                    You should not rely on the information on this website to make investment decisions. You should
+                    obtain independent professional advice and consider your personal objectives, financial situation,
+                    and needs.
+                </p>
+
+                <h2 data-i18n="disclaimer_h2_3">Forward-looking statements</h2>
+                <p data-i18n="disclaimer_p_3">
+                    Any forward-looking statements are subject to risks and uncertainties. Actual outcomes may differ
+                    materially from those expressed or implied.
+                </p>
+
+                <h2 data-i18n="disclaimer_h2_4">Performance and risk</h2>
+                <p data-i18n="disclaimer_p_4">
+                    Past performance is not a reliable indicator of future performance. Investments carry risk,
+                    including possible loss of capital.
+                </p>
+
+                <h2 data-i18n="disclaimer_h2_5">Third-party links</h2>
+                <p data-i18n="disclaimer_p_5">
+                    This website may contain links to third-party sites. We do not control and are not responsible for
+                    the content, accuracy, or security of those websites.
+                </p>
+
+                <h2 data-i18n="disclaimer_h2_6">Contact</h2>
+                <p data-i18n="disclaimer_p_6">
+                    If you have questions about this Disclaimer, please contact us via the Contact Us page.
+                </p>
+
+                <p class="legal-updated" data-i18n="legal_updated">
+                    Last updated: 2026-01-05
+                </p>
+            </div>
+        </section>
+    </main>
+
+    <!-- ✅ 你的 Footer 复用 -->
+
+    <script src="./JS/i18n.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,170 @@
+:root{
+  --dark-bg: #0e1b23;
+  --panel-bg: #ffffff;
+  --accent: #0fade6;
+  --text-dark: #1b1f23;
+  --text-light: #6b7280;
+}
+
+*{
+  box-sizing: border-box;
+  font-family: "Montserrat", system-ui, sans-serif;
+}
+
+html, body{
+  margin: 0;
+  height: 100%;
+}
+
+/* Page Layout */
+.login-page{
+  display: flex;
+  height: 100vh;
+}
+
+/* Left Brand */
+.login-brand{
+  flex: 1;
+  background: linear-gradient(135deg, #0b1f2a, #0e3447);
+  color: #fff;
+  padding: 64px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.login-brand img{
+  max-width: 180px;
+  margin-bottom: 32px;
+}
+
+
+
+.login-brand h1{
+  font-size: 36px;
+  margin: 0 0 16px;
+}
+
+.login-brand p{
+  font-size: 16px;
+  line-height: 1.6;
+  opacity: 0.9;
+  max-width: 420px;
+}
+
+/* Right Panel */
+.login-panel{
+  flex: 1;
+  background: #f6f8fa;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Card */
+.login-card{
+  width: 100%;
+  max-width: 420px;
+  background: var(--panel-bg);
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 20px 40px rgba(0,0,0,0.08);
+}
+
+.login-card h2{
+  margin: 0;
+  font-size: 24px;
+}
+
+.login-card .sub{
+  margin: 8px 0 24px;
+  color: var(--text-light);
+  font-size: 14px;
+}
+
+/* Form */
+label{
+  display: block;
+  font-size: 13px;
+  margin-bottom: 6px;
+  color: var(--text-dark);
+}
+
+input{
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: 6px;
+  border: 1px solid #d1d5db;
+  margin-bottom: 18px;
+  font-size: 14px;
+}
+
+input:focus{
+  outline: none;
+  border-color: var(--accent);
+}
+
+/* Row */
+.login-row{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 13px;
+  margin-bottom: 24px;
+}
+
+.login-row a{
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.remember{
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+
+/* Button */
+button{
+  width: 100%;
+  padding: 14px;
+  background: var(--accent);
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+button:hover{
+  opacity: 0.9;
+}
+
+/* Responsive */
+@media(max-width: 900px){
+  .login-page{
+    flex-direction: column;
+  }
+
+  .login-brand{
+    padding: 40px;
+    align-items: center;
+    text-align: center;
+  }
+}
+
+.login-brand{
+  flex: 1;
+  background: linear-gradient(135deg, #0b1f2a, #0e3447);
+  color: #fff;
+
+  /* ✅ 关键三行 */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;   /* 垂直居中 */
+  align-items: center;       /* 水平居中 */
+
+  padding: 64px;
+  text-align: center;        /* 文本居中（不是关键，但需要） */
+}

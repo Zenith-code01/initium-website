@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Initium Capital</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+
+    <link rel="icon" href="./Images/Initium.png" />
+    <link rel="stylesheet" href="./CSS/style.css" />
+    <link rel="stylesheet" href="./CSS/company-snapshot.css" />
+    <link rel="stylesheet" href="./CSS/products.css" />
+
+    <link rel="stylesheet" href="./CSS/production-x.css" />
+
+
+
+
+</head>
+
+
+
+
+<body>
+
+    <!-- 导航栏 -->
+    <header class="navbar">
+
+        <!-- 左侧：品牌（整体可点击回 Home） -->
+        <div class="nav-left">
+            <a href="./Initium.html" class="brand" aria-label="Go to home">
+                <span class="brand-logo">
+                    <img src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital Logo" />
+                </span>
+            </a>
+        </div>
+
+        <!-- 中间：导航 -->
+        <nav class="nav-mid" aria-label="Primary">
+            <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
+            <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
+            <a href="./Products.html" class="nav-link" data-i18n="nav_products">Products</a>
+            <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
+        </nav>
+
+        <!-- 右侧：语言 + 登录（左右平均） -->
+        <div class="nav-right">
+
+            <div class="nav-right-half nav-login">
+                <a href="./login.html" class="nav-cta" data-i18n="nav_login">Log in</a>
+            </div>
+
+            <div class="nav-right-half lang-selector">
+                <button class="lang-btn" type="button">EN ▾</button>
+                <ul class="lang-dropdown">
+                    <li data-lang="en">English</li>
+                    <li data-lang="zh">中文</li>
+                </ul>
+            </div>
+
+
+        </div>
+
+    </header>
+
+
+
+    <main class="products">
+
+
+
+        <!-- ================= HERO ================= -->
+        <section class="prd-hero">
+            <div class="prd-container prd-hero-grid">
+                <div class="prd-hero-copy">
+                    <p class="prd-kicker" data-i18n="prd_kicker">PRODUCTS</p>
+                    <h1 class="prd-title" data-i18n="prd_title">
+                        Private Credit Strategies Backed by Real Assets
+                    </h1>
+                    <p class="prd-sub" data-i18n="prd_sub">
+                        Short-duration, asset-secured investments targeting stable income and capital preservation
+                        across Australia.
+                    </p>
+
+                    <div class="prd-badges" aria-label="Key product attributes">
+                        <span class="prd-badge" data-i18n="prd_badge_1">Senior Secured</span>
+                        <span class="prd-badge" data-i18n="prd_badge_2">Real Asset Backed</span>
+                        <span class="prd-badge" data-i18n="prd_badge_3">Short Duration</span>
+                        <span class="prd-badge" data-i18n="prd_badge_4">Australia Focus</span>
+                    </div>
+
+                    <div class="prd-hero-cta">
+                        <a class="btn btn-primary" href="./ContactUs.html" data-i18n="prd_cta_primary">Request
+                            Information</a>
+                        <a class="btn btn-ghost" href="#prdProducts" data-i18n="prd_cta_secondary">Explore
+                            Strategies</a>
+                    </div>
+
+                    <p class="prd-disclaimer" data-i18n="prd_disclaimer">
+                        This page is for general information only and does not constitute financial product advice.
+                    </p>
+                </div>
+
+                <div class="prd-hero-panel" aria-label="Products highlight panel">
+                    <div class="prd-hero-metric">
+                        <div class="prd-metric-num" data-i18n="prd_metric_1_num">3–24</div>
+                        <div class="prd-metric-lbl" data-i18n="prd_metric_1_lbl">Month typical tenor</div>
+                    </div>
+                    <div class="prd-hero-metric">
+                        <div class="prd-metric-num" data-i18n="prd_metric_2_num">≤80%</div>
+                        <div class="prd-metric-lbl" data-i18n="prd_metric_2_lbl">Disciplined LVR focus</div>
+                    </div>
+                    <div class="prd-hero-metric">
+                        <div class="prd-metric-num" data-i18n="prd_metric_3_num">Senior</div>
+                        <div class="prd-metric-lbl" data-i18n="prd_metric_3_lbl">Security-first approach</div>
+                    </div>
+
+                    <div class="prd-hero-note" data-i18n="prd_hero_note">
+                        We prioritise downside protection through conservative structuring, robust due diligence, and
+                        active monitoring.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= CORE PRODUCTS ================= -->
+        <section class="prd-core" id="prdProducts">
+            <div class="prd-container">
+                <header class="prd-section-head">
+                    <p class="prd-kicker" data-i18n="prd_core_kicker">Product</p>
+                    <h2 class="prd-h2" data-i18n="prd_core_title">First Mortgage Products</h2>
+                    <p class="prd-lead" data-i18n="prd_core_sub">
+                        Clear mandates, asset-backed security, and disciplined underwriting—designed for income-focused
+                        investors.
+                    </p>
+                </header>
+
+                <div class="prd-grid prd-grid-3">
+
+                    <!-- Card 1 -->
+                    <article class="prd-card">
+                        <div class="prd-card-top">
+                            <h3 class="prd-h3" data-i18n="prd_p1_title" style="color: #ffffff;">Point Piper, Sydney NSW
+                            </h3>
+
+                        </div>
+
+                        <ul class="prd-spec">
+                            <li><span data-i18n="prd_p1_s1_k">Target return</span><b data-i18n="prd_p1_s1_v">10%
+                                    p.a.*</b></li>
+                            <li><span data-i18n="prd_p1_s2_k">Security</span><b data-i18n="prd_p1_s2_v">First
+                                    Mortgage</b></li>
+                            <li><span data-i18n="prd_p1_s3_k">LVR focus</span><b data-i18n="prd_p1_s3_v">65%</b></li>
+                            <li><span data-i18n="prd_p1_s4_k">Tenor</span><b data-i18n="prd_p1_s4_v">12 months</b>
+                            </li>
+                            <li><span data-i18n="prd_p1_s5_k">Distribution</span><b data-i18n="prd_p1_s5_v">Monthly</b>
+                            </li>
+                        </ul>
+
+                        <p class="prd-card-copy" data-i18n="prd_p1_copy">
+                            Refinance of First Mortgage from Other Private Lender for the asset in Point Piper, Sydney
+                            NSW Investor Return - 10% p.a
+                        </p>
+
+                        <div class="prd-card-actions">
+                            <a class="link" href="./ContactUs.html" data-i18n="prd_p_more">Request details</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 2 -->
+                    <article class="prd-card">
+                        <div class="prd-card-top">
+                            <h3 class="prd-h3" data-i18n="prd_p2_title" style="color: #ffffff;">East Lindfield, NSW</h3>
+
+                        </div>
+
+                        <ul class="prd-spec">
+                            <li><span data-i18n="prd_p2_s1_k">Target return</span><b data-i18n="prd_p2_s1_v">10%
+                                    p.a.*</b></li>
+                            <li><span data-i18n="prd_p2_s2_k">Security</span><b data-i18n="prd_p2_s2_v">1st
+                                    Mortgage</b></li>
+                            <li><span data-i18n="prd_p2_s3_k">LVR focus</span><b data-i18n="prd_p2_s3_v">80%</b></li>
+                            <li><span data-i18n="prd_p2_s4_k">Tenor</span><b data-i18n="prd_p2_s4_v">6 months</b>
+                            </li>
+                            <li><span data-i18n="prd_p2_s5_k">Distribution</span><b data-i18n="prd_p2_s5_v">Monthly</b>
+                            </li>
+                        </ul>
+
+                        <p class="prd-card-copy" data-i18n="prd_p2_copy">
+                            First mortgage facility to refinance the existing facility.
+                        </p>
+
+                        <div class="prd-card-actions">
+                            <a class="link" href="./ContactUs.html" data-i18n="prd_p_more">Request details</a>
+                        </div>
+                    </article>
+
+                    <!-- Card 3 -->
+                    <article class="prd-card">
+                        <div class="prd-card-top">
+                            <h3 class="prd-h3" data-i18n="prd_p3_title" style="color: #ffffff;">Bardwell Park Sydney,
+                                NSW</h3>
+
+                        </div>
+
+                        <ul class="prd-spec">
+                            <li><span data-i18n="prd_p3_s1_k">Target return</span><b data-i18n="prd_p3_s1_v">10%
+                                    p.a.*</b></li>
+                            <li><span data-i18n="prd_p3_s2_k">Security</span><b data-i18n="prd_p3_s2_v">1st
+                                    Mortgage</b>
+                            </li>
+                            <li><span data-i18n="prd_p3_s3_k">LVR focus</span><b data-i18n="prd_p3_s3_v">82.5%</b>
+                            </li>
+                            <li><span data-i18n="prd_p3_s4_k">Tenor</span><b data-i18n="prd_p3_s4_v">7 Months</b></li>
+                            <li><span data-i18n="prd_p3_s5_k">Distribution</span><b data-i18n="prd_p3_s5_v">Refinance
+                                    and
+                                    equity release of a double-brick 6-bed, 4-bath home in Bardwell Park, NSW, set on
+                                    771sqm
+                                    with pool, golf course views, and convenient access to the CBD.
+                                    exposures</b></li>
+                        </ul>
+
+                        <p class="prd-card-copy" data-i18n="prd_p3_copy">
+                            Tailored private credit opportunities for investors seeking specific exposures and bespoke
+                            risk-return profiles.
+                        </p>
+
+                        <div class="prd-card-actions">
+                            <a class="link" href="./ContactUs.html" data-i18n="prd_p_more">Request details</a>
+                        </div>
+                    </article>
+
+                </div>
+
+                <p class="prd-footnote" data-i18n="prd_return_note">
+                    *Target returns are indicative only and not guaranteed. Past performance is not a reliable indicator
+                    of future performance.
+                </p>
+            </div>
+        </section>
+
+
+
+
+
+
+        <section class="prodx" id="production">
+            <div class="prodx-container">
+                <header class="prodx-head">
+                    <div>
+                        <p class="prodx-kicker" data-i18n="prod_kicker">PRODUCTION</p>
+                        <h2 class="prodx-title" data-i18n="prod_title">Transactions</h2>
+                        <p class="prodx-sub" data-i18n="prod_sub">
+                            Filter by mortgage type and project status. Sort to compare opportunities quickly.
+                        </p>
+                    </div>
+
+                    <div class="prodx-controls">
+                        <div class="prodx-control">
+                            <label for="prodMortgageType" data-i18n="prod_filter_mortgage">Mortgage Type</label>
+                            <select id="prodMortgageType">
+                                <option value="" data-i18n="prod_all">All</option>
+                                <option value="First Mortgage">First Mortgage</option>
+                                <option value="Second Mortgage">Second Mortgage</option>
+                            </select>
+                        </div>
+
+                        <div class="prodx-control">
+                            <label for="prodProjectStatus" data-i18n="prod_filter_status">Project Status</label>
+                            <select id="prodProjectStatus">
+                                <option value="" data-i18n="prod_all">All</option>
+                                <option value="Live Transaction">Live Transaction</option>
+                                <option value="Fully Subscribed">Fully Subscribed</option>
+                            </select>
+                        </div>
+
+                        <div class="prodx-control">
+                            <label for="prodSortBy" data-i18n="prod_sort">Sort</label>
+                            <select id="prodSortBy">
+                                <option value="LastUpdated" data-i18n="prod_sort_updated">Last Updated</option>
+                                <option value="TargetReturn" data-i18n="prod_sort_return">Target Return</option>
+                                <option value="FacilityAmount" data-i18n="prod_sort_facility">Facility Amount</option>
+                                <option value="LVR" data-i18n="prod_sort_lvr">LVR</option>
+                                <option value="Term" data-i18n="prod_sort_term">Term</option>
+                            </select>
+                        </div>
+
+                        <div class="prodx-control">
+                            <label for="prodSortDir" data-i18n="prod_sort_dir">Direction</label>
+                            <select id="prodSortDir">
+                                <option value="desc" data-i18n="prod_desc">Desc</option>
+                                <option value="asc" data-i18n="prod_asc">Asc</option>
+                            </select>
+                        </div>
+
+                        <button class="prodx-btn" id="prodRefresh" type="button" data-i18n="prod_refresh">
+                            Refresh
+                        </button>
+                    </div>
+                </header>
+
+                <div class="prodx-meta">
+                    <div class="prodx-chip" id="prodCount">0 items</div>
+                    <div class="prodx-note" id="prodState" aria-live="polite"></div>
+                </div>
+
+                <div class="prodx-grid" id="prodGrid"></div>
+            </div>
+        </section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        <!-- ================= WHY THESE PRODUCTS ================= -->
+        <section class="prd-why">
+            <div class="prd-container">
+                <header class="prd-section-head">
+                    <p class="prd-kicker" data-i18n="prd_why_kicker">INVESTMENT PHILOSOPHY</p>
+                    <h2 class="prd-h2" data-i18n="prd_why_title">Built for downside protection</h2>
+                    <p class="prd-lead" data-i18n="prd_why_sub">
+                        We focus on structure, collateral quality, and exit planning—before considering yield.
+                    </p>
+                </header>
+
+                <div class="prd-grid prd-grid-3">
+                    <article class="prd-mini">
+                        <h3 class="prd-h4" data-i18n="prd_why_1_title">Asset-backed security</h3>
+                        <p data-i18n="prd_why_1_copy">Every strategy is anchored by tangible collateral and enforceable
+                            security.</p>
+                    </article>
+
+                    <article class="prd-mini">
+                        <h3 class="prd-h4" data-i18n="prd_why_2_title">Short-duration focus</h3>
+                        <p data-i18n="prd_why_2_copy">Shorter tenors can reduce macro cycle exposure and improve
+                            liquidity planning.</p>
+                    </article>
+
+                    <article class="prd-mini">
+                        <h3 class="prd-h4" data-i18n="prd_why_3_title">Disciplined underwriting</h3>
+                        <p data-i18n="prd_why_3_copy">Conservative LVR, third-party valuations, and stress-tested exit
+                            scenarios.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- ================= RISK & PROTECTION ================= -->
+        <section class="prd-risk">
+            <div class="prd-container prd-risk-grid">
+                <div>
+                    <p class="prd-kicker" data-i18n="prd_risk_kicker">RISK & PROTECTION</p>
+                    <h2 class="prd-h2" data-i18n="prd_risk_title">Risk controls embedded in the structure</h2>
+                    <p class="prd-lead" data-i18n="prd_risk_sub">
+                        Our process is designed to identify downside early and protect capital through rigorous
+                        controls.
+                    </p>
+                </div>
+
+                <ul class="prd-check">
+                    <li data-i18n="prd_r1">Conservative LVR thresholds and borrower equity alignment</li>
+                    <li data-i18n="prd_r2">Independent valuations and legal due diligence</li>
+                    <li data-i18n="prd_r3">Seniority and security documentation tailored to the asset</li>
+                    <li data-i18n="prd_r4">Active monitoring, reporting, and exit planning</li>
+                    <li data-i18n="prd_r5">Structured covenants where appropriate</li>
+                </ul>
+            </div>
+        </section>
+
+
+
+
+
+        <!-- ================= CTA ================= -->
+        <section class="prd-cta">
+            <div class="prd-container prd-cta-box">
+                <div>
+                    <h2 class="prd-h2" data-i18n="prd_cta_title">Receive the investment overview</h2>
+                    <p class="prd-lead" data-i18n="prd_cta_sub">
+                        Connect with our team to request product information and discuss suitability.
+                    </p>
+                </div>
+
+                <div class="prd-cta-actions">
+                    <a class="btn btn-primary" href="./ContactUs.html" data-i18n="prd_cta_btn_1">Contact Us</a>
+                    <a class="btn btn-ghost" href="./AboutUs.html" data-i18n="prd_cta_btn_2">Learn about Initium</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+
+
+
+</body>
+
+
+
+<!-- 页脚 -->
+<footer class="footer-investor" aria-label="Investor footer">
+    <!-- Top action strip -->
+    <section class="fi-top">
+        <div class="fi-container fi-top-inner">
+            <div class="fi-top-copy">
+                <div class="fi-eyebrow" data-i18n="footer_top_eyebrow">FOR INVESTORS</div>
+                <h3 class="fi-title" data-i18n="footer_top_title">Institutional-grade, asset-backed opportunities.
+                </h3>
+                <p class="fi-sub" data-i18n="footer_top_sub">
+                    Private credit strategies supported by disciplined underwriting, clear security structure,
+                    and risk controls.
+                </p>
+            </div>
+
+            <div class="fi-top-actions">
+                <a class="fi-btn fi-btn-primary" href="./Investors.html" data-i18n="footer_btn_request">Request
+                    Information</a>
+                <a class="fi-btn fi-btn-ghost" href="./login.html" data-i18n="footer_btn_login">Investor Login</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main grid -->
+    <section class="fi-main">
+        <div class="fi-container fi-grid">
+            <!-- Brand -->
+            <div class="fi-brand">
+                <img class="fi-logo" src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital">
+                <p class="fi-brand-line" data-i18n="footer_brand_line">
+                    Australian investment manager focused on private credit and real asset strategies.
+                </p>
+
+                <div class="fi-badges" aria-label="Key attributes">
+                    <span class="fi-badge">Asset-backed</span>
+                    <span class="fi-badge">Short duration</span>
+                    <span class="fi-badge">Risk disciplined</span>
+                </div>
+            </div>
+
+            <!-- Strategies -->
+            <nav class="fi-col" aria-label="Investment strategies">
+                <div class="fi-col-title" data-i18n="footer_col_strategies">Strategies</div>
+                <a class="fi-link" href="./Products.html#private-credit" data-i18n="footer_link_private_credit">Private
+                    Credit</a>
+                <a class="fi-link" href="./Products.html#commercial-property"
+                    data-i18n="footer_link_commercial">Commercial Property</a>
+                <a class="fi-link" href="./Products.html#development-finance"
+                    data-i18n="footer_link_development">Development Finance</a>
+                <a class="fi-link" href="./Portfolio.html" data-i18n="footer_link_portfolio">Portfolio Overview</a>
+            </nav>
+
+            <!-- Investor resources -->
+            <nav class="fi-col" aria-label="Investor resources">
+                <div class="fi-col-title" data-i18n="footer_col_resources">Investor Resources</div>
+                <a class="fi-link" href="./Investors.html#how-it-works" data-i18n="how_it_works">How it works</a>
+                <a class="fi-link" href="./Investors.html#documents" data-i18n="documents">Fund Documents</a>
+                <a class="fi-link" href="./Investors.html#distributions" data-i18n="distributions">Distributions</a>
+                <a class="fi-link" href="./ContactUs.html" data-i18n="contact">Speak with the team</a>
+            </nav>
+
+            <!-- Contact -->
+            <div class="fi-col" aria-label="Contact details">
+                <div class="fi-col-title" data-i18n="footer_col_contact">Contact</div>
+
+                <div class="fi-meta">
+                    <div class="fi-meta-title" data-i18n="contact_city_1">Sydney</div>
+                    <div class="fi-meta-text">Level 1, 3/599 Pacific Highway<br />St Leonards NSW 2065</div>
+                </div>
+
+                <div class="fi-meta">
+                    <div class="fi-meta-title" data-i18n="contact_city_2">Melbourne</div>
+                    <div class="fi-meta-text">Level 50, 120 Collins Street<br />Melbourne VIC 3000</div>
+                </div>
+
+                <div class="fi-meta">
+                    <div class="fi-meta-title" data-i18n="contact_phone">Phone</div>
+                    <a class="fi-link" href="tel:+611300140486">1300 140 486</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Legal mini disclaimer -->
+    <section class="fi-legal-mini">
+        <div class="fi-container">
+            <div class="legal-mini">
+                <p class="legal-mini__text" data-i18n="legal_mini">
+                    General information only. Not financial advice. Please read our Disclaimer and Privacy Policy.
+                </p>
+
+                <div class="legal-mini__links">
+                    <a href="./Disclaimer.html" data-i18n="legal_disclaimer_link">Disclaimer</a>
+                    <span class="legal-mini__sep">•</span>
+                    <a href="./Privacy.html" data-i18n="legal_privacy_link">Privacy Policy</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Legal -->
+    <section class="fi-legal">
+        <div class="fi-container fi-legal-inner">
+            <div class="fi-legal-left">© 2025 Initium Capital. All rights reserved.</div>
+            <div class="fi-legal-right">
+                <a class="fi-legal-link" href="./terms.html" data-i18n="footer_legal_terms">Website Terms</a>
+                <span class="fi-dot">·</span>
+                <a class="fi-legal-link" href="./privacy.html" data-i18n="footer_legal_privacy">Privacy</a>
+                <span class="fi-dot">·</span>
+                <a class="fi-legal-link" href="./disclaimer.html" data-i18n="footer_legal_disclaimer">Disclaimer</a>
+            </div>
+        </div>
+    </section>
+
+
+</footer>
+
+
+<script src="./JS/carousel.js"></script>
+<script src="./JS/i18n.js"></script>
+<script src="./JS/sa-carousel.js"></script>
+<script src="./JS/company-snapshot.js"></script>
+
+<script src="./JS/production-x.js"></script>
+
+
+
+</html>

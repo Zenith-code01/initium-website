@@ -41,7 +41,7 @@
         <!-- 中间：导航 -->
         <nav class="nav-mid" aria-label="Primary">
             <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
-            <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
+            <a href="./investor.html" class="nav-link is-active" data-i18n="nav_investors">Investors</a>
             <a href="./Products.html" class="nav-link" data-i18n="nav_products">Products</a>
             <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
         </nav>
@@ -73,8 +73,9 @@
 
                 <div class="inv2-hero-left">
                     <div class="inv2-pill">
-                        <span class="dot"></span>
-                        <span data-i18n="inv2_pill">Investor Access • Private Credit • Real Assets</span>
+
+                        <span data-i18n="inv2_pill" style="color: white;">Investor Access • Private Credit • Real
+                            Assets</span>
                     </div>
 
                     <h1 class="inv2-h1">
@@ -89,16 +90,14 @@
                         with disciplined underwriting, clear exits, and capital preservation at the core.
                     </p>
 
-                    <div class="inv2-cta-row">
-                        <a class="btn btn-primary" href="#" data-i18n="inv2_btn_pack">Request Investor Pack</a>
-                        <a class="btn btn-ghost" href="#" data-i18n="inv2_btn_overview">View Strategy Overview</a>
+                    <div class="inv2-actions">
+                        <div class="inv2-cta-row">
+                            <a class="btn btn-primary" href="#" data-i18n="inv2_btn_pack">Request Investor Pack</a>
+                            <a class="btn btn-ghost" href="#" data-i18n="inv2_btn_overview">View Strategy Overview</a>
+                        </div>
+
                     </div>
 
-                    <div class="inv2-qualifier">
-                        <span class="badge" data-i18n="inv2_badge_qualified" style="color: white;">Wholesale / Sophisticated Investors</span>
-                        <span class="mini" data-i18n="inv2_disclaimer_short" style="color: white;">Information only • Not financial
-                            advice</span>
-                    </div>
                 </div>
 
                 <div class="inv2-hero-right">
@@ -111,8 +110,8 @@
 
                         <div class="inv2-kpi-grid">
                             <div class="kpi">
-                                <div class="kpi-label" data-i18n="inv2_kpi_1_label">Target Net Return</div>
-                                <div class="kpi-value accent">10–16% p.a.</div>
+                                <div class="kpi-label" data-i18n="inv2_kpi_1_label"">Target Net Return</div>
+                                <div class=" kpi-value accent">10–16% p.a.</div>
                             </div>
                             <div class="kpi">
                                 <div class="kpi-label" data-i18n="inv2_kpi_2_label">Typical Tenor</div>
@@ -374,6 +373,7 @@
 
                     <input class="mini-input" data-i18n-placeholder="inv2_form_name_ph" placeholder="Full name" />
                     <input class="mini-input" data-i18n-placeholder="inv2_form_email_ph" placeholder="Email" />
+                    <input class="mini-input" data-i18n-placeholder="inv2_form_phone_ph" placeholder="Phone" />
 
                     <button class="btn btn-primary btn-full" type="button" data-i18n="inv2_form_submit">Send</button>
                     <div class="mini-foot" data-i18n="inv2_form_note">We’ll respond within 1 business day.</div>

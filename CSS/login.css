@@ -38,8 +38,6 @@ html, body{
   margin-bottom: 32px;
 }
 
-
-
 .login-brand h1{
   font-size: 36px;
   margin: 0 0 16px;
@@ -152,19 +150,4 @@ button:hover{
     align-items: center;
     text-align: center;
   }
-}
-
-.login-brand{
-  flex: 1;
-  background: linear-gradient(135deg, #0b1f2a, #0e3447);
-  color: #fff;
-
-  /* ✅ 关键三行 */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;   /* 垂直居中 */
-  align-items: center;       /* 水平居中 */
-
-  padding: 64px;
-  text-align: center;        /* 文本居中（不是关键，但需要） */
 }

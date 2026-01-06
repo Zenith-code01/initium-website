@@ -3,7 +3,6 @@ body {
   width: 100%;
   max-width: 100%;
   overflow-x: hidden;
-  
 
   height: 100%;
   margin: 0;
@@ -18,7 +17,6 @@ body {
     "Noto Sans CJK SC",
     Arial,
     sans-serif;
-
 }
 
 /* 整体竖向布局 */
@@ -50,10 +48,7 @@ body {
 
   /* 白色线条/分隔 */
   --line-on-dark: rgba(255, 255, 255, 0.10);
-
-
 }
-
 
 .navbar {
   position: sticky;
@@ -70,7 +65,6 @@ body {
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.18);
 }
 
-
 /* 关键：导航文字/按钮不换行 */
 .navbar a,
 .navbar button,
@@ -78,11 +72,6 @@ body {
 .nav-links {
   white-space: nowrap;
 }
-
-
-
-
-
 
 /* 左 / 中 / 右 三段保持你的颜色，但更精致 */
 .nav-left {
@@ -115,7 +104,6 @@ body {
   padding: 0;
   position: relative;
 }
-
 
 /* 右侧两块：语言 + login 平分 */
 .nav-right-half {
@@ -181,9 +169,6 @@ body {
   background: rgba(0, 51, 69, 0.06);
 }
 
-
-
-
 /* 分割线：让三段更“金融 UI” */
 .nav-left::after,
 .nav-mid::after {
@@ -198,18 +183,6 @@ body {
   bottom: 12px;
   /* 下留白 */
 }
-
-
-
-@media (max-width: 768px) {
-  .nav-left::after,
-  .nav-mid::after {
-    content: none !important;
-    display: none !important;
-  }
-}
-
-
 
 /* 中间淡淡的网格光感（不影响主体） */
 .nav-mid::before {
@@ -258,10 +231,6 @@ body {
   display: block;
 }
 
-
-
-
-
 /* ====== Links ====== */
 .nav-link {
   position: relative;
@@ -299,7 +268,6 @@ body {
   transform: scaleX(1);
 }
 
-
 /* ✅ 当前页面：保持显示 */
 .nav-link.is-active::after {
   transform: scaleX(1);
@@ -311,6 +279,15 @@ body {
   font-weight: 700;
 }
 
+/* ✅ active 的 hover 也保持同样状态（防止抖动/变回去） */
+.nav-link.is-active:hover {
+  color: #ECE3D5;
+  transform: none;
+}
+
+.nav-link.is-active:hover::after {
+  transform: scaleX(1);
+}
 
 /* ====== CTA Button ====== */
 .nav-cta {
@@ -339,8 +316,6 @@ body {
   background: rgba(255, 255, 255, 0.95);
 }
 
-
-
 /* 小屏：自动紧凑（不影响轮播和主体） */
 @media (max-width: 860px) {
   .navbar {
@@ -364,7 +339,6 @@ body {
 main {
   margin-top: 0;
 }
-
 
 /* ================= CAROUSEL FULL WIDTH (RAM STYLE) ================= */
 .carousel-wrapper {
@@ -498,21 +472,6 @@ main {
   transform: scale(1.15);
 }
 
-/* ✅ 斜分割线（更像 RAM） */
-/* .carousel::after {
-  content: "";
-  position: absolute;
-  top: -20%;
-  left: 58%;
-  width: 2px;
-  height: 140%;
-  background: rgba(255, 255, 255, 0.35);
-  transform: skewX(-18deg);
-  transform-origin: top;
-  z-index: 6;
-  opacity: 0.55;
-} */
-
 /* 小屏：不做斜切，改为全屏背景 + 文字面板 */
 @media (max-width: 900px) {
   .hero-left-bg {
@@ -533,32 +492,6 @@ main {
     display: none;
   }
 }
-
-/* ===== 圆点 & 进度条（保留你原来的） ===== */
-
-
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, .9);
-  background: rgba(255, 255, 255, .35);
-  cursor: pointer;
-  padding: 0;
-}
-
-.carousel-dot.is-active {
-  background: rgba(255, 255, 255, .95);
-}
-
-
-.carousel-progress-bar {
-  height: 2px;
-  width: 0;
-  background: white;
-  transition: width linear;
-}
-
 
 /* ===== 圆点 & 进度条：保持你原来的不动 ===== */
 .carousel-dots {
@@ -599,6 +532,7 @@ main {
   transition: width linear;
 }
 
+/* =================t=============================================== */
 
 /* ================= FIVE STATS BAR (COMPACT VERSION) ================= */
 
@@ -640,7 +574,6 @@ main {
   color: #003345;
   opacity: 0.9;
 }
-
 
 /* ================= STATS BAR TRANSITIONS ================= */
 
@@ -687,26 +620,20 @@ main {
 }
 
 /* ================= FIVE STATS BAR — Mobile Redesign ================= */
-.stat-number{
+.stat-number {
   /* 关键：不要让 10–16% / 5M–50M / 3–24 被拆开 */
   white-space: nowrap;
   word-break: keep-all;
   hyphens: none;
 }
 
-
-
-/* 建议：用真正的 en-dash，视觉更专业（可选）
-   你 HTML 里如果是 "-"，最好改成 "–"
-*/
-
-@media (max-width: 768px){
-  .stats-bar{
+@media (max-width: 768px) {
+  .stats-bar {
     padding: 16px 0;
   }
 
   /* 70% 在手机太窄，直接拉满并加左右 padding */
-  .stats-inner{
+  .stats-inner {
     width: min(94%, 560px);
     padding: 0 12px;
 
@@ -718,7 +645,7 @@ main {
     align-items: stretch;
   }
 
-  .stat-item{
+  .stat-item {
     /* ✅ KPI 卡片化 */
     background: rgba(255,255,255,0.82);
     border: 1px solid rgba(0, 51, 69, 0.12);
@@ -728,7 +655,7 @@ main {
     text-align: center;
   }
 
-  .stat-number{
+  .stat-number {
     /* clamp：小屏自动收缩但保持大数字的气势 */
     font-size: clamp(26px, 7vw, 34px);
     font-weight: 800;
@@ -736,7 +663,7 @@ main {
     letter-spacing: 0.2px;
   }
 
-  .stat-label{
+  .stat-label {
     margin-top: 6px;
     font-size: 12px;
     line-height: 1.25;
@@ -744,23 +671,10 @@ main {
   }
 
   /* ✅ 第5个让它独占一行（Monthly 那个） */
-  .stats-inner .stat-item:nth-child(5){
+  .stats-inner .stat-item:nth-child(5) {
     grid-column: 1 / -1;
   }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ================= Private Credit Fund Main Section ================= */
 
@@ -1064,8 +978,6 @@ main {
   }
 }
 
-
-
 /* ===============================
    Initium Divider (Dark → Light)
    =============================== */
@@ -1114,14 +1026,6 @@ main {
   opacity: 0.7;
 }
 
-
-
-
-
-
-
-
-
 /* ================= SINGLE ASSET CAROUSEL (NEW) ================= */
 .sa-carousel {
   width: 100%;
@@ -1139,8 +1043,6 @@ main {
   gap: 22px;
   /* 箭头和 rail 的间距 */
 }
-
-/* 保持你原来的 76% rail，不需要改 */
 
 /* ===== 外侧箭头按钮 ===== */
 /* ===== 机构级：细线环形箭头 ===== */
@@ -1307,14 +1209,6 @@ main {
     width: 100%;
   }
 }
-
-
-
-
-
-
-
-
 
 /* ================= Footer ================= */
 /* ================= Investor-only Footer (Initium) ================= */
@@ -1557,10 +1451,6 @@ main {
   }
 }
 
-
-
-
-
 /* =========================
    Legal Mini (Footer)
    ========================= */
@@ -1603,8 +1493,6 @@ main {
 .legal-mini__sep {
   opacity: 0.55;
 }
-
-
 
 /* =========================
    Legal Pages (Privacy / Disclaimer)
@@ -1675,12 +1563,6 @@ main {
   opacity: 0.75;
 }
 
-
-
-
-
-
-
 /* =========================
    Navbar Global Scale (Mobile)
    ========================= */
@@ -1746,13 +1628,6 @@ main {
   padding: 0 6px;
 }
 
-
-
-
-
-
-
-
 /* Mobile: remove the fixed vertical divider line in the navbar */
 @media (max-width: 768px) {
   .navbar::before,
@@ -1771,12 +1646,6 @@ main {
     display: none !important;
   }
 }
-
-
-
-
-
-
 
 /* 手机端导航可滑提示 */
 @media (max-width: 768px) {
@@ -1802,27 +1671,9 @@ main {
   }
 }
 
-
-
-
-
-
-
-
-
-
 html, body {
   transform: none !important;
   filter: none !important;
   perspective: none !important;
   will-change: auto !important;
 }
-
-
-
-
-
-
-
-
-

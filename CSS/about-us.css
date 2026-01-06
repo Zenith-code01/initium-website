@@ -89,7 +89,6 @@
   letter-spacing: -0.2px;
 
   /* EN line breaking improvement */
-  text-wrap: balance;
   max-width: 26ch;
 }
 
@@ -712,7 +711,7 @@
   font-weight: 900;
   color: #003345;
   max-width: 28ch;
-  text-wrap: balance;
+  word-break: normal;
 }
 
 .au-next-sub {

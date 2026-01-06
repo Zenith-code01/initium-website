@@ -80,19 +80,6 @@
   backdrop-filter: blur(10px);
 }
 
-.contact-card__title{
-  margin: 0 0 8px;
-  font-size: 18px;
-  font-weight: 700;
-}
-
-.contact-card__desc{
-  margin: 0 0 16px;
-  font-size: 13px;
-  opacity: 0.86;
-  line-height: 1.6;
-}
-
 /* INFO LIST */
 .contact-list{
   display: grid;
@@ -149,11 +136,6 @@
   background: rgba(255,255,255,0.08);
 }
 
-.contact-mini__title{
-  margin: 0 0 6px;
-  font-size: 14px;
-  font-weight: 700;
-}
 .contact-mini__text{
   margin: 0;
   font-size: 13px;
@@ -168,8 +150,8 @@
 
 .contact-grid{
   display:grid;
-  grid-template-columns: 1fr 1fr;
   gap: 12px;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
 }
 
 .contact-grid__full{
@@ -187,6 +169,8 @@
 .field__input,
 .field__textarea{
   width: 100%;
+  min-width: 0;
+  max-width: 100%;
   border-radius: 14px;
   background: rgba(0,0,0,0.18);
   border: 1px solid rgba(255,255,255,0.10);
@@ -297,21 +281,9 @@
   box-sizing: border-box;
 }
 
-/* 2) Grid 列用 minmax(0, 1fr)，允许内容真正收缩 */
-.contact-grid{
-  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
-}
-
 /* 3) 关键：让 grid 子项可以缩小（默认 min-width:auto 会撑开） */
 .field{
   min-width: 0;
-}
-
-/* 4) 输入框也允许缩小，并且不溢出父容器 */
-.field__input,
-.field__textarea{
-  min-width: 0;
-  max-width: 100%;
 }
 
 /* 5) 兜底：如果还有1px~2px的视觉溢出，就裁切卡片内容 */

@@ -59,10 +59,6 @@
   box-shadow: none; /* 阴影也会让同色看起来不一样 */
 }
 
-.cs-card--snap {
-  grid-column: span 4;
-}
-
 .cs-card-title {
   font-weight: 700;
   font-size: 14px;
@@ -379,5 +375,3 @@
   .cs-community-grid { grid-template-columns: 1fr; }
   .cs-kv { grid-template-columns: 1fr; }
 }
-
-

@@ -130,11 +130,18 @@
   box-shadow: 0 10px 22px rgba(0, 0, 0, 0.06);
   display: grid;
   grid-template-rows: 160px auto;
+
+  contain: layout paint style;
+  content-visibility: auto;
+  contain-intrinsic-size: 320px; /* 预估高度，防止跳动 */
 }
 
 .prodx-media {
   position: relative;
   background: #0b2230;
+
+  overflow: hidden;
+  transform: translateZ(0); /* 只作用在图片容器，不要作用在整页/父级 */
 }
 
 .prodx-media img {
@@ -163,7 +170,6 @@
   font-weight: 700;
   /* backdrop-filter: blur(8px);  删掉 */
 }
-
 
 .prodx-body {
   padding: 14px 14px 16px;
@@ -250,18 +256,4 @@
   .prodx-grid {
     grid-template-columns: 1fr;
   }
-}
-
-
-/* 让屏外卡片不参与渲染，滚动更顺 */
-.prodx-card{
-  contain: layout paint style;
-  content-visibility: auto;
-  contain-intrinsic-size: 320px; /* 预估高度，防止跳动 */
-}
-
-/* 图片解码/绘制更稳 */
-.prodx-media{
-  overflow: hidden;
-  transform: translateZ(0); /* 只作用在图片容器，不要作用在整页/父级 */
 }

@@ -65,6 +65,19 @@ body {
 }
 
 
+/* 关键：导航文字/按钮不换行 */
+.navbar a,
+.navbar button,
+.nav-right,
+.nav-links {
+  white-space: nowrap;
+}
+
+
+
+
+
+
 /* 左 / 中 / 右 三段保持你的颜色，但更精致 */
 .nav-left {
   background: linear-gradient(180deg, var(--brand-navy), var(--brand-navy-2));
@@ -1572,4 +1585,42 @@ main {
   font-size: 12px;
   opacity: 0.75;
 }
+
+
+
+
+@media (max-width: 768px) {
+  :root { --nav-h: 56px; }
+
+  .navbar {
+    height: var(--nav-h);
+  }
+
+  /* logo 小一点 */
+  .brand-logo img {
+    height: 34px;   /* 你可以 30~38 微调 */
+    width: auto;
+  }
+
+  /* 导航链接：缩小字体和间距 */
+  .nav-links a {
+    font-size: 14px;
+    padding: 10px 10px;
+  }
+
+  /* 右侧按钮：缩小并禁止换行 */
+  .nav-actions .btn,
+  .nav-actions a {
+    font-size: 14px;
+    padding: 8px 12px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  /* 竖线分隔符（如果你有）手机端建议隐藏 */
+  .nav-divider {
+    display: none;
+  }
+}
+
 

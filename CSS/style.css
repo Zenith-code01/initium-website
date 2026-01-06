@@ -362,7 +362,7 @@ body {
 
 /* main */
 main {
-  margin-top: var(--nav-h);
+  margin-top: 0;
 }
 
 

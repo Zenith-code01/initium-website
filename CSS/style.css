@@ -1589,85 +1589,42 @@ main {
 
 
 
-@media (max-width: 768px) {
-  :root { --nav-h: 56px; }
 
-  .navbar {
-    height: var(--nav-h);
-  }
 
-  /* logo 小一点 */
-  .brand-logo img {
-    height: 34px;   /* 你可以 30~38 微调 */
-    width: auto;
-  }
 
-  /* 导航链接：缩小字体和间距 */
-  .nav-links a {
-    font-size: 14px;
-    padding: 10px 10px;
-  }
-
-  /* 右侧按钮：缩小并禁止换行 */
-  .nav-actions .btn,
-  .nav-actions a {
-    font-size: 14px;
-    padding: 8px 12px;
-    border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  /* 竖线分隔符（如果你有）手机端建议隐藏 */
-  .nav-divider {
-    display: none;
-  }
-}
-
-/* =========================
-   Mobile navbar fit (no overflow)
-   ========================= */
-@media (max-width: 768px) {
-
-  /* 1) 让整个导航栏内容别溢出 */
-  .navbar, .navbar * { box-sizing: border-box; }
+/* ===== Mobile navbar: keep right actions visible, hide links ===== */
+@media (max-width: 520px) {
   .navbar { overflow: hidden; }
-
-  /* 2) 让左右两边都能收缩（关键） */
   .nav-left, .nav-center, .nav-right { min-width: 0; }
 
-  /* 3) 中间链接变得更“紧凑”，避免占太多宽度 */
-  .nav-links a {
-    font-size: 13px;
-    padding: 8px 8px;
-    letter-spacing: 0.02em;
+  /* 关键：隐藏中间导航 */
+  .nav-center,
+  .nav-links { 
+    display: none !important; 
+  }
+
+  /* 右侧区域保证不被挤掉 */
+  .nav-right {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 8px;
     white-space: nowrap;
   }
 
-  /* 4) 右侧按钮/语言：缩小尺寸 + 禁止换行 */
-  .nav-actions, .nav-right { gap: 8px; }
-
-  .nav-actions .btn,
-  .nav-actions a,
+  /* 右侧按钮再紧一点 */
   .nav-right .btn,
-  .nav-right a {
-    font-size: 13px;
-    padding: 7px 10px;
-    white-space: nowrap;
-  }
-
-  /* 语言按钮再小一点 */
+  .nav-right a,
   .lang-toggle, .lang-btn, .lang {
     font-size: 12px;
-    padding: 7px 10px;
-    min-width: 56px;
+    padding: 6px 10px;
+    line-height: 1;
   }
 
-  /* 5) 分隔线手机端隐藏（如果有） */
+  /* 如果有竖线分隔，手机也隐藏 */
   .nav-divider { display: none !important; }
-
-  /* 6) 实在太挤：直接把中间菜单隐藏，只保留右侧按钮（保底方案） */
-  @media (max-width: 420px) {
-    .nav-links { display: none !important; }
-  }
 }
+
+
+
 

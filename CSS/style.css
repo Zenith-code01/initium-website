@@ -1592,38 +1592,63 @@ main {
 
 
 
-/* ===== Mobile navbar: keep right actions visible, hide links ===== */
+/* ===== Mobile navbar fix ===== */
 @media (max-width: 520px) {
-  .navbar { overflow: hidden; }
-  .nav-left, .nav-center, .nav-right { min-width: 0; }
-
-  /* 关键：隐藏中间导航 */
-  .nav-center,
-  .nav-links { 
-    display: none !important; 
+  /* 关键：重排三列，让右侧永远有位置 */
+  .navbar{
+    grid-template-columns: auto 1fr auto; /* 左(logo) | 中(空白) | 右(按钮) */
+    overflow: visible;
   }
 
-  /* 右侧区域保证不被挤掉 */
-  .nav-right {
-    margin-left: auto;
-    display: flex;
-    align-items: center;
+  /* ✅ 真正的中间区叫 nav-mid：手机直接隐藏 */
+  .nav-mid{
+    display: none !important;
+  }
+
+  /* 左侧别撑爆 */
+  .nav-left{
+    padding: 0 10px;
+  }
+  .brand-logo img{
+    height: calc(var(--nav-h) - 22px); /* 手机上缩一点，避免挤 */
+  }
+
+  /* 右侧保证不换行、不被裁切 */
+  .nav-right{
+    padding-right: 10px;
     gap: 8px;
     white-space: nowrap;
+    min-width: 0;
+    overflow: visible;
   }
 
-  /* 右侧按钮再紧一点 */
-  .nav-right .btn,
-  .nav-right a,
-  .lang-toggle, .lang-btn, .lang {
+  /* ❗你右侧用 nav-right-half 50% 平分：手机必须取消 */
+  .nav-right-half{
+    width: auto;          /* 取消 50% */
+    flex: 0 0 auto;
+    justify-content: center;
+  }
+
+  /* 两个按钮再紧凑一点 */
+  .nav-cta,
+  .lang-btn{
     font-size: 12px;
     padding: 6px 10px;
     line-height: 1;
   }
 
-  /* 如果有竖线分隔，手机也隐藏 */
-  .nav-divider { display: none !important; }
+  /* 下拉菜单别被 navbar 裁掉 */
+  .lang-dropdown{
+    right: 0;
+  }
+
+  /* 分割线手机可隐藏，减少视觉拥挤 */
+  .nav-left::after,
+  .nav-mid::after{
+    display:none;
+  }
 }
+
 
 
 

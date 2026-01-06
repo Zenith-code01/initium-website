@@ -2,7 +2,17 @@ html,
 body {
   height: 100%;
   margin: 0;
-  font-family: 'Montserrat', sans-serif;
+  font-family:
+    "Montserrat",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    "PingFang SC",
+    "Hiragino Sans GB",
+    "Microsoft YaHei",
+    "Noto Sans CJK SC",
+    Arial,
+    sans-serif;
 }
 
 /* 整体竖向布局 */

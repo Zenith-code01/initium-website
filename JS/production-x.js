@@ -122,8 +122,8 @@
           <div class="prodx-media">
             ${imgTag}
             <div class="prodx-badges">
-              <span class="prodx-badge">${mortgageType}</span>
-              <span class="prodx-badge">${status}</span>
+              <span class="prodx-badge" style="color: white">${mortgageType}</span>
+              <span class="prodx-badge" style="color: white">${status}</span>
             </div>
           </div>
 

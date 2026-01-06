@@ -1395,3 +1395,46 @@ document.addEventListener("DOMContentLoaded", () => {
   bindLangUI();
   setActiveNav();
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+const burger = document.getElementById("navBurger");
+const menu = document.getElementById("mobileMenu");
+const closeBtn = document.getElementById("mobileClose");
+
+function openMenu(){
+  menu.classList.add("is-open");
+  document.body.style.overflow = "hidden";
+  burger.setAttribute("aria-expanded","true");
+  menu.setAttribute("aria-hidden","false");
+}
+
+function closeMenu(){
+  menu.classList.remove("is-open");
+  document.body.style.overflow = "";
+  burger.setAttribute("aria-expanded","false");
+  menu.setAttribute("aria-hidden","true");
+}
+
+burger?.addEventListener("click", openMenu);
+closeBtn?.addEventListener("click", closeMenu);
+
+// 可选：点空白处关闭
+menu?.addEventListener("click", (e) => {
+  if (e.target === menu) closeMenu();
+});
+
+

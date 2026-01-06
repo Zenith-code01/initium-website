@@ -56,7 +56,7 @@ body {
 
 
 .navbar {
-  position: fixed;
+  position: sticky;
   top: 0;
   left: 0;
   right: 0;
@@ -1801,3 +1801,28 @@ main {
     );
   }
 }
+
+
+
+
+
+
+
+
+
+
+html, body {
+  transform: none !important;
+  filter: none !important;
+  perspective: none !important;
+  will-change: auto !important;
+}
+
+
+
+
+
+
+
+
+

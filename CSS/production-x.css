@@ -153,16 +153,17 @@
   gap: 8px;
 }
 
-.prodx-badge {
-  background: #003345;
-  color: #f7f7f7;
-  border: 1px solid rgba(255, 255, 255, 0.14);
+.prodx-badge{
+  background: rgba(0, 51, 69, 0.92); /* 视觉上仍然像玻璃但不 blur */
+  color: #fff;
+  border: 1px solid rgba(255,255,255,.14);
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 11px;
   font-weight: 700;
-  backdrop-filter: blur(8px);
+  /* backdrop-filter: blur(8px);  删掉 */
 }
+
 
 .prodx-body {
   padding: 14px 14px 16px;
@@ -249,4 +250,18 @@
   .prodx-grid {
     grid-template-columns: 1fr;
   }
+}
+
+
+/* 让屏外卡片不参与渲染，滚动更顺 */
+.prodx-card{
+  contain: layout paint style;
+  content-visibility: auto;
+  contain-intrinsic-size: 320px; /* 预估高度，防止跳动 */
+}
+
+/* 图片解码/绘制更稳 */
+.prodx-media{
+  overflow: hidden;
+  transform: translateZ(0); /* 只作用在图片容器，不要作用在整页/父级 */
 }

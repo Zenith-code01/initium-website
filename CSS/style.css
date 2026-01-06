@@ -94,7 +94,7 @@ body {
   background: linear-gradient(180deg, var(--brand-navy), var(--brand-navy-2));
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: space-evenly;
   /* 水平均匀分布（关键） */
   gap: 34px;
   position: relative;
@@ -1617,7 +1617,6 @@ main {
 /* 中间导航：字体/行高/间距缩小 + 允许横向滚动避免被切 */
 .nav-mid {
   gap: calc(34px * var(--nav-scale));
-  justify-content: flex-start;        /* 手机别用 space-evenly */
   padding: 0 10px;
   overflow-x: auto;
   overflow-y: hidden;
@@ -1649,62 +1648,6 @@ main {
   padding: 0 6px;
 }
 
-/* =========================
-   Navbar Global Scale (Mobile)
-   ========================= */
-
-/* 默认不缩放 */
-:root { --nav-scale: 1; }
-
-/* 手机：整体缩小 */
-@media (max-width: 520px) {
-  :root { --nav-scale: 0.78; } /* 0.72~0.85 自己微调 */
-}
-
-/* 让所有关键尺寸跟随缩放 */
-.navbar {
-  height: calc(var(--nav-h) * var(--nav-scale));
-}
-
-/* 左侧 logo 跟着缩小 */
-.brand-logo img {
-  height: calc((var(--nav-h) - 16px) * var(--nav-scale));
-}
-
-/* 中间导航：字体/行高/间距缩小 + 允许横向滚动避免被切 */
-.nav-mid {
-  gap: calc(34px * var(--nav-scale));
-  justify-content: flex-start;        /* 手机别用 space-evenly */
-  padding: 0 10px;
-  overflow-x: auto;
-  overflow-y: hidden;
-  -webkit-overflow-scrolling: touch;
-}
-.nav-mid::-webkit-scrollbar { display: none; }
-
-.nav-link {
-  font-size: calc(15px * var(--nav-scale));
-  line-height: calc(var(--nav-h) * var(--nav-scale));
-  padding: 0 calc(12px * var(--nav-scale));
-  flex: 0 0 auto;
-}
-
-/* 右侧按钮整体缩小 */
-.nav-cta {
-  font-size: calc(14px * var(--nav-scale));
-  padding: calc(8px * var(--nav-scale)) calc(14px * var(--nav-scale));
-}
-
-.lang-btn {
-  font-size: calc(13px * var(--nav-scale));
-  padding: calc(8px * var(--nav-scale)) calc(12px * var(--nav-scale));
-}
-
-/* 右侧不要强制 50/50，不然在手机会挤爆 */
-.nav-right-half {
-  width: auto;
-  padding: 0 6px;
-}
 
 
 

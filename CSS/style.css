@@ -273,11 +273,6 @@ body {
   transform: scaleX(1);
 }
 
-/* 当前页面文字也可稍微强调 */
-.nav-link.is-active {
-  color: #ECE3D5;
-  font-weight: 700;
-}
 
 /* ✅ active 的 hover 也保持同样状态（防止抖动/变回去） */
 .nav-link.is-active:hover {
@@ -1720,5 +1715,53 @@ body {
 
   .hero-desc {
     font-size: 15px;
+  }
+}
+
+
+
+/* =========================
+   FIX: Mobile navbar underline broken
+   ========================= */
+@media (max-width: 768px) {
+  /* 1) 让 nav-mid 的装饰层放到底层，不要盖住链接 */
+  .nav-mid {
+    position: relative;
+  }
+
+  .nav-mid::before,
+  .nav-mid::after {
+    z-index: 0 !important;         /* 装饰层在底 */
+    pointer-events: none !important;
+  }
+
+  /* 2) 让链接本体在装饰层上面 */
+  .nav-link {
+    position: relative;
+    z-index: 2;                    /* 链接在上 */
+  }
+
+  /* 3) 彻底禁用你之前的 ::after 下划线（避免被旧规则影响） */
+  .nav-link::after {
+    content: none !important;
+  }
+
+  /* 4) 用“背景线”画下划线：不会被伪元素层级/裁切搞断 */
+  .nav-link {
+    background-image: linear-gradient(#ECE3D5, #ECE3D5);
+    background-repeat: no-repeat;
+    background-position: 50% calc(100% - 8px);
+    background-size: 0 2px;        /* 默认不显示 */
+    transition: background-size .22s ease, color .22s ease, transform .22s ease;
+  }
+
+  .nav-link:hover {
+    background-size: 26px 2px;
+  }
+
+  .nav-link.is-active {
+    color: #ECE3D5;
+    transform: none;
+    background-size: 30px 2px;     /* 当前页保持显示 */
   }
 }

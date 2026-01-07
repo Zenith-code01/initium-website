@@ -1678,3 +1678,29 @@ html, body {
   perspective: none !important;
   will-change: auto !important;
 }
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+  .hero,
+  .overview {
+    text-align: left;
+  }
+
+  .hero-title {
+    font-size: 22px;
+  }
+
+  .hero-desc {
+    font-size: 15px;
+  }
+}
+
+
+
+
+

@@ -429,15 +429,7 @@ main {
   line-height: 1.25;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
-
-  max-width: 100%;
-  box-sizing: border-box;
-  padding: 0 16px;
-  /* 给手机左右留安全边距 */
-  word-break: break-word;
-  /* 强制长单词换行 */
-  overflow-wrap: break-word;
-
+  
 }
 
 /* ✅ 右侧图片 track（你原来的无缝逻辑依赖 translateX） */
@@ -656,11 +648,11 @@ main {
 
   .stat-item {
     /* ✅ KPI 卡片化 */
-    background: rgba(255, 255, 255, 0.82);
+    background: rgba(255,255,255,0.82);
     border: 1px solid rgba(0, 51, 69, 0.12);
     border-radius: 14px;
     padding: 14px 12px;
-    box-shadow: 0 10px 22px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 10px 22px rgba(0,0,0,0.08);
     text-align: center;
   }
 
@@ -1639,7 +1631,6 @@ main {
 
 /* Mobile: remove the fixed vertical divider line in the navbar */
 @media (max-width: 768px) {
-
   .navbar::before,
   .navbar::after,
   .nav-wrap::before,
@@ -1673,14 +1664,15 @@ main {
     right: 0;
     width: 36px;
     height: 100%;
-    background: linear-gradient(to left,
-        rgba(0, 51, 69, 0.9),
-        rgba(0, 51, 69, 0));
+    background: linear-gradient(
+      to left,
+      rgba(0, 51, 69, 0.9),
+      rgba(0, 51, 69, 0)
+    );
   }
 }
 
-html,
-body {
+html, body {
   transform: none !important;
   filter: none !important;
   perspective: none !important;

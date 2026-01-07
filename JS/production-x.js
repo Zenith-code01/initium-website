@@ -7,7 +7,11 @@
 
 (() => {
   // TODO: 替换成你的 Power Automate HTTP Trigger URL
-  const FLOW_URL = "https://default4b2aba66c11d4105b753877533b254.fd.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f43d44a19a74959802f82bc3174edcc/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WxOZ3zQxzpp3CmYkZLCNnk8ram83PXUODuk_lZ0-Tp8";
+  // const FLOW_URL = "https://default4b2aba66c11d4105b753877533b254.fd.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f43d44a19a74959802f82bc3174edcc/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WxOZ3zQxzpp3CmYkZLCNnk8ram83PXUODuk_lZ0-Tp8";
+  const DATA_URL = "./data/projects.json";
+  const META_URL = "./data/projects-meta.json";
+
+
 
   const els = {
     mortgageType: document.getElementById("prodMortgageType"),
@@ -160,28 +164,85 @@
     }).join("");
   }
 
-  async function load() {
-    if (!FLOW_URL || FLOW_URL.includes("PASTE_YOUR_FLOW_HTTP_URL_HERE")) {
-      els.state.textContent = "Please set FLOW_URL in /JS/production-x.js";
-      return;
-    }
+  // async function load() {
+  //   if (!FLOW_URL || FLOW_URL.includes("PASTE_YOUR_FLOW_HTTP_URL_HERE")) {
+  //     els.state.textContent = "Please set FLOW_URL in /JS/production-x.js";
+  //     return;
+  //   }
 
+  //   els.state.textContent = "Loading…";
+
+  //   try {
+  //     const qs = buildQuery();
+  //     const url = FLOW_URL.includes("?") ? `${FLOW_URL}&${qs}` : `${FLOW_URL}?${qs}`;
+
+  //     const res = await fetch(url, {
+  //       method: "POST",
+  //       headers: { "Content-Type": "application/json" },
+  //       body: JSON.stringify({})
+  //     });
+
+  //     if (!res.ok) throw new Error(`HTTP ${res.status}`);
+
+  //     const data = await res.json();
+  //     const items = Array.isArray(data.items) ? data.items : [];
+
+  //     // === ✅ 兼容 SharePoint Choice: string 或 {Value: "..."} ===
+  //     const pickText = (v) => {
+  //       if (v == null) return "";
+  //       if (typeof v === "object" && v.Value != null) return String(v.Value).trim();
+  //       return String(v).trim();
+  //     };
+
+  //     // === ✅ 前端筛选（不依赖 Flow 是否过滤） ===
+  //     const mt = (els.mortgageType?.value || "").trim(); // "" = All
+  //     const st = (els.status?.value || "").trim();       // "" = All
+
+  //     const filtered = items.filter((it) => {
+  //       const itMt = pickText(it.MortgageType);
+  //       const itSt = pickText(it.ProjectStatus);
+
+  //       const okMt = !mt || itMt === mt;
+  //       const okSt = !st || itSt === st;
+  //       return okMt && okSt;
+  //     });
+
+  //     // === ✅ 前端排序（你原逻辑） ===
+  //     const sorted = sortItems(filtered, els.sortBy.value, els.sortDir.value);
+
+  //     render(sorted);
+
+  //     els.state.textContent = "";
+  //   } catch (e) {
+  //     console.error(e);
+  //     els.state.textContent = "Failed to load data. Check Flow URL / CORS / permissions.";
+  //     els.grid.innerHTML = "";
+  //     els.count.textContent = "0 items";
+  //   }
+  // }
+
+
+
+  async function load() {
     els.state.textContent = "Loading…";
 
     try {
-      const qs = buildQuery();
-      const url = FLOW_URL.includes("?") ? `${FLOW_URL}&${qs}` : `${FLOW_URL}?${qs}`;
+      // 1) 先读 meta，拿 updatedAt 做版本号，避免浏览器缓存
+      const metaRes = await fetch(`${META_URL}?t=${Date.now()}`, { cache: "no-store" });
+      if (!metaRes.ok) throw new Error(`META HTTP ${metaRes.status}`);
+      const meta = await metaRes.json();
+      const ver = encodeURIComponent(meta.updatedAt || Date.now());
 
-      const res = await fetch(url, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({})
-      });
-
-      if (!res.ok) throw new Error(`HTTP ${res.status}`);
+      // 2) 再读 projects.json（带版本号）
+      const res = await fetch(`${DATA_URL}?v=${ver}`, { cache: "no-store" });
+      if (!res.ok) throw new Error(`DATA HTTP ${res.status}`);
 
       const data = await res.json();
-      const items = Array.isArray(data.items) ? data.items : [];
+
+      // 3) 兼容两种结构：数组 or {items:[...]} or {projects:[...]}
+      const items = Array.isArray(data)
+        ? data
+        : (Array.isArray(data.items) ? data.items : (Array.isArray(data.projects) ? data.projects : []));
 
       // === ✅ 兼容 SharePoint Choice: string 或 {Value: "..."} ===
       const pickText = (v) => {
@@ -190,32 +251,58 @@
         return String(v).trim();
       };
 
-      // === ✅ 前端筛选（不依赖 Flow 是否过滤） ===
+      // === ✅ 前端筛选（你原逻辑） ===
       const mt = (els.mortgageType?.value || "").trim(); // "" = All
       const st = (els.status?.value || "").trim();       // "" = All
 
       const filtered = items.filter((it) => {
-        const itMt = pickText(it.MortgageType);
-        const itSt = pickText(it.ProjectStatus);
+        const itMt = pickText(it.MortgageType || it.mortgageType);
+        const itSt = pickText(it.ProjectStatus || it.projectStatus);
 
         const okMt = !mt || itMt === mt;
         const okSt = !st || itSt === st;
         return okMt && okSt;
       });
 
-      // === ✅ 前端排序（你原逻辑） ===
-      const sorted = sortItems(filtered, els.sortBy.value, els.sortDir.value);
+      // === ✅ 排序：这里关键是字段名可能不同，做一下“字段映射” ===
+      // 如果你的 projects.json 字段是 Address/LVR/Term/... 这套，你原 sortItems 能用；
+      // 如果是 address/lvr/term/... 小写，就需要映射一下：
+      const mapped = filtered.map((it) => ({
+        // 保留原对象
+        ...it,
+
+        // 映射一份给你现有 render/sort 读取（尽量不改你渲染模板）
+        Address: it.Address ?? it.address ?? it.projectAddress,
+        MortgageType: it.MortgageType ?? it.mortgageType,
+        ProjectStatus: it.ProjectStatus ?? it.projectStatus,
+        ProductionIntroduction: it.ProductionIntroduction ?? it.projectIntro ?? it.description,
+        ImageUrl: it.ImageUrl ?? it.imageUrl ?? it.image,
+
+        LastUpdated: it.LastUpdated ?? it.lastUpdated ?? meta.updatedAt,
+        TargetReturn: it.TargetReturn ?? it.targetReturn ?? it.returnRate,
+        FacilityAmount: it.FacilityAmount ?? it.facilityAmount ?? it.facility,
+        LVR: it.LVR ?? it.lvr,
+        Term: it.Term ?? it.term,
+      }));
+
+      const sorted = sortItems(mapped, els.sortBy.value, els.sortDir.value);
 
       render(sorted);
 
-      els.state.textContent = "";
+      // 4) 显示状态
+      els.state.textContent = meta.updatedAt ? `Last updated: ${fmtDate(meta.updatedAt)}` : "";
     } catch (e) {
       console.error(e);
-      els.state.textContent = "Failed to load data. Check Flow URL / CORS / permissions.";
+      els.state.textContent = "Failed to load local JSON. Check Live Server path.";
       els.grid.innerHTML = "";
       els.count.textContent = "0 items";
     }
   }
+
+
+
+
+
 
   // events
   ["change"].forEach((evt) => {

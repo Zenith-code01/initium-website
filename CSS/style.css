@@ -391,15 +391,25 @@ main {
 }
 
 /* 每条文案占满左侧区域（叠在一起，通过 class 控制显示） */
-.text-slide {
+/* 每条文案：手机不允许用 80ch 撑爆 */
+.text-slide{
   position: absolute;
-  max-width: 80ch;
-  /* ✅ 控制行长，避免太靠右 */
+
+  /* ✅ 关键：最大宽度跟屏幕走 */
+  width: calc(100vw - 32px);   /* 左右各留 16px */
+  max-width: 80ch;             /* 桌面仍保留你要的行长 */
+  box-sizing: border-box;
+
   opacity: 0;
-  transform: translateX(-40px) translateY(4px);
+  transform: translateX(0) translateY(4px); /* ✅ 不再额外平移造成边界问题 */
   transition: opacity .85s ease, transform .85s ease;
   pointer-events: none;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
+
 
 /* ✅ 进场：从左到中，0->1 */
 .text-slide.is-active {
@@ -429,6 +439,14 @@ main {
   line-height: 1.25;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);
+
+  max-width: 100%;
+  width: 100%;
+  box-sizing: border-box;
+
+  white-space: normal;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 
 }
 
@@ -1698,9 +1716,7 @@ body {
     /* 手机安全边距 */
   }
 
-  .hero-title {
-    font-size: 22px;
-  }
+
 
   .hero-desc {
     font-size: 15px;

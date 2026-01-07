@@ -1,18 +1,17 @@
 /* =========================
    Production X (Initium)
-   - Fetch from Power Automate (HTTP)
-   - Filter: MortgageType + ProjectStatus
+   - Data source: GitHub raw projects.json
+   - Filter: Mortgage Type + Project Status
    - Sort: LastUpdated / TargetReturn / FacilityAmount / LVR / Term
+   - Render into #prodGrid
    ========================= */
 
 (() => {
-  // TODO: 替换成你的 Power Automate HTTP Trigger URL
-  // const FLOW_URL = "https://default4b2aba66c11d4105b753877533b254.fd.environment.api.powerplatform.com:443/powerautomate/automations/direct/workflows/2f43d44a19a74959802f82bc3174edcc/triggers/manual/paths/invoke?api-version=1&sp=%2Ftriggers%2Fmanual%2Frun&sv=1.0&sig=WxOZ3zQxzpp3CmYkZLCNnk8ram83PXUODuk_lZ0-Tp8";
-  const DATA_URL = "./data/projects.json";
-  const META_URL = "./data/projects-meta.json";
+  // ✅ 1) 改成你自己的 raw 链接（你现在这一行看起来是对的）
+  const DATA_URL =
+    "https://raw.githubusercontent.com/Zenith-code01/initium-website/main/data/projects.json";
 
-
-
+  // 2) DOM
   const els = {
     mortgageType: document.getElementById("prodMortgageType"),
     status: document.getElementById("prodProjectStatus"),
@@ -24,12 +23,31 @@
     state: document.getElementById("prodState"),
   };
 
+  // 如果页面没有这个模块，直接退出（避免其他页面报错）
   if (!els.grid) return;
+
+  // 3) helpers
+  const normalizeText = (v) => (v == null ? "" : String(v)).trim();
+
+  const pickText = (v) => {
+    if (v == null) return "";
+    if (typeof v === "object" && v.Value != null) return String(v.Value).trim();
+    return String(v).trim();
+  };
+
+  function safeNumber(v) {
+    const n = Number(v);
+    return Number.isFinite(n) ? n : null;
+  }
 
   const fmtMoney = (n) => {
     const v = Number(n);
     if (!Number.isFinite(v)) return "—";
-    return v.toLocaleString(undefined, { style: "currency", currency: "AUD", maximumFractionDigits: 0 });
+    return v.toLocaleString(undefined, {
+      style: "currency",
+      currency: "AUD",
+      maximumFractionDigits: 0,
+    });
   };
 
   const fmtPct = (n) => {
@@ -42,38 +60,48 @@
     if (!s) return "—";
     const d = new Date(s);
     if (Number.isNaN(d.getTime())) return "—";
-    return d.toLocaleDateString(undefined, { year: "numeric", month: "short", day: "2-digit" });
+    return d.toLocaleDateString(undefined, {
+      year: "numeric",
+      month: "short",
+      day: "2-digit",
+    });
   };
 
-  const normalizeText = (v) => (v == null ? "" : String(v)).trim();
+  // ✅ 统一字段（兼容大写/小写）
+  function normalizeItem(it) {
+    return {
+      address: normalizeText(it.address ?? it.Address),
+      mortgageType: pickText(it.mortgageType ?? it.MortgageType),
+      projectStatus: pickText(it.projectStatus ?? it.ProjectStatus),
+      productionIntroduction: normalizeText(it.productionIntroduction ?? it.ProductionIntroduction),
+      imageUrl: normalizeText(it.imageUrl ?? it.ImageUrl),
 
-  function buildQuery() {
-    const p = new URLSearchParams();
-    if (els.mortgageType.value) p.set("mortgageType", els.mortgageType.value);
-    if (els.status.value) p.set("status", els.status.value);
-    p.set("sortBy", els.sortBy.value || "LastUpdated");
-    p.set("sortDir", els.sortDir.value || "desc");
-    p.set("top", "200");
-    return p.toString();
+      lastUpdated: normalizeText(it.lastUpdated ?? it.LastUpdated),
+      targetReturn: it.targetReturn ?? it.TargetReturn,
+      facilityAmount: it.facilityAmount ?? it.FacilityAmount,
+      lvr: it.lvr ?? it.LVR,
+      term: it.term ?? it.Term,
+
+      title: it.title ?? it.Title ?? null,
+    };
   }
 
-  function safeNumber(v) {
-    const n = Number(v);
-    return Number.isFinite(n) ? n : null;
-  }
-
-  function sortItems(items, sortBy, sortDir) {
+  function sortItemsLowercase(items, sortBy, sortDir) {
     const dir = sortDir === "asc" ? 1 : -1;
 
     const key = (it) => {
       switch (sortBy) {
-        case "TargetReturn": return safeNumber(it.TargetReturn);
-        case "FacilityAmount": return safeNumber(it.FacilityAmount);
-        case "LVR": return safeNumber(it.LVR);
-        case "Term": return safeNumber(it.Term);
+        case "TargetReturn":
+          return safeNumber(it.targetReturn);
+        case "FacilityAmount":
+          return safeNumber(it.facilityAmount);
+        case "LVR":
+          return safeNumber(it.lvr);
+        case "Term":
+          return safeNumber(it.term);
         case "LastUpdated":
         default: {
-          const d = new Date(it.LastUpdated);
+          const d = new Date(it.lastUpdated);
           return Number.isNaN(d.getTime()) ? null : d.getTime();
         }
       }
@@ -101,217 +129,128 @@
       return;
     }
 
-    els.grid.innerHTML = items.map((it) => {
-      const address = normalizeText(it.Address) || "Untitled Project";
-      const pickText = (v) => (v && typeof v === "object" && v.Value != null) ? String(v.Value).trim() : normalizeText(v);
-      const mortgageType = pickText(it.MortgageType) || "—";
-      const status = pickText(it.ProjectStatus) || "—";
-      const intro = normalizeText(it.ProductionIntroduction) || "";
-      const img = normalizeText(it.ImageUrl);
-      const lastUpdated = fmtDate(it.LastUpdated);
+    els.grid.innerHTML = items
+      .map((it) => {
+        const address = normalizeText(it.address) || "Untitled Project";
+        const mortgageType = normalizeText(it.mortgageType) || "—";
+        const status = normalizeText(it.projectStatus) || "—";
+        const intro = normalizeText(it.productionIntroduction) || "";
+        const img = normalizeText(it.imageUrl);
+        const lastUpdated = fmtDate(it.lastUpdated);
 
-      const term = safeNumber(it.Term);
-      const targetReturn = safeNumber(it.TargetReturn);
-      const lvr = safeNumber(it.LVR);
-      const facility = safeNumber(it.FacilityAmount);
+        const term = safeNumber(it.term);
+        const targetReturn = safeNumber(it.targetReturn);
+        const lvr = safeNumber(it.lvr);
+        const facility = safeNumber(it.facilityAmount);
 
-      const imgTag = img
-        ? `<img src="${img}" alt="${address.replace(/"/g, "&quot;")}" loading="lazy" />`
-        : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(234,243,247,0.85);font-weight:800;">
-             Initium
-           </div>`;
+        const imgTag = img
+          ? `<img src="${img}" alt="${address.replace(/"/g, "&quot;")}" loading="lazy" />`
+          : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(234,243,247,0.85);font-weight:800;">Initium</div>`;
 
-      return `
-        <article class="prodx-card">
-          <div class="prodx-media">
-            ${imgTag}
-            <div class="prodx-badges">
-              <span class="prodx-badge" style="color: white">${mortgageType}</span>
-              <span class="prodx-badge" style="color: white">${status}</span>
-            </div>
-          </div>
-
-          <div class="prodx-body">
-            <h3 class="prodx-address">${address}</h3>
-            <p class="prodx-intro">${intro}</p>
-
-            <div class="prodx-kpis">
-              <div class="prodx-kpi">
-                <p class="t">Target Return</p>
-                <p class="v">${targetReturn == null ? "—" : fmtPct(targetReturn)}</p>
-              </div>
-              <div class="prodx-kpi">
-                <p class="t">LVR</p>
-                <p class="v">${lvr == null ? "—" : fmtPct(lvr)}</p>
-              </div>
-              <div class="prodx-kpi">
-                <p class="t">Facility Amount</p>
-                <p class="v">${facility == null ? "—" : fmtMoney(facility)}</p>
-              </div>
-              <div class="prodx-kpi">
-                <p class="t">Term</p>
-                <p class="v">${term == null ? "—" : `${term} months`}</p>
+        return `
+          <article class="prodx-card">
+            <div class="prodx-media">
+              ${imgTag}
+              <div class="prodx-badges">
+                <span class="prodx-badge" style="color:white">${mortgageType}</span>
+                <span class="prodx-badge" style="color:white">${status}</span>
               </div>
             </div>
 
-            <div class="prodx-foot">
-              <span>Last updated: ${lastUpdated}</span>
-              ${img ? `<a class="prodx-link" href="${img}" target="_blank" rel="noreferrer noopener">Image</a>` : `<span></span>`}
+            <div class="prodx-body">
+              <h3 class="prodx-address">${address}</h3>
+              <p class="prodx-intro">${intro}</p>
+
+              <div class="prodx-kpis">
+                <div class="prodx-kpi">
+                  <p class="t">Target Return</p>
+                  <p class="v">${targetReturn == null ? "—" : fmtPct(targetReturn)}</p>
+                </div>
+                <div class="prodx-kpi">
+                  <p class="t">LVR</p>
+                  <p class="v">${lvr == null ? "—" : fmtPct(lvr)}</p>
+                </div>
+                <div class="prodx-kpi">
+                  <p class="t">Facility Amount</p>
+                  <p class="v">${facility == null ? "—" : fmtMoney(facility)}</p>
+                </div>
+                <div class="prodx-kpi">
+                  <p class="t">Term</p>
+                  <p class="v">${term == null ? "—" : `${term} months`}</p>
+                </div>
+              </div>
+
+              <div class="prodx-foot">
+                <span>Last updated: ${lastUpdated}</span>
+                ${
+                  img
+                    ? `<a class="prodx-link" href="${img}" target="_blank" rel="noreferrer noopener">Image</a>`
+                    : `<span></span>`
+                }
+              </div>
             </div>
-          </div>
-        </article>
-      `;
-    }).join("");
+          </article>
+        `;
+      })
+      .join("");
   }
-
-  // async function load() {
-  //   if (!FLOW_URL || FLOW_URL.includes("PASTE_YOUR_FLOW_HTTP_URL_HERE")) {
-  //     els.state.textContent = "Please set FLOW_URL in /JS/production-x.js";
-  //     return;
-  //   }
-
-  //   els.state.textContent = "Loading…";
-
-  //   try {
-  //     const qs = buildQuery();
-  //     const url = FLOW_URL.includes("?") ? `${FLOW_URL}&${qs}` : `${FLOW_URL}?${qs}`;
-
-  //     const res = await fetch(url, {
-  //       method: "POST",
-  //       headers: { "Content-Type": "application/json" },
-  //       body: JSON.stringify({})
-  //     });
-
-  //     if (!res.ok) throw new Error(`HTTP ${res.status}`);
-
-  //     const data = await res.json();
-  //     const items = Array.isArray(data.items) ? data.items : [];
-
-  //     // === ✅ 兼容 SharePoint Choice: string 或 {Value: "..."} ===
-  //     const pickText = (v) => {
-  //       if (v == null) return "";
-  //       if (typeof v === "object" && v.Value != null) return String(v.Value).trim();
-  //       return String(v).trim();
-  //     };
-
-  //     // === ✅ 前端筛选（不依赖 Flow 是否过滤） ===
-  //     const mt = (els.mortgageType?.value || "").trim(); // "" = All
-  //     const st = (els.status?.value || "").trim();       // "" = All
-
-  //     const filtered = items.filter((it) => {
-  //       const itMt = pickText(it.MortgageType);
-  //       const itSt = pickText(it.ProjectStatus);
-
-  //       const okMt = !mt || itMt === mt;
-  //       const okSt = !st || itSt === st;
-  //       return okMt && okSt;
-  //     });
-
-  //     // === ✅ 前端排序（你原逻辑） ===
-  //     const sorted = sortItems(filtered, els.sortBy.value, els.sortDir.value);
-
-  //     render(sorted);
-
-  //     els.state.textContent = "";
-  //   } catch (e) {
-  //     console.error(e);
-  //     els.state.textContent = "Failed to load data. Check Flow URL / CORS / permissions.";
-  //     els.grid.innerHTML = "";
-  //     els.count.textContent = "0 items";
-  //   }
-  // }
-
-
 
   async function load() {
     els.state.textContent = "Loading…";
 
     try {
-      // 1) 先读 meta，拿 updatedAt 做版本号，避免浏览器缓存
-      const metaRes = await fetch(`${META_URL}?t=${Date.now()}`, { cache: "no-store" });
-      if (!metaRes.ok) throw new Error(`META HTTP ${metaRes.status}`);
-      const meta = await metaRes.json();
-      const ver = encodeURIComponent(meta.updatedAt || Date.now());
-
-      // 2) 再读 projects.json（带版本号）
-      const res = await fetch(`${DATA_URL}?v=${ver}`, { cache: "no-store" });
+      const res = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
       if (!res.ok) throw new Error(`DATA HTTP ${res.status}`);
-
       const data = await res.json();
 
-      // 3) 兼容两种结构：数组 or {items:[...]} or {projects:[...]}
-      const items = Array.isArray(data)
-        ? data
-        : (Array.isArray(data.items) ? data.items : (Array.isArray(data.projects) ? data.projects : []));
+      // ✅ 兼容多种结构
+      const rawItems =
+        Array.isArray(data?.projects?.body)
+          ? data.projects.body
+          : Array.isArray(data?.projects)
+          ? data.projects
+          : Array.isArray(data?.items)
+          ? data.items
+          : Array.isArray(data)
+          ? data
+          : [];
 
-      // === ✅ 兼容 SharePoint Choice: string 或 {Value: "..."} ===
-      const pickText = (v) => {
-        if (v == null) return "";
-        if (typeof v === "object" && v.Value != null) return String(v.Value).trim();
-        return String(v).trim();
-      };
+      const items = rawItems.map(normalizeItem);
 
-      // === ✅ 前端筛选（你原逻辑） ===
-      const mt = (els.mortgageType?.value || "").trim(); // "" = All
-      const st = (els.status?.value || "").trim();       // "" = All
+      // Filter
+      const mt = (els.mortgageType?.value || "").trim();
+      const st = (els.status?.value || "").trim();
 
       const filtered = items.filter((it) => {
-        const itMt = pickText(it.MortgageType || it.mortgageType);
-        const itSt = pickText(it.ProjectStatus || it.projectStatus);
-
-        const okMt = !mt || itMt === mt;
-        const okSt = !st || itSt === st;
+        const okMt = !mt || it.mortgageType === mt;
+        const okSt = !st || it.projectStatus === st;
         return okMt && okSt;
       });
 
-      // === ✅ 排序：这里关键是字段名可能不同，做一下“字段映射” ===
-      // 如果你的 projects.json 字段是 Address/LVR/Term/... 这套，你原 sortItems 能用；
-      // 如果是 address/lvr/term/... 小写，就需要映射一下：
-      const mapped = filtered.map((it) => ({
-        // 保留原对象
-        ...it,
+      // Sort
+      const sorted = sortItemsLowercase(filtered, els.sortBy.value, els.sortDir.value);
 
-        // 映射一份给你现有 render/sort 读取（尽量不改你渲染模板）
-        Address: it.Address ?? it.address ?? it.projectAddress,
-        MortgageType: it.MortgageType ?? it.mortgageType,
-        ProjectStatus: it.ProjectStatus ?? it.projectStatus,
-        ProductionIntroduction: it.ProductionIntroduction ?? it.projectIntro ?? it.description,
-        ImageUrl: it.ImageUrl ?? it.imageUrl ?? it.image,
-
-        LastUpdated: it.LastUpdated ?? it.lastUpdated ?? meta.updatedAt,
-        TargetReturn: it.TargetReturn ?? it.targetReturn ?? it.returnRate,
-        FacilityAmount: it.FacilityAmount ?? it.facilityAmount ?? it.facility,
-        LVR: it.LVR ?? it.lvr,
-        Term: it.Term ?? it.term,
-      }));
-
-      const sorted = sortItems(mapped, els.sortBy.value, els.sortDir.value);
-
+      // Render
       render(sorted);
 
-      // 4) 显示状态
-      els.state.textContent = meta.updatedAt ? `Last updated: ${fmtDate(meta.updatedAt)}` : "";
+      // Status
+      els.state.textContent = data.updatedAt ? `Last updated: ${fmtDate(data.updatedAt)}` : "";
     } catch (e) {
       console.error(e);
-      els.state.textContent = "Failed to load local JSON. Check Live Server path.";
+      els.state.textContent = "Failed to load projects.json (check URL / path).";
       els.grid.innerHTML = "";
       els.count.textContent = "0 items";
     }
   }
 
-
-
-
-
-
   // events
   ["change"].forEach((evt) => {
-    els.mortgageType.addEventListener(evt, load);
-    els.status.addEventListener(evt, load);
-    els.sortBy.addEventListener(evt, load);
-    els.sortDir.addEventListener(evt, load);
+    els.mortgageType?.addEventListener(evt, load);
+    els.status?.addEventListener(evt, load);
+    els.sortBy?.addEventListener(evt, load);
+    els.sortDir?.addEventListener(evt, load);
   });
-  els.refresh.addEventListener("click", load);
+  els.refresh?.addEventListener("click", load);
 
   // init
   load();

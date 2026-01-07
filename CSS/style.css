@@ -397,7 +397,7 @@ main {
 
   /* ✅ 关键：最大宽度跟屏幕走 */
   width: calc(100vw - 32px);   /* 左右各留 16px */
-  max-width: 80ch;             /* 桌面仍保留你要的行长 */
+  max-width: 70%;             /* 桌面仍保留你要的行长 */
   box-sizing: border-box;
 
   opacity: 0;
@@ -435,7 +435,7 @@ main {
 
 .hero-title {
   margin: 0;
-  font-size: clamp(20px, 1.3vw, 50px);
+  font-size: clamp(20px, 1.3vw, 30px);
   line-height: 1.25;
   font-weight: 600;
   color: rgba(255, 255, 255, 0.95);

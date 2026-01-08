@@ -421,8 +421,9 @@ main {
 
 /* 文案样式 */
 .hero-kicker {
-  font-size: 12px;
-  letter-spacing: 2px;
+  font-size: 18px;
+  font-weight:  800;
+  letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
   margin-bottom: 14px;
@@ -754,6 +755,7 @@ main {
 .pcf-eyebrow {
   display: inline-block;
   font-size: 12px;
+  font-weight: 800;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.78);
@@ -765,15 +767,15 @@ main {
 
 .pcf-hero-title {
   margin: 14px 0 10px;
-  font-size: 38px;
+  font-size: 30px;
   line-height: 1.12;
-  font-weight: 800;
+  font-weight: 600;
   color: #fff;
 }
 
 .pcf-hero-sub {
   margin: 0 0 16px;
-  font-size: 15.5px;
+  font-size: 16.5px;
   line-height: 1.75;
   color: rgba(255, 255, 255, 0.86);
 }
@@ -883,7 +885,7 @@ main {
   margin: 0 0 12px;
   font-size: 30px;
   line-height: 1.15;
-  font-weight: 800;
+  font-weight: 600;
   color: #003345;
 }
 
@@ -891,7 +893,7 @@ main {
   margin: 0 0 10px;
   font-size: 20px;
   line-height: 1.2;
-  font-weight: 800;
+  font-weight: 700;
   color: #003345;
 }
 

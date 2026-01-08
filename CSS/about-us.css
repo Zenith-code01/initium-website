@@ -639,7 +639,7 @@
    ========================= */
 
 .au-next {
-  background: #f9f7f3;
+  background: white;
   /* ✅ 用浅色“断开”深色页脚 */
   padding: 64px 0 40px;
   position: relative;

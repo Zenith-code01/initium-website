@@ -432,7 +432,7 @@ main {
   margin: 0;
   font-size: clamp(20px, 1.3vw, 30px);
   line-height: 1.25;
-  font-weight: 600;
+  font-weight: 100;
   color: rgba(255, 255, 255, 0.95);
 
   max-width: 100%;

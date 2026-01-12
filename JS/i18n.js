@@ -106,6 +106,11 @@ const translations = {
     footer_col_resources: "Investor Resources",
     footer_col_contact: "Contact",
 
+    footer_badge_asset_backed: "Asset-backed",
+    footer_badge_short_duration: "Short-duration",
+    footer_badge_risk_disciplined: "Risk-disciplined",
+
+
     footer_link_private_credit: "Private Credit",
     footer_link_commercial: "Commercial Property",
     footer_link_development: "Development Finance",
@@ -686,6 +691,10 @@ const translations = {
     footer_col_strategies: "策略",
     footer_col_resources: "投资人资源",
     footer_col_contact: "联系方式",
+    footer_badge_asset_backed: "资产抵押",
+    footer_badge_short_duration: "短久期",
+    footer_badge_risk_disciplined: "风控纪律",
+
     footer_link_private_credit: "私人信贷",
     footer_link_commercial: "商业地产",
     footer_link_development: "开发融资",

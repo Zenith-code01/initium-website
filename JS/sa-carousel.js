@@ -17,11 +17,11 @@
 
   // ✅ 5 张图（自己换路径）
   const images = [
-    "/Images/slide-1.jpg",
-    "/Images/slide-2.jpg",
-    "/Images/slide-3.jpg",
-    "/Images/slide-4.jpg",
-    "/Images/slide-5.jpg",
+    "./Images/slide-1.jpg",
+    "./Images/slide-2.jpg",
+    "./Images/slide-3.jpg",
+    "./Images/slide-4.jpg",
+    "./Images/slide-5.jpg",
   ];
 
   let current = 2;

@@ -721,9 +721,9 @@ const translations = {
     prd_metric_3_num: "月度",
     prd_metric_3_lbl: "投资者分配",
     prd_metric_4_num: "A$250,000",
-    prd_metric_4_lbl: "25万澳元",
-    prd_metric_4_num: "10-16% PA",
-    prd_metric_4_lbl: "投资者目标回报",
+    prd_metric_4_lbl: "最低投资",
+    prd_metric_5_num: "10-16% PA",
+    prd_metric_5_lbl: "投资者目标回报",
 
 
     prd_core_kicker: "产品",

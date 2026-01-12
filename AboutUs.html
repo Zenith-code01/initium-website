@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About Us | Initium Capital</title>
+    <title>IM Capital</title>
 
     <!-- 字体 -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -12,11 +12,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
+    <link rel="icon" href="./Images/000011.jpg" />
+
     <!-- 全站样式（导航栏 + footer） -->
     <link rel="stylesheet" href="./CSS/style.css" />
 
     <!-- About Us 专属 -->
     <link rel="stylesheet" href="./CSS/about-us.css" />
+
+    <link rel="stylesheet" href="./CSS/team.css" />
 </head>
 
 <body>
@@ -26,7 +30,7 @@
         <div class="nav-left">
             <a href="./Initium.html" class="brand">
                 <span class="brand-logo">
-                    <img src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital Logo" />
+                    <img src="./Images/000011.jpg" alt="IM Capital Logo" />
                 </span>
             </a>
         </div>
@@ -55,7 +59,7 @@
             <section class="au-hero" aria-label="About hero">
                 <div class="au-container au-hero-inner">
                     <div class="au-hero-left">
-                        <div class="au-eyebrow" data-i18n="about_eyebrow">ABOUT INITIUM CAPITAL</div>
+                        <div class="au-eyebrow" data-i18n="about_eyebrow">ABOUT IM CAPITAL</div>
 
                         <h1 class="au-title" data-i18n="about_title">
                             Institutional-grade private credit and real asset strategies, built on disciplined
@@ -63,7 +67,7 @@
                         </h1>
 
                         <p class="au-sub" data-i18n="about_sub">
-                            Initium Capital is an Australian investment manager focused on asset-backed opportunities
+                            IM Capital is an Australian investment manager focused on asset-backed opportunities
                             across private credit,
                             commercial property and development-related strategies—designed for UHNW clients and family
                             offices.
@@ -130,27 +134,6 @@
                 </div>
             </section>
 
-            <!-- TRUST STRIP -->
-            <section class="au-trust" aria-label="Trust strip">
-                <div class="au-container au-trust-inner">
-                    <div class="au-trust-item">
-                        <div class="au-trust-cap" data-i18n="about_risk_c1_cap">CREDIT REVIEW</div>
-                        <div class="au-trust-text" data-i18n="about_risk_c1_text">Transaction assessment led by credit
-                            evaluation, covenants, and scenario testing.</div>
-                    </div>
-                    <div class="au-trust-item">
-                        <div class="au-trust-cap" data-i18n="about_risk_c2_cap">REAL ESTATE REVIEW</div>
-                        <div class="au-trust-text" data-i18n="about_risk_c2_text">Independent valuation lens, location
-                            quality, and asset marketability review.</div>
-                    </div>
-                    <div class="au-trust-item">
-                        <div class="au-trust-cap" data-i18n="about_risk_c3_cap">ONGOING MONITORING</div>
-                        <div class="au-trust-text" data-i18n="about_risk_c3_text">Reporting expectations, milestone
-                            controls, and structure-driven risk checks.</div>
-                    </div>
-                </div>
-            </section>
-
             <!-- WHO WE ARE -->
             <section class="au-section" aria-label="Who we are">
                 <div class="au-container">
@@ -190,6 +173,36 @@
                     </div>
                 </div>
             </section>
+
+
+            <!-- TRUST STRIP -->
+            <section class="au-trust" aria-label="Trust strip">
+                <div class="au-container au-trust-inner">
+                    <div class="au-trust-item">
+                        <div class="au-trust-cap" data-i18n="about_risk_c1_cap">CREDIT REVIEW</div>
+                        <div class="au-trust-text" data-i18n="about_risk_c1_text">Transaction assessment led by credit
+                            evaluation, covenants, and scenario testing.</div>
+                    </div>
+                    <div class="au-trust-item">
+                        <div class="au-trust-cap" data-i18n="about_risk_c2_cap">REAL ESTATE REVIEW</div>
+                        <div class="au-trust-text" data-i18n="about_risk_c2_text">Independent valuation lens, location
+                            quality, and asset marketability review.</div>
+                    </div>
+                    <div class="au-trust-item">
+                        <div class="au-trust-cap" data-i18n="about_risk_c3_cap">ONGOING MONITORING</div>
+                        <div class="au-trust-text" data-i18n="about_risk_c3_text">Reporting expectations, milestone
+                            controls, and structure-driven risk checks.</div>
+                    </div>
+                </div>
+            </section>
+
+            
+
+
+
+
+
+
 
             <!-- HOW WE INVEST (PILLARS) -->
             <!-- <section class="au-section" aria-label="How we invest">
@@ -378,6 +391,81 @@
                 </div>
             </section> -->
 
+
+
+
+
+            <!-- ================= OUR TEAM SECTION ================= -->
+            <section id="ourTeam">
+                <div class="wrap">
+                    <div class="page-head">
+                        <div>
+                            <h1 class="title">OUR TEAM</h1>
+                            <p class="sub" id="teamSub"></p>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <!-- 不分组：统一 grid -->
+                    <div id="teamGrid" class="grid"></div>
+                </div>
+
+                <!-- Modal -->
+                <div id="teamModal" class="modal" aria-hidden="true">
+                    <div class="modal__backdrop" data-close="1"></div>
+
+                    <div class="modal__panel" role="dialog" aria-modal="true">
+                        <button class="modal__close" data-close="1">✕</button>
+
+                        <div class="modal__body">
+                            <div class="modal__left">
+                                <img id="modalPhoto" alt="" />
+                            </div>
+
+                            <div class="modal__right">
+                                <h3 id="modalName"></h3>
+
+                                <div class="modal__topmeta">
+                                    <div id="modalRole"></div>
+                                    <span id="modalJob" class="chip chip--dept"></span>
+                                </div>
+
+                                <div class="modal__scroll">
+                                    <div id="modalBio"></div>
+                                </div>
+
+                                <div class="modal__linkrow">
+                                    <a id="modalEmail" class="modal__link" hidden>Email →</a>
+                                    <a id="modalLinkedIn" class="modal__link" hidden target="_blank">LinkedIn →</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <!-- ==================================================== -->
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
             <!-- COMMUNITY (no image background) -->
             <section class="au-section" aria-label="Community">
                 <div class="au-container">
@@ -523,7 +611,7 @@
             <div class="fi-container fi-grid">
                 <!-- Brand -->
                 <div class="fi-brand">
-                    <img class="fi-logo" src="./Images/initium_logo_transparent_full_h64.png" alt="Initium Capital">
+                    <img class="fi-logo" src="./Images/000011.jpg" alt="IM Capital">
                     <p class="fi-brand-line" data-i18n="footer_brand_line">
                         Australian investment manager focused on private credit and real asset strategies.
                     </p>
@@ -595,7 +683,7 @@
         <!-- Legal -->
         <section class="fi-legal">
             <div class="fi-container fi-legal-inner">
-                <div class="fi-legal-left">© 2025 Initium Capital. All rights reserved.</div>
+                <div class="fi-legal-left">© 2025 IM Capital. All rights reserved.</div>
                 <div class="fi-legal-right">
                     <a class="fi-legal-link" href="./terms.html" data-i18n="footer_legal_terms">Website Terms</a>
                     <span class="fi-dot">·</span>
@@ -610,6 +698,9 @@
     <!-- About Us JS -->
     <script src="./JS/about-us.js"></script>
     <script src="./JS/i18n.js"></script>
+
+    <!-- ✅ Your extracted JS -->
+    <script src="./JS/team.js"></script>
 
 </body>
 

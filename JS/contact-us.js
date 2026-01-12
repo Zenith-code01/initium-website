@@ -17,12 +17,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
   const nameEl = document.getElementById("cuName");
   const emailEl = document.getElementById("cuEmail");
+  const phoneEl = document.getElementById("cuPhone");
   const subjectEl = document.getElementById("cuSubject");
   const msgEl = document.getElementById("cuMessage");
   const consentEl = document.getElementById("cuConsent");
 
   const emailOk = (email) =>
     /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(String(email || "").trim());
+
+  const phoneOk = (phone) => {
+    const p = String(phone || "").trim();
+    if (!p) return true; // optional
+    const digits = p.replace(/\D/g, "");
+    return digits.length >= 6 && digits.length <= 18;
+  };
+
 
   const setFieldError = (el, on) => {
     const wrap = el?.closest?.(".field");
@@ -40,6 +49,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const name = String(nameEl?.value || "").trim();
     const email = String(emailEl?.value || "").trim();
+    const phone = String(phoneEl?.value || "").trim();
     const subject = String(subjectEl?.value || "").trim();
     const msg = String(msgEl?.value || "").trim();
     const consent = !!consentEl?.checked;
@@ -53,6 +63,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     setConsentError(!consent);
     if (!consent) ok = false;
+
+    // ✅ Phone (optional, but if filled must be valid)
+    setFieldError(phoneEl, !phoneOk(phone));
+    if (!phoneOk(phone)) ok = false;
 
     // Soft checks (not required)
     setFieldError(nameEl, name.length > 0 && name.length < 2);
@@ -123,6 +137,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     const fullName = String(nameEl?.value || "").trim();
     const email = String(emailEl?.value || "").trim();
+    const phone = String(phoneEl?.value || "").trim();
     const subject = String(subjectEl?.value || "").trim();
     const message = String(msgEl?.value || "").trim();
     const consent = !!consentEl?.checked;
@@ -131,6 +146,7 @@ document.addEventListener("DOMContentLoaded", () => {
       // Match your Flow schema (recommended)
       fullName,
       email,
+      phone,
       company: "",
       role: subject || "", // use subject as role/type if you don't have separate fields
       ticketSize: "",
@@ -169,7 +185,7 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   // Clear errors on input
-  [nameEl, emailEl, subjectEl, msgEl].forEach((el) => {
+  [nameEl, emailEl, phoneEl, subjectEl, msgEl].forEach((el) => {
     if (!el) return;
     el.addEventListener("input", () => setFieldError(el, false));
   });

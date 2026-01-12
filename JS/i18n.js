@@ -1,5 +1,5 @@
 /* =========================
-   Initium i18n (Full Site + About Us (au-*) + Company Snapshot + Investors v2 + Products + Contact)
+   IM i18n (Full Site + About Us (au-*) + Company Snapshot + Investors v2 + Products + Contact)
    - Two-way switch (EN <-> ZH)
    - EN fallback to prevent "stuck in Chinese"
    - Robust dropdown creation (works on any page)
@@ -22,7 +22,7 @@ const translations = {
     // HERO (carousel text)
     hero_kicker_1: "OVERVIEW",
     hero_title_1:
-      "Initium Capital delivers professional investment solutions across Commercial Property, Property Development and Private Credit, enabling investors to access stable, asset-backed opportunities in prime locations throughout Australia.",
+      "IM Capital delivers professional investment solutions across Commercial Property, Property Development and Private Credit, enabling investors to access stable, asset-backed opportunities in prime locations throughout Australia.",
     hero_kicker_2: "INVESTORS",
     hero_title_2:
       "We challenge ourselves in developing investment products and services catering to the evolving needs of investors in a competitive market.",
@@ -38,16 +38,16 @@ const translations = {
     stat_label_5: "Investor Distributions",
 
     // PCF HERO
-    pcf_eyebrow: "Initium Private Credit Fund",
+    pcf_eyebrow: "IM Private Credit Fund",
     pcf_hero_title:
-      "The Initium Private Credit Fund has built a strong track record, delivering consistent investor returns over time.",
+      "The IM Private Credit Fund has built a strong track record, delivering consistent investor returns over time.",
     pcf_hero_sub:
       "The fund reflects a disciplined credit strategy and a focus on high-quality, secured lending opportunities.",
 
     // CARDS
     card_philosophy_title: "Our Philosophy",
     card_philosophy_p1:
-      "At Initium Capital, understanding and achieving our clients’ goals are at the core of our company values. Our philosophy has always been to back our beliefs with actions.",
+      "At IM Capital, understanding and achieving our clients’ goals are at the core of our company values. Our philosophy has always been to back our beliefs with actions.",
     card_philosophy_p2:
       "We spent a year personally testing and investing in the market to ensure zero losses or zero-interest investments. Our primary focus is on single-asset lending, with the ultimate goal of transitioning to a pooled fund structure.",
     card_philosophy_p3:
@@ -55,11 +55,11 @@ const translations = {
 
     card_background_title: "Background & Expertise",
     card_background_p1:
-      "Before the official launch of the Initium Capital Private Credit Fund, we conducted a thorough internal review with the board. Our philosophy has always been to back our words with actions.",
+      "Before the official launch of the IM Capital Private Credit Fund, we conducted a thorough internal review with the board. Our philosophy has always been to back our words with actions.",
     card_background_p2:
-      "Initium adopts a dual-pronged approach to transaction assessment. First, our credit team conducts an evaluation, followed by a review by Initium Management’s in-house real estate experts.",
+      "IM adopts a dual-pronged approach to transaction assessment. First, our credit team conducts an evaluation, followed by a review by IM Management’s in-house real estate experts.",
     card_background_p3:
-      "As a wholly owned subsidiary of Initium Group, Initium Management has a strong reputation in real estate development, providing significant advantages for Initium and its investors.",
+      "As a wholly owned subsidiary of IM Group, IM Management has a strong reputation in real estate development, providing significant advantages for IM and its investors.",
 
     // HIGHLIGHT
     highlight_title: "Single Asset Investment",
@@ -80,7 +80,7 @@ const translations = {
     // DETAIL – UNDERWRITING
     detail_title_2: "Underwriting Metrics",
     detail_intro_2:
-      "As part of the credit assessment process, Initium Capital considers key underwriting metrics, including:",
+      "As part of the credit assessment process, IM Capital considers key underwriting metrics, including:",
     detail_metric_1: "Location and site amenities",
     detail_metric_2:
       "Land acquisition value and terms, relative to independent professional valuations",
@@ -124,7 +124,7 @@ const translations = {
 
     // CONTACT US (cu_*)
     cu_kicker: "CONTACT",
-    cu_title: "Get in touch with Initium Capital",
+    cu_title: "Get in touch with IM Capital",
     cu_sub: "Reach out for investor enquiries, partnership opportunities, or general questions.",
     cu_info_title: "Contact details",
     cu_info_desc: "We aim to respond within 1–2 business days.",
@@ -164,7 +164,7 @@ const translations = {
 
     // COMPANY SNAPSHOT (cs_*)
     cs_kicker: "COMPANY OVERVIEW",
-    cs_title: "Initium Capital — Company Snapshot",
+    cs_title: "IM Capital — Company Snapshot",
     cs_sub:
       "Founded in 2021 by two family offices and partners with deep expertise across commercial real estate, asset management and private banking. We focus on institutional-grade, asset-backed opportunities for UHNW clients and family offices.",
 
@@ -194,17 +194,17 @@ const translations = {
 
     cs_funds_title: "Our Funds",
     cs_pill_core: "Core",
-    cs_fund_1: "Initium Commercial Property Fund",
+    cs_fund_1: "IM Commercial Property Fund",
     cs_fund_1_sub:
       "Prime retail & commercial assets in Sydney’s tier-one locations, supported by active asset management.",
 
     cs_pill_dev: "Development",
-    cs_fund_2: "Initium Mosman Development Fund",
+    cs_fund_2: "IM Mosman Development Fund",
     cs_fund_2_sub:
       "Project-focused strategy seeking value creation through disciplined planning and execution.",
 
     cs_pill_credit: "Private Credit",
-    cs_fund_3: "Initium Private Credit Fund",
+    cs_fund_3: "IM Private Credit Fund",
     cs_fund_3_sub:
       "Short-duration, asset-backed lending opportunities with robust underwriting and risk controls.",
 
@@ -233,19 +233,19 @@ const translations = {
     cs_role_assistant: "Assistant Manager",
 
     cs_victor_bio:
-      "CEO of Huang Family Office. Focused on Initium brand development and family office value legacy, with extensive experience in local and international property investment and development.",
+      "CEO of Huang Family Office. Focused on IM brand development and family office value legacy, with extensive experience in local and international property investment and development.",
     cs_max_bio:
       "Deep expertise across commercial real estate acquisition, leasing, development planning, construction project management and asset operations, supported by a long-standing family office heritage.",
     cs_bo_bio:
       "15+ years in private banking, wealth management and fund management. Senior private banking background across APAC and Australia/New Zealand. RG146 certified.",
     cs_mark_bio:
-      "15+ years in business development, wealth and fund management. Former Westpac and Citibank relationship manager. Joined Initium in 2023. RG146.",
+      "15+ years in business development, wealth and fund management. Former Westpac and Citibank relationship manager. Joined IM in 2023. RG146.",
     cs_stanley_bio:
       "Extensive banking experience (Westpac Private, St George, ANZ). Leads operational support, risk management and coordination. Joined in 2022. RG146.",
     cs_will_bio:
       "Leads lending advisory. Background in investment management, credit consulting and financial analysis. Managed 200+ tenant/client relationships. Holds multiple finance and mortgage qualifications.",
     cs_libin_bio:
-      "Supports distribution and stakeholder relationship management. Joined Initium in 2023. Holds a Master’s degree in Management and Finance (UTS).",
+      "Supports distribution and stakeholder relationship management. Joined IM in 2023. Holds a Master’s degree in Management and Finance (UTS).",
 
     cs_heritage_p1:
       "The Hayson family has a long-standing track record in landmark retail and mixed-use developments. Signature projects include Harbourside (Darling Harbour) and Pitt Street Mall’s Skygarden.",
@@ -262,11 +262,11 @@ const translations = {
       "Major sponsor of Heritage Classic Pro-Am, supporting children and families requiring specialised care and support.",
 
     // ABOUT US (about_*)
-    about_eyebrow: "ABOUT INITIUM CAPITAL",
+    about_eyebrow: "ABOUT IM CAPITAL",
     about_title:
       "Institutional-grade private credit and real asset strategies, built on disciplined underwriting.",
     about_sub:
-      "Initium Capital is an Australian investment manager focused on asset-backed opportunities across private credit, commercial property and development-related strategies—designed for UHNW clients and family offices.",
+      "IM Capital is an Australian investment manager focused on asset-backed opportunities across private credit, commercial property and development-related strategies—designed for UHNW clients and family offices.",
 
     about_badge_1_top: "Asset-backed",
     about_badge_1_btm: "Clear security & borrower alignment",
@@ -406,10 +406,10 @@ const translations = {
     // =========================
     // PRODUCTS PAGE (prd_*)
     // =========================
-    prd_kicker: "PRODUCTS",
+    prd_kicker: "Our Philosophy",
     prd_title: "Private Credit Strategies Backed by Real Assets",
     prd_sub:
-      "Short-duration, asset-secured investments targeting stable income and capital preservation across Australia.",
+      "At IM Capital, understanding and achieving our clients’ goals are at the core of our company values. Our philosophy has always been to back our beliefs with actions.We spent a year personally testing and investing in the market to ensure zero losses or zero-interest investments. Our primary focus is on single-asset lending, with the ultimate goal of transitioning to a pooled fund structure.We remain steadfast in this commitment, recognizing the importance of aligning our interests with those of our clients in the commercial real estate debt market.",
     prd_badge_1: "Senior Secured",
     prd_badge_2: "Real Asset Backed",
     prd_badge_3: "Short Duration",
@@ -419,14 +419,16 @@ const translations = {
     prd_disclaimer:
       "This page is for general information only and does not constitute financial product advice.",
 
-    prd_metric_1_num: "3–24",
-    prd_metric_1_lbl: "Month typical tenor",
-    prd_metric_2_num: "≤80%",
-    prd_metric_2_lbl: "Disciplined LVR focus",
-    prd_metric_3_num: "Senior",
-    prd_metric_3_lbl: "Security-first approach",
-    prd_hero_note:
-      "We prioritise downside protection through conservative structuring, robust due diligence, and active monitoring.",
+    prd_metric_1_num: "3 – 24 Months",
+    prd_metric_1_lbl: "Duration",
+    prd_metric_2_num: "5m – 50m",
+    prd_metric_2_lbl: "Deal Size Focus",
+    prd_metric_3_num: "Monthly",
+    prd_metric_3_lbl: "Investor Distributions",
+    prd_metric_4_num: "A$250,000",
+    prd_metric_4_lbl: "Minimum Investment",
+    prd_metric_5_num: "10-16% P.A.",
+    prd_metric_5_lbl: "Investor Target Return",
 
     prd_core_kicker: "PRODUCT",
     prd_core_title: "First Mortgage Products",
@@ -508,7 +510,7 @@ const translations = {
     prd_cta_sub:
       "Connect with our team to request product information and discuss suitability.",
     prd_cta_btn_1: "Contact Us",
-    prd_cta_btn_2: "Learn about Initium",
+    prd_cta_btn_2: "Learn about IM",
 
     // INVESTORS v2 (inv2_*)
     inv2_pill: "Investor Access • Private Credit • Real Assets",
@@ -517,7 +519,7 @@ const translations = {
     inv2_h1_mid: "backed by",
     inv2_h1_ink: "real assets",
     inv2_lead:
-      "Initium Capital structures senior-secured private credit opportunities with disciplined underwriting, clear exits, and capital preservation at the core.",
+      "IM Capital structures senior-secured private credit opportunities with disciplined underwriting, clear exits, and capital preservation at the core.",
     inv2_btn_pack: "Request Investor Pack",
     inv2_btn_overview: "View Strategy Overview",
     inv2_badge_qualified: "Wholesale / Sophisticated Investors",
@@ -610,11 +612,11 @@ const translations = {
     legal_updated: "Last updated: 2026-01-05",
 
     // Disclaimer page
-    disclaimer_title_tag: "Disclaimer | Initium Capital",
+    disclaimer_title_tag: "Disclaimer | IM Capital",
     disclaimer_h1: "Disclaimer",
     disclaimer_sub: "Important information about the content on this website.",
     disclaimer_h2_1: "General information only",
-    disclaimer_p_1: "The information on this website is provided for general information purposes only and does not constitute financial product advice, legal advice, tax advice, or an offer or solicitation to invest.",
+    disclaimer_p_1: "not constitute financial product advice, legal advice, tax advice, or an offer or solicitation to invest.",
     disclaimer_h2_2: "No reliance",
     disclaimer_p_2: "You should not rely on the information on this website to make investment decisions. You should obtain independent professional advice and consider your personal objectives, financial situation, and needs.",
     disclaimer_h2_3: "Forward-looking statements",
@@ -627,7 +629,7 @@ const translations = {
     disclaimer_p_6: "If you have questions about this Disclaimer, please contact us via the Contact Us page.",
 
     // Privacy page
-    privacy_title_tag: "Privacy Policy | Initium Capital",
+    privacy_title_tag: "Privacy Policy | IM Capital",
     privacy_h1: "Privacy Policy",
     privacy_sub: "How we collect, use, and protect your personal information.",
     privacy_h2_1: "Information we collect",
@@ -656,7 +658,7 @@ const translations = {
     // HERO
     hero_kicker_1: "概览",
     hero_title_1:
-      "Initium Capital 提供覆盖商业地产、地产开发与私人信贷的专业投资解决方案，帮助投资人把握位于澳大利亚核心区域的稳定、资产抵押型投资机会。",
+      "IM Capital 提供覆盖商业地产、地产开发与私人信贷的专业投资解决方案，帮助投资人把握位于澳大利亚核心区域的稳定、资产抵押型投资机会。",
     hero_kicker_2: "投资人",
     hero_title_2:
       "我们不断挑战自我，开发更具竞争力的投资产品与服务，以满足投资人在变化市场中的持续需求。",
@@ -700,10 +702,10 @@ const translations = {
     contact: "联系团队",
 
     // PRODUCTS PAGE (prd_*)
-    prd_kicker: "产品",
+    prd_kicker: "我们的理念",
     prd_title: "以真实资产为抵押的私人信贷策略",
     prd_sub:
-      "聚焦短久期、资产担保的投资方案，旨在获得稳定收益，并优先保护本金（澳洲市场）。",
+      "在IM Capital，理解并实现客户的目标是我们公司价值观的核心。我们始终秉持“以行动践行信念”的理念。我们曾亲自参与市场测试和投资长达一年，以确保零损失或零利息投资。我们目前专注于单一资产贷款，最终目标是转型为集合基金结构。我们始终坚定不移地履行这一承诺，因为我们深知在商业房地产债务市场中，与客户利益保持一致至关重要。",
     prd_badge_1: "优先级担保",
     prd_badge_2: "真实资产背书",
     prd_badge_3: "短久期",
@@ -712,13 +714,17 @@ const translations = {
     prd_cta_secondary: "浏览策略",
     prd_disclaimer: "本页面仅为一般性信息，不构成金融产品建议。",
 
-    prd_metric_1_num: "3–24",
-    prd_metric_1_lbl: "常见期限（月）",
-    prd_metric_2_num: "≤80%",
-    prd_metric_2_lbl: "严格 LVR 关注",
-    prd_metric_3_num: "优先级",
-    prd_metric_3_lbl: "以担保优先为核心",
-    prd_hero_note: "我们通过保守结构设计、严格尽调与持续监控来优先控制下行风险。",
+    prd_metric_1_num: "3 – 24 月",
+    prd_metric_1_lbl: "期限（月）",
+    prd_metric_2_num: "5m – 50m",
+    prd_metric_2_lbl: "交易金额范围",
+    prd_metric_3_num: "月度",
+    prd_metric_3_lbl: "投资者分配",
+    prd_metric_4_num: "A$250,000",
+    prd_metric_4_lbl: "25万澳元",
+    prd_metric_4_num: "10-16% PA",
+    prd_metric_4_lbl: "投资者目标回报",
+
 
     prd_core_kicker: "产品",
     prd_core_title: "第一顺位抵押产品",
@@ -792,7 +798,7 @@ const translations = {
     prd_cta_title: "获取投资概览资料",
     prd_cta_sub: "联系我们索取产品信息，并沟通适配性与投资安排。",
     prd_cta_btn_1: "联系团队",
-    prd_cta_btn_2: "了解 Initium",
+    prd_cta_btn_2: "了解 IM",
 
 
     /* ====== STATS====== */
@@ -803,20 +809,20 @@ const translations = {
     stat_label_5: "投资人分配频率",
 
     /* ====== PCF HERO ====== */
-    pcf_eyebrow: "Initium 私人信贷基金",
-    pcf_hero_title: "Initium 私人信贷基金建立了稳健的历史表现，并持续为投资人提供稳定回报。",
+    pcf_eyebrow: "IM 私人信贷基金",
+    pcf_hero_title: "IM 私人信贷基金建立了稳健的历史表现，并持续为投资人提供稳定回报。",
     pcf_hero_sub: "基金体现了纪律性信贷策略，聚焦高质量、具备担保的贷款机会。",
 
     /* ====== CARDS ====== */
     card_philosophy_title: "我们的理念",
-    card_philosophy_p1: "在 Initium Capital，理解并实现客户目标是我们的核心价值。我们的理念始终是以行动兑现承诺。",
+    card_philosophy_p1: "在 IM Capital，理解并实现客户目标是我们的核心价值。我们的理念始终是以行动兑现承诺。",
     card_philosophy_p2: "我们曾用一年的时间亲自测试并投入市场，以验证在可控风险下实现“零损失/零利息”投资的可行性。我们以单一资产贷款为主要方向，并以逐步过渡至集合基金结构为长期目标。",
     card_philosophy_p3: "我们始终坚持这一承诺，认识到在商业地产债务市场中，让我们的利益与客户保持一致的重要性。",
 
     card_background_title: "背景与专业能力",
-    card_background_p1: "在 Initium Capital 私人信贷基金正式推出前，我们与董事会共同进行了全面的内部评估。我们始终坚持以行动支撑承诺。",
-    card_background_p2: "Initium 采用“双重评估”方式：先由信贷团队进行审查，再由 Initium Management 的内部地产专家进行复核。",
-    card_background_p3: "作为 Initium Group 的全资子公司，Initium Management 在地产开发领域拥有良好声誉，为 Initium 及投资人带来显著优势。",
+    card_background_p1: "在 IM Capital 私人信贷基金正式推出前，我们与董事会共同进行了全面的内部评估。我们始终坚持以行动支撑承诺。",
+    card_background_p2: "IM 采用“双重评估”方式：先由信贷团队进行审查，再由 IM Management 的内部地产专家进行复核。",
+    card_background_p3: "作为 IM Group 的全资子公司，IM Management 在地产开发领域拥有良好声誉，为 IM 及投资人带来显著优势。",
 
     /* ====== HIGHLIGHT ====== */
     highlight_title: "单一资产投资",
@@ -831,7 +837,7 @@ const translations = {
 
     /* ====== DETAIL – UNDERWRITING ====== */
     detail_title_2: "承保指标",
-    detail_intro_2: "在信贷评估流程中，Initium Capital 重点关注的承保指标包括：",
+    detail_intro_2: "IM Capital 重点关注的承保指标包括：",
     detail_metric_1: "区位与配套条件",
     detail_metric_2: "土地收购价值与条款（对照独立专业估值）",
     detail_metric_3: "先决条件、持续性契约与后续条件",
@@ -844,7 +850,7 @@ const translations = {
 
     /* ====== CONTACT US (cu_*) ====== */
     cu_kicker: "联系我们",
-    cu_title: "联系 Initium Capital",
+    cu_title: "联系 IM Capital",
     cu_sub: "如需投资咨询、合作机会或一般问题，欢迎联系我们。",
     cu_info_title: "联系方式",
     cu_info_desc: "我们通常会在 1–2 个工作日内回复。",
@@ -875,7 +881,7 @@ const translations = {
 
     /* ====== COMPANY SNAPSHOT (cs_*) ====== */
     cs_kicker: "公司概览",
-    cs_title: "Initium Capital — 公司速览",
+    cs_title: "IM Capital — 公司速览",
     cs_sub: "成立于 2021 年，由两家家族办公室及具备商业地产、资管与私人银行深厚经验的合伙人共同创立。我们为超高净值客户与家族办公室提供机构级、资产抵押型投资机会。",
 
     cs_snap_title: "公司速览",
@@ -901,15 +907,15 @@ const translations = {
 
     cs_funds_title: "我们的基金",
     cs_pill_core: "核心",
-    cs_fund_1: "Initium 商业地产基金",
+    cs_fund_1: "IM 商业地产基金",
     cs_fund_1_sub: "聚焦悉尼一线核心区域的优质零售与商业资产，并通过主动资产管理提升价值。",
 
     cs_pill_dev: "开发",
-    cs_fund_2: "Initium Mosman 开发基金",
+    cs_fund_2: "IM Mosman 开发基金",
     cs_fund_2_sub: "以项目为核心的策略，通过纪律化规划与执行寻求价值创造。",
 
     cs_pill_credit: "私人信贷",
-    cs_fund_3: "Initium 私人信贷基金",
+    cs_fund_3: "IM 私人信贷基金",
     cs_fund_3_sub: "短久期、资产担保的贷款机会，依托严格承保与风险控制。",
 
     cs_platforms_title: "平台与研究",
@@ -934,13 +940,13 @@ const translations = {
     cs_role_director: "董事",
     cs_role_assistant: "助理经理",
 
-    cs_victor_bio: "Huang 家族办公室 CEO。聚焦 Initium 品牌与家族办公室价值传承，拥有丰富的本地与国际地产投资及开发经验。",
+    cs_victor_bio: "Huang 家族办公室 CEO。聚焦 IM 品牌与家族办公室价值传承，拥有丰富的本地与国际地产投资及开发经验。",
     cs_max_bio: "在商业地产收购、租赁、开发规划、工程管理与资产运营方面具备深厚经验，并拥有长期家族办公室传承背景。",
     cs_bo_bio: "15年以上私人银行、财富管理与基金管理经验。曾在亚太及澳新地区担任资深私人银行岗位，RG146 认证。",
-    cs_mark_bio: "15年以上商务拓展、财富与基金管理经验。曾任 Westpac 与 Citibank 客户经理，2023 年加入 Initium，RG146。",
+    cs_mark_bio: "15年以上商务拓展、财富与基金管理经验。曾任 Westpac 与 Citibank 客户经理，2023 年加入 ",
     cs_stanley_bio: "拥有丰富银行从业经历（Westpac Private、St George、ANZ）。负责运营支持、风控协调与项目统筹，2022 年加入，RG146。",
     cs_will_bio: "负责借贷顾问与融资方案。具备投管、信贷咨询与财务分析背景，管理 200+ 客户/租户关系，持有多项金融与按揭资质。",
-    cs_libin_bio: "支持渠道拓展与利益相关方关系管理。2023 年加入 Initium。拥有 UTS 管理与金融硕士学位。",
+    cs_libin_bio: "支持渠道拓展与利益相关方关系管理。2023 年加入 IM 。拥有 UTS 管理与金融硕士学位。",
 
     cs_heritage_p1: "Hayson 家族在地标性零售与综合体开发方面拥有长期记录，代表项目包括达令港 Harbourside 与皮特街购物中心 Skygarden。",
     cs_heritage_li_1: "Skygarden — Pitt St Mall",
@@ -953,9 +959,9 @@ const translations = {
     cs_csr_2: "作为 Heritage Classic Pro-Am 的主要赞助方，支持需要专业照护与支持的儿童与家庭。",
 
     /* ====== ABOUT US (about_*) ====== */
-    about_eyebrow: "关于 INITIUM CAPITAL",
+    about_eyebrow: "关于 IM CAPITAL",
     about_title: "机构级私人信贷与实物资产策略，建立在纪律化承保之上。",
-    about_sub: "Initium Capital 是一家澳大利亚投资管理机构，聚焦私人信贷、商业地产与开发相关策略的资产抵押型机会，为超高净值客户与家族办公室提供投资方案。",
+    about_sub: "IM Capital 是一家澳大利亚投资管理机构，聚焦私人信贷、商业地产与开发相关策略的资产抵押型机会，为超高净值客户与家族办公室提供投资方案。",
 
     about_badge_1_top: "资产担保",
     about_badge_1_btm: "清晰担保与借款人对齐",
@@ -1068,7 +1074,7 @@ const translations = {
     inv2_h1_accent: "稳定收益",
     inv2_h1_mid: "并由",
     inv2_h1_ink: "真实资产担保",
-    inv2_lead: "Initium Capital 通过纪律化承保与清晰退出路径，结构化优先级担保的私人信贷机会，以资本保全为核心。",
+    inv2_lead: "IM Capital 通过纪律化承保与清晰退出路径，结构化优先级担保的私人信贷机会，以资本保全为核心。",
     inv2_btn_pack: "索取投资人资料包",
     inv2_btn_overview: "查看策略概览",
     inv2_badge_qualified: "批发/成熟投资人",
@@ -1151,7 +1157,7 @@ const translations = {
     legal_updated: "更新日期：2026-01-05",
 
     // Disclaimer page
-    disclaimer_title_tag: "免责声明 | Initium Capital",
+    disclaimer_title_tag: "免责声明 | IM Capital",
     disclaimer_h1: "免责声明",
     disclaimer_sub: "关于本网站内容的重要说明。",
     disclaimer_h2_1: "仅供一般信息参考",
@@ -1168,7 +1174,7 @@ const translations = {
     disclaimer_p_6: "如对本免责声明有任何疑问，请通过 Contact Us 页面与我们联系。",
 
     // Privacy page
-    privacy_title_tag: "隐私政策 | Initium Capital",
+    privacy_title_tag: "隐私政策 | IM Capital",
     privacy_h1: "隐私政策",
     privacy_sub: "我们如何收集、使用并保护您的个人信息。",
     privacy_h2_1: "我们收集的信息",

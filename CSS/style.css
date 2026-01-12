@@ -27,7 +27,11 @@ body {
 
 /* ================= Navbar Redesign (keeps your colors) ================= */
 :root {
-  --nav-h: 60px;
+
+  --nav-font: 17px;
+  /* ✅ 导航栏基准字号（桌面） */
+
+  --nav-h: 70px;
   /* 56 / 60 / note: 64 */
 
   /* Brand Navy System */
@@ -184,23 +188,6 @@ body {
   /* 下留白 */
 }
 
-/* 中间淡淡的网格光感（不影响主体） */
-.nav-mid::before {
-  content: "";
-  position: absolute;
-  inset: -40px;
-  background:
-    radial-gradient(circle at 20% 40%, rgba(255, 255, 255, 0.10), transparent 55%),
-    radial-gradient(circle at 80% 20%, rgba(255, 255, 255, 0.08), transparent 55%),
-    repeating-linear-gradient(to right,
-      rgba(255, 255, 255, 0.06) 0px,
-      rgba(255, 255, 255, 0.06) 1px,
-      transparent 1px,
-      transparent 22px);
-  opacity: 0.25;
-  pointer-events: none;
-}
-
 /* ====== Brand ====== */
 .brand {
   display: inline-flex;
@@ -236,10 +223,18 @@ body {
   position: relative;
   text-decoration: none;
   color: rgba(255, 255, 255, 0.88);
-  font-size: 15px;
+
+  /* font-size: 15px;*/
+  font-size: calc(var(--nav-font) * var(--nav-scale));
+
   letter-spacing: 0.3px;
-  padding: 0 12px;
-  line-height: var(--nav-h);
+
+  /* padding: 0 12px; */
+  padding: 0 calc(12px * var(--nav-scale));
+
+  /* line-height: var(--nav-h); */
+  line-height: calc(var(--nav-h) * var(--nav-scale));
+
   /* ✅ 垂直居中并跟随高度 */
   transition: transform .2s ease, color .2s ease;
 }
@@ -387,16 +382,19 @@ main {
 
 /* 每条文案占满左侧区域（叠在一起，通过 class 控制显示） */
 /* 每条文案：手机不允许用 80ch 撑爆 */
-.text-slide{
+.text-slide {
   position: absolute;
 
   /* ✅ 关键：最大宽度跟屏幕走 */
-  width: calc(100vw - 32px);   /* 左右各留 16px */
-  max-width: 70%;             /* 桌面仍保留你要的行长 */
+  width: calc(100vw - 32px);
+  /* 左右各留 16px */
+  max-width: 70%;
+  /* 桌面仍保留你要的行长 */
   box-sizing: border-box;
 
   opacity: 0;
-  transform: translateX(0) translateY(4px); /* ✅ 不再额外平移造成边界问题 */
+  transform: translateX(0) translateY(4px);
+  /* ✅ 不再额外平移造成边界问题 */
   transition: opacity .85s ease, transform .85s ease;
   pointer-events: none;
 
@@ -422,7 +420,7 @@ main {
 /* 文案样式 */
 .hero-kicker {
   font-size: 18px;
-  font-weight:  800;
+  font-weight: 800;
   letter-spacing: 1px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, 0.85);
@@ -1230,7 +1228,7 @@ main {
 /* ================= Investor-only Footer (Initium) ================= */
 
 .footer-investor {
-  background: #081726;
+  background: #003345;
   color: rgba(255, 255, 255, 0.88);
   border-top: 1px solid rgba(255, 255, 255, 0.08);
 }
@@ -1242,8 +1240,25 @@ main {
 
 /* ---- Top strip: trust + action ---- */
 .fi-top {
+  position: relative;
   background: linear-gradient(180deg, rgba(0, 51, 69, 0.70), rgba(8, 23, 38, 0.95));
-  border-bottom: 1px solid rgba(255, 255, 255, 0.10);
+}
+
+.fi-top::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.35),
+    transparent
+  );
+
 }
 
 .fi-top-inner {
@@ -1319,6 +1334,7 @@ main {
 .fi-main {
   padding: 34px 0 26px;
 }
+
 
 .fi-grid {
   display: grid;
@@ -1726,6 +1742,7 @@ body {
    FIX: Mobile navbar underline broken
    ========================= */
 @media (max-width: 768px) {
+
   /* 1) 让 nav-mid 的装饰层放到底层，不要盖住链接 */
   .nav-mid {
     position: relative;
@@ -1733,14 +1750,16 @@ body {
 
   .nav-mid::before,
   .nav-mid::after {
-    z-index: 0 !important;         /* 装饰层在底 */
+    z-index: 0 !important;
+    /* 装饰层在底 */
     pointer-events: none !important;
   }
 
   /* 2) 让链接本体在装饰层上面 */
   .nav-link {
     position: relative;
-    z-index: 2;                    /* 链接在上 */
+    z-index: 2;
+    /* 链接在上 */
   }
 
   /* 3) 彻底禁用你之前的 ::after 下划线（避免被旧规则影响） */
@@ -1753,7 +1772,8 @@ body {
     background-image: linear-gradient(#ECE3D5, #ECE3D5);
     background-repeat: no-repeat;
     background-position: 50% calc(100% - 8px);
-    background-size: 0 2px;        /* 默认不显示 */
+    background-size: 0 2px;
+    /* 默认不显示 */
     transition: background-size .22s ease, color .22s ease, transform .22s ease;
   }
 
@@ -1764,6 +1784,7 @@ body {
   .nav-link.is-active {
     color: #ECE3D5;
     transform: none;
-    background-size: 30px 2px;     /* 当前页保持显示 */
+    background-size: 30px 2px;
+    /* 当前页保持显示 */
   }
 }

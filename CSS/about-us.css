@@ -1,8 +1,9 @@
 /* =========================
    About Us (Initium) - NO IMAGES
+   FULL REPLACE (Fix au-title width)
    ========================= */
 
-
+/* Top reset */
 .about-main,
 .au-wrap {
   padding-top: 0;
@@ -29,30 +30,28 @@
 /* =========================
    ABOUT HERO – match Products deep navy style
    ========================= */
-.au-hero {
+/* ABOUT HERO – match the same gradient as prd-hero / inv2-hero */
+.au-hero{
   position: relative;
   overflow: hidden;
 
   background:
-    /* 左上青色光晕 */
-    radial-gradient(
-      1200px 600px at 18% 20%,
-      rgba(15, 173, 230, 0.22),
-      transparent 55%
+    radial-gradient(1200px 600px at 18% 20%,
+      rgba(15,173,230,.22),
+      transparent 55%),
+    radial-gradient(900px 520px at 80% 35%,
+      rgba(0,51,69,.28),
+      transparent 60%),
+    /* ✅ 图一同款：浅色线性渐变（不是深蓝） */
+    linear-gradient(180deg,
+      rgba(255,255,255,.06),
+      rgba(255,255,255,.02) 60%,
+      rgba(255,255,255,0)
     ),
-    /* 右侧深蓝层次 */
-    radial-gradient(
-      900px 520px at 80% 35%,
-      rgba(0, 51, 69, 0.35),
-      transparent 60%
-    ),
-    /* 主体深色渐变（关键） */
-    linear-gradient(
-      180deg,
-      rgba(0, 51, 69, 0.95),
-      rgba(0, 51, 69, 0.88) 60%,
-      rgba(0, 51, 69, 0.80)
-    );
+    /* ✅ 关键：深色底层，保证质感一致 */
+    #003345;
+
+  border-bottom: 1px solid rgba(234,243,247,.10);
 }
 
 
@@ -61,14 +60,15 @@
   z-index: 1;
   padding: 72px 0 56px;
   display: grid;
-  grid-template-columns: 1.35fr 0.95fr;
+  grid-template-columns: 1.6fr 0.9fr; /* ✅ left wider */
   gap: 26px;
   align-items: start;
 }
 
 .au-eyebrow {
   display: inline-block;
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: 800;
   letter-spacing: 1.8px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .78);
@@ -76,28 +76,31 @@
   padding: 8px 12px;
   border-radius: 999px;
   background: rgba(0, 0, 0, .10);
-  /* fallback */
   backdrop-filter: blur(6px);
 }
 
 .au-title {
   margin: 14px 0 10px;
-  font-size: clamp(26px, 2.1vw, 42px);
+  font-size: 20px;
+  font-weight: 100;
   line-height: 1.08;
-  font-weight: 800;
   color: rgba(255, 255, 255, .98);
   letter-spacing: -0.2px;
 
-  /* EN line breaking improvement */
-  max-width: 26ch;
+  /* ✅ FIX: never cap headline width */
+  max-width: none;
+  width: 100%;
+  text-wrap: normal; /* ✅ avoid forced balancing that may cause early wraps */
+  word-break: normal;
 }
 
 .au-sub {
   margin: 0;
-  font-size: 15.5px;
+  font-size: 12px;
+  font-weight: 80;
   line-height: 1.75;
   color: rgba(255, 255, 255, .86);
-  max-width: 64ch;
+  max-width: 80ch;
 }
 
 .au-hero-actions {
@@ -137,7 +140,7 @@
 
 /* right glance card */
 .au-glance {
-  background: rgba(255, 255, 255, .92);
+  background: #ECE3D5;
   border: 1px solid rgba(0, 0, 0, .08);
   border-radius: 16px;
   padding: 18px 18px 14px;
@@ -171,7 +174,7 @@
 
 .au-kpi-num {
   font-size: 18px;
-  font-weight: 900;
+  font-weight: 500;
   color: #003345;
 }
 
@@ -212,7 +215,8 @@
 }
 
 .au-trust-cap {
-  font-size: 11px;
+  font-size: 14px;
+  font-weight: 800;
   letter-spacing: 1.6px;
   text-transform: uppercase;
   color: rgba(255, 255, 255, .75);
@@ -220,7 +224,7 @@
 }
 
 .au-trust-text {
-  font-size: 14px;
+  font-size: 12px;
   line-height: 1.7;
   color: rgba(255, 255, 255, .86);
 }
@@ -550,7 +554,7 @@
   transform: translateY(-1px);
 }
 
-.au-btn--primary{
+.au-btn--primary {
   background: #ECE3D5;
   color: #081726;
   border-color: rgba(236, 227, 213, 0.85);
@@ -569,10 +573,7 @@
   border-color: rgba(0, 51, 69, .18);
 }
 
-
-
 /* Final CTA */
-
 .au-final-cta-inner {
   display: grid;
   grid-template-columns: 1.2fr 0.8fr;
@@ -626,26 +627,20 @@
   }
 }
 
-/* Extra-wide */
-@media (min-width: 1400px) {
-  .au-title {
-    max-width: 18ch;
-  }
-}
+/* ✅ IMPORTANT: remove the old "Extra-wide" cap that broke au-title
+   (We intentionally do NOT set au-title max-width here.) */
 
 
 /* =========================
    NEW CTA: Signature card (separate from footer)
    ========================= */
-
 .au-next {
   background: white;
-  /* ✅ 用浅色“断开”深色页脚 */
   padding: 64px 0 40px;
   position: relative;
 }
 
-/* 上方做一道“金色细分割线”，让它成为页面的收尾段落 */
+/* gold thin divider */
 .au-next::before {
   content: "";
   position: absolute;
@@ -658,7 +653,7 @@
   opacity: .95;
 }
 
-/* 外壳轻微渐变，让卡片更“浮” */
+/* shell */
 .au-next-shell {
   width: min(1160px, calc(100% - 48px));
   margin: 0 auto;
@@ -681,7 +676,6 @@
   gap: 0;
 }
 
-/* 左侧内容：机构感的排版 */
 .au-next-left {
   padding: 26px 26px 24px;
 }
@@ -690,7 +684,6 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-
   font-size: 12px;
   letter-spacing: 2px;
   text-transform: uppercase;
@@ -712,6 +705,7 @@
   color: #003345;
   max-width: 28ch;
   word-break: normal;
+  text-wrap: balance; /* ✅ keep for CTA title */
 }
 
 .au-next-sub {
@@ -739,7 +733,6 @@
   border: 1px solid rgba(0, 51, 69, .14);
 }
 
-/* 右侧：做成“操作面板”，与左侧内容区形成强区分 */
 .au-next-right {
   padding: 26px 22px 22px;
   background:
@@ -803,7 +796,7 @@
   flex: 0 0 auto;
 }
 
-/* Responsive */
+/* Responsive (CTA) */
 @media (max-width: 980px) {
   .au-next {
     padding: 54px 0 28px;
@@ -829,12 +822,7 @@
   border-color: rgba(236, 227, 213, 0.85);
 }
 
-.au-title,
-.au-next-title {
-  text-wrap: balance;
-  word-break: normal;
-}
-
+/* Focus style */
 .au-q:focus-visible {
   outline: 2px solid rgba(238, 182, 14, .65);
   outline-offset: 4px;

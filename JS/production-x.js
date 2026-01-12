@@ -145,7 +145,7 @@
 
         const imgTag = img
           ? `<img src="${img}" alt="${address.replace(/"/g, "&quot;")}" loading="lazy" />`
-          : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(234,243,247,0.85);font-weight:800;">Initium</div>`;
+          : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(234,243,247,0.85);font-weight:800;">IM Capital</div>`;
 
         return `
           <article class="prodx-card">

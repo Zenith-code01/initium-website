@@ -5,49 +5,62 @@
    - Uses deep blue-grey instead of near-black
 ================================= */
 
-.products{
+.products {
   /* ✅ 关键：从“黑”改成“深蓝灰” */
-  background: #003345;      /* 深蓝灰，不黑 */
+  background: #003345;
+  /* 深蓝灰，不黑 */
   color: #eaf3f7;
 }
 
 /* Container */
-.prd-container{
+.prd-container {
   width: min(1160px, calc(100% - 48px));
   margin: 0 auto;
 }
 
 /* Typography helpers */
-.prd-kicker{
-  letter-spacing: .18em;
+.prd-kicker {
+
   text-transform: uppercase;
-  font-size: 12px;
+  font-size: 18px;
+  font-weight: 800;
   opacity: .88;
   margin: 0 0 10px;
+
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  padding: 10px 14px;
+  border: 1px solid var(--inv-border);
+  background: #FFFFFF0F;
+  border-radius: 999px;
+  color: var(--inv-muted);
+  letter-spacing: 0.02em;
+  box-shadow: var(--inv-shadow2);
 }
 
-.prd-title{
+.prd-title {
   margin: 0 0 14px;
-  font-size: clamp(30px, 3.2vw, 52px);
+  font-size: 20px;
   line-height: 1.08;
-  font-weight: 750;
+  font-weight: 100;
 }
 
-.prd-h2{
+.prd-h2 {
   margin: 0 0 10px;
   font-size: clamp(22px, 2.2vw, 34px);
   line-height: 1.15;
   font-weight: 750;
 }
 
-.prd-h3{
+.prd-h3 {
   margin: 0;
   font-size: 18px;
   line-height: 1.25;
   font-weight: 700;
 }
 
-.prd-h4{
+.prd-h4 {
   margin: 0 0 8px;
   font-size: 16px;
   line-height: 1.25;
@@ -55,20 +68,21 @@
 }
 
 .prd-sub,
-.prd-lead{
+.prd-lead {
   margin: 0;
   max-width: 62ch;
   opacity: .92;
   line-height: 1.65;
-  font-size: 15px;
+  font-size: 20px;
+  font-weight: 100;
 }
 
-.prd-section-head{
+.prd-section-head {
   margin-bottom: 22px;
 }
 
 .prd-footnote,
-.prd-disclaimer{
+.prd-disclaimer {
   margin: 16px 0 0;
   font-size: 12px;
   opacity: .80;
@@ -76,31 +90,41 @@
 }
 
 /* Grid */
-.prd-grid{
+.prd-grid {
   display: grid;
   gap: 18px;
 }
 
-.prd-grid-3{
+.prd-grid-3 {
   grid-template-columns: repeat(3, minmax(0, 1fr));
 }
 
-.prd-grid-4{
+.prd-grid-4 {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
-@media (max-width: 980px){
-  .prd-grid-3{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
-  .prd-grid-4{ grid-template-columns: repeat(2, minmax(0, 1fr)); }
+@media (max-width: 980px) {
+  .prd-grid-3 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .prd-grid-4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
 }
 
-@media (max-width: 640px){
-  .prd-grid-3{ grid-template-columns: 1fr; }
-  .prd-grid-4{ grid-template-columns: 1fr; }
+@media (max-width: 640px) {
+  .prd-grid-3 {
+    grid-template-columns: 1fr;
+  }
+
+  .prd-grid-4 {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Buttons (fallback) */
-.btn{
+.btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -114,64 +138,86 @@
   transition: transform .15s ease, opacity .15s ease, border-color .15s ease, background .15s ease;
   user-select: none;
 }
-.btn:active{ transform: translateY(1px); }
 
-.btn-primary{
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn-primary {
   background: #ECE3D5;
   color: #06222b;
 }
-.btn-ghost{
+
+.btn-ghost {
   background: #ECE3D5;
   color: black;
-  border: 1px solid rgba(234,243,247,.20);
+  border: 1px solid rgba(234, 243, 247, .20);
 }
 
-.btn:hover{ opacity: .94; }
+.btn:hover {
+  opacity: .94;
+}
 
-.btn-primary:hover{ border-color: rgba(234,243,247,.34); background: rgba(255,255,255,.08); }
-.btn-ghost:hover{ border-color: rgba(234,243,247,.34); background: rgba(255,255,255,.08); }
+.btn-primary:hover {
+  border-color: rgba(234, 243, 247, .34);
+  background: rgba(255, 255, 255, .08);
+}
+
+.btn-ghost:hover {
+  border-color: rgba(234, 243, 247, .34);
+  background: rgba(255, 255, 255, .08);
+}
 
 /* Links */
-.link{
+.link {
   color: #9fe8fb;
   text-decoration: none;
   font-weight: 650;
 }
-.link:hover{ opacity: .9; text-decoration: underline; }
 
-/* ================= HERO ================= */
-.prd-hero{
-  padding: 92px 0 52px;
-  
-  background:
-    radial-gradient(1200px 600px at 18% 20%, rgba(15,173,230,.22), transparent 55%),
-    radial-gradient(900px 520px at 80% 35%, rgba(0,51,69,.28), transparent 60%),
-    /* ✅ 更亮的“蓝灰渐变”，替代原来几乎黑的底 */
-    linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02) 60%, rgba(255,255,255,0));
-
-  border-bottom: 1px solid rgba(234,243,247,.10);
+.link:hover {
+  opacity: .9;
+  text-decoration: underline;
 }
 
-.prd-hero-grid{
+/* ================= HERO ================= */
+.prd-hero {
+  padding: 92px 0 52px;
+
+  background:
+    radial-gradient(1200px 600px at 18% 20%, rgba(15, 173, 230, .22), transparent 55%),
+    radial-gradient(900px 520px at 80% 35%, rgba(0, 51, 69, .28), transparent 60%),
+    /* ✅ 更亮的“蓝灰渐变”，替代原来几乎黑的底 */
+    linear-gradient(180deg, rgba(255, 255, 255, .06), rgba(255, 255, 255, .02) 60%, rgba(255, 255, 255, 0));
+
+  border-bottom: 1px solid rgba(234, 243, 247, .10);
+}
+
+.prd-hero-grid {
   display: grid;
   grid-template-columns: 1.35fr .85fr;
   gap: 22px;
   align-items: stretch;
 }
 
-@media (max-width: 980px){
-  .prd-hero-grid{ grid-template-columns: 1fr; }
-  .prd-hero{ padding-top: 80px; }
+@media (max-width: 980px) {
+  .prd-hero-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .prd-hero {
+    padding-top: 80px;
+  }
 }
 
-.prd-badges{
+.prd-badges {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin: 18px 0 20px;
 }
 
-.prd-badge{
+.prd-badge {
   display: inline-flex;
   align-items: center;
   height: 30px;
@@ -179,101 +225,101 @@
   border-radius: 999px;
   font-size: 12px;
   letter-spacing: .02em;
-  border: 1px solid rgba(234,243,247,.20);
-  background: rgba(255,255,255,.06);
+  border: 1px solid rgba(234, 243, 247, .20);
+  background: rgba(255, 255, 255, .06);
   opacity: .96;
 }
 
-.prd-hero-cta{
+.prd-hero-cta {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
   margin-top: 18px;
 }
 
-.prd-hero-panel{
+.prd-hero-panel {
   border-radius: 18px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(234,243,247,.14);
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(234, 243, 247, .14);
   padding: 18px;
   display: grid;
   gap: 12px;
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
 }
 
 /* ✅ 指标卡：从“黑块”改成“蓝灰玻璃” */
-.prd-hero-metric{
+.prd-hero-metric {
   border-radius: 14px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(234,243,247,.12);
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(234, 243, 247, .12);
   padding: 12px 14px;
 }
 
-.prd-metric-num{
+.prd-metric-num {
   font-size: 22px;
   font-weight: 800;
   letter-spacing: .02em;
 }
 
-.prd-metric-lbl{
+.prd-metric-lbl {
   font-size: 12px;
   opacity: .88;
   margin-top: 2px;
 }
 
-.prd-hero-note{
+.prd-hero-note {
   margin-top: 4px;
   padding: 12px 14px;
   border-radius: 14px;
-  background: rgba(255,255,255,.07);
-  border: 1px solid rgba(15,173,230,.24);
+  background: rgba(255, 255, 255, .07);
+  border: 1px solid rgba(15, 173, 230, .24);
   font-size: 13px;
   line-height: 1.6;
   opacity: .98;
 }
 
 /* ================= CORE PRODUCTS ================= */
-.prd-core{
+.prd-core {
   padding: 56px 0 56px;
 }
 
-.prd-card{
+.prd-card {
   border-radius: 18px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(234,243,247,.12);
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(234, 243, 247, .12);
   padding: 18px;
   display: grid;
   gap: 12px;
   transition: transform .18s ease, border-color .18s ease, background .18s ease;
-  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, .10);
 }
 
-.prd-card:hover{
+.prd-card:hover {
   transform: translateY(-2px);
-  border-color: rgba(159,232,251,.34);
-  background: rgba(255,255,255,.08);
+  border-color: rgba(159, 232, 251, .34);
+  background: rgba(255, 255, 255, .08);
 }
 
-.prd-card-top{
+.prd-card-top {
   display: grid;
   gap: 6px;
 }
 
-.prd-card-tag{
+.prd-card-tag {
   margin: 0;
   font-size: 12px;
   opacity: .86;
 }
 
-.prd-spec{
+.prd-spec {
   list-style: none;
   padding: 0;
   margin: 0;
-  border-top: 1px solid rgba(234,243,247,.10);
-  border-bottom: 1px solid rgba(234,243,247,.10);
+  border-top: 1px solid rgba(234, 243, 247, .10);
+  border-bottom: 1px solid rgba(234, 243, 247, .10);
 }
 
-.prd-spec li{
+.prd-spec li {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -282,42 +328,47 @@
   font-size: 13px;
 }
 
-.prd-spec li + li{
-  border-top: 1px solid rgba(234,243,247,.08);
+.prd-spec li+li {
+  border-top: 1px solid rgba(234, 243, 247, .08);
 }
 
-.prd-spec span{ opacity: .88; }
-.prd-spec b{ font-weight: 750; }
+.prd-spec span {
+  opacity: .88;
+}
 
-.prd-card-copy{
+.prd-spec b {
+  font-weight: 750;
+}
+
+.prd-card-copy {
   margin: 0;
   line-height: 1.65;
   font-size: 13px;
   opacity: .94;
 }
 
-.prd-card-actions{
+.prd-card-actions {
   display: flex;
   justify-content: flex-start;
   padding-top: 2px;
 }
 
 /* ================= WHY ================= */
-.prd-why{
+.prd-why {
   padding: 56px 0 56px;
-  border-top: 1px solid rgba(234,243,247,.08);
-  border-bottom: 1px solid rgba(234,243,247,.08);
-  background: rgba(255,255,255,.03);
+  border-top: 1px solid rgba(234, 243, 247, .08);
+  border-bottom: 1px solid rgba(234, 243, 247, .08);
+  background: rgba(255, 255, 255, .03);
 }
 
-.prd-mini{
+.prd-mini {
   border-radius: 18px;
-  background: rgba(255,255,255,.05);
-  border: 1px solid rgba(234,243,247,.10);
+  background: rgba(255, 255, 255, .05);
+  border: 1px solid rgba(234, 243, 247, .10);
   padding: 18px;
 }
 
-.prd-mini p{
+.prd-mini p {
   margin: 0;
   line-height: 1.65;
   font-size: 13px;
@@ -325,32 +376,34 @@
 }
 
 /* ================= RISK ================= */
-.prd-risk{
+.prd-risk {
   padding: 56px 0 56px;
 }
 
-.prd-risk-grid{
+.prd-risk-grid {
   display: grid;
   grid-template-columns: 1.1fr .9fr;
   gap: 18px;
   align-items: start;
 }
 
-@media (max-width: 980px){
-  .prd-risk-grid{ grid-template-columns: 1fr; }
+@media (max-width: 980px) {
+  .prd-risk-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
-.prd-check{
+.prd-check {
   list-style: none;
   padding: 0;
   margin: 0;
   border-radius: 18px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(234,243,247,.12);
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(234, 243, 247, .12);
   overflow: hidden;
 }
 
-.prd-check li{
+.prd-check li {
   position: relative;
   padding: 14px 16px 14px 42px;
   font-size: 13px;
@@ -358,11 +411,11 @@
   opacity: .96;
 }
 
-.prd-check li + li{
-  border-top: 1px solid rgba(234,243,247,.08);
+.prd-check li+li {
+  border-top: 1px solid rgba(234, 243, 247, .08);
 }
 
-.prd-check li::before{
+.prd-check li::before {
   content: "";
   position: absolute;
   left: 16px;
@@ -370,33 +423,33 @@
   width: 10px;
   height: 10px;
   border-radius: 999px;
-  background: rgba(15,173,230,.92);
-  box-shadow: 0 0 0 4px rgba(15,173,230,.18);
+  background: rgba(15, 173, 230, .92);
+  box-shadow: 0 0 0 4px rgba(15, 173, 230, .18);
 }
 
 /* ================= SNAPSHOT ================= */
-.prd-snap{
+.prd-snap {
   padding: 56px 0 56px;
-  background: rgba(255,255,255,.03);
-  border-top: 1px solid rgba(234,243,247,.08);
-  border-bottom: 1px solid rgba(234,243,247,.08);
+  background: rgba(255, 255, 255, .03);
+  border-top: 1px solid rgba(234, 243, 247, .08);
+  border-bottom: 1px solid rgba(234, 243, 247, .08);
 }
 
-.prd-stat{
+.prd-stat {
   border-radius: 18px;
-  background: rgba(255,255,255,.06);
-  border: 1px solid rgba(234,243,247,.12);
+  background: rgba(255, 255, 255, .06);
+  border: 1px solid rgba(234, 243, 247, .12);
   padding: 16px;
-  box-shadow: 0 12px 26px rgba(0,0,0,.10);
+  box-shadow: 0 12px 26px rgba(0, 0, 0, .10);
 }
 
-.prd-stat-num{
+.prd-stat-num {
   font-size: 22px;
   font-weight: 850;
   letter-spacing: .02em;
 }
 
-.prd-stat-lbl{
+.prd-stat-lbl {
   margin-top: 6px;
   font-size: 12px;
   opacity: .88;
@@ -404,26 +457,26 @@
 }
 
 /* ================= CTA ================= */
-.prd-cta{
+.prd-cta {
   padding: 56px 0 82px;
 }
 
-.prd-cta-box{
+.prd-cta-box {
   border-radius: 22px;
   background:
-    radial-gradient(900px 420px at 18% 30%, rgba(15,173,230,.18), transparent 60%),
-    rgba(255,255,255,.06);
-  border: 1px solid rgba(234,243,247,.12);
+    radial-gradient(900px 420px at 18% 30%, rgba(15, 173, 230, .18), transparent 60%),
+    rgba(255, 255, 255, .06);
+  border: 1px solid rgba(234, 243, 247, .12);
   padding: 22px;
   display: flex;
   gap: 16px;
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
-  box-shadow: 0 14px 30px rgba(0,0,0,.12);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .12);
 }
 
-.prd-cta-actions{
+.prd-cta-actions {
   display: flex;
   gap: 12px;
   flex-wrap: wrap;
@@ -434,15 +487,16 @@
    =============================== */
 
 /* 除 hero 外的所有产品页 section */
-.products section:not(.prd-hero){
+.products section:not(.prd-hero) {
   background: #ffffff;
-  color: #0b2a34; /* 深蓝灰正文 */
+  color: #0b2a34;
+  /* 深蓝灰正文 */
 }
 
 /* 标题统一深色 */
 .products section:not(.prd-hero) .prd-h2,
 .products section:not(.prd-hero) .prd-h3,
-.products section:not(.prd-hero) .prd-h4{
+.products section:not(.prd-hero) .prd-h4 {
   color: #0b2a34;
 }
 
@@ -451,7 +505,7 @@
 .products section:not(.prd-hero) .prd-sub,
 .products section:not(.prd-hero) p,
 .products section:not(.prd-hero) li,
-.products section:not(.prd-hero) span{
+.products section:not(.prd-hero) span {
   color: #314e57;
 }
 
@@ -459,16 +513,16 @@
 .products section:not(.prd-hero) .prd-card,
 .products section:not(.prd-hero) .prd-mini,
 .products section:not(.prd-hero) .prd-stat,
-.products section:not(.prd-hero) .prd-check{
+.products section:not(.prd-hero) .prd-check {
   background: #ffffff;
-  border: 1px solid rgba(0,0,0,.08);
-  box-shadow: 0 12px 24px rgba(0,0,0,.08);
+  border: 1px solid rgba(0, 0, 0, .08);
+  box-shadow: 0 12px 24px rgba(0, 0, 0, .08);
 }
 
 /* spec / 分割线在白底下更柔和 */
 .products section:not(.prd-hero) .prd-spec,
-.products section:not(.prd-hero) .prd-spec li + li{
-  border-color: rgba(0,0,0,.08);
+.products section:not(.prd-hero) .prd-spec li+li {
+  border-color: rgba(0, 0, 0, .08);
 }
 
 
@@ -476,39 +530,39 @@
    CORE 3 CARDS -> dark background (#003345)
    =============================== */
 
-.prd-core .prd-card{
+.prd-core .prd-card {
   background: #003345 !important;
   color: #eaf3f7;
-  border: 1px solid rgba(234,243,247,.14);
-  box-shadow: 0 14px 30px rgba(0,0,0,.18);
+  border: 1px solid rgba(234, 243, 247, .14);
+  box-shadow: 0 14px 30px rgba(0, 0, 0, .18);
 }
 
 /* 卡片内标题/标签/正文 */
 .prd-core .prd-card .prd-h3,
 .prd-core .prd-card .prd-card-tag,
-.prd-core .prd-card .prd-card-copy{
+.prd-core .prd-card .prd-card-copy {
   color: #eaf3f7;
 }
 
 /* 参数表：分割线 & 左侧文字 */
-.prd-core .prd-card .prd-spec{
-  border-top: 1px solid rgba(234,243,247,.14);
-  border-bottom: 1px solid rgba(234,243,247,.14);
+.prd-core .prd-card .prd-spec {
+  border-top: 1px solid rgba(234, 243, 247, .14);
+  border-bottom: 1px solid rgba(234, 243, 247, .14);
 }
 
-.prd-core .prd-card .prd-spec li + li{
-  border-top: 1px solid rgba(234,243,247,.10);
+.prd-core .prd-card .prd-spec li+li {
+  border-top: 1px solid rgba(234, 243, 247, .10);
 }
 
-.prd-core .prd-card .prd-spec span{
-  color: rgba(234,243,247,.86);
+.prd-core .prd-card .prd-spec span {
+  color: rgba(234, 243, 247, .86);
 }
 
-.prd-core .prd-card .prd-spec b{
+.prd-core .prd-card .prd-spec b {
   color: #eaf3f7;
 }
 
 /* 底部链接 */
-.prd-core .prd-card .link{
+.prd-core .prd-card .link {
   color: #9fe8fb;
 }

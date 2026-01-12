@@ -298,19 +298,6 @@
   box-shadow: 0 10px 26px rgba(0, 0, 0, .05);
 }
 
-.au-card-ico {
-  width: 30px;
-  height: 30px;
-  border-radius: 999px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(0, 51, 69, .08);
-  color: #003345;
-  font-weight: 900;
-  margin-bottom: 10px;
-}
-
 /* pillars */
 .au-pillars {
   display: grid;

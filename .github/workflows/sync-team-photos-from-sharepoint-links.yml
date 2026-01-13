@@ -1,0 +1,94 @@
+name: Sync Team Photos (SharePoint Links -> GitHub)
+
+on:
+  workflow_dispatch: {}
+  schedule:
+    # Twice daily UTC
+    - cron: "0 22 * * *"
+    - cron: "0 10 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: sync-team-photos-links
+  cancel-in-progress: true
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repo
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Ensure target folder
+        run: |
+          mkdir -p Images/teamphoto
+
+      - name: Install jq
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y jq
+
+      - name: Download images from SharePoint links
+        run: |
+          set -e
+
+          CONFIG="data/teamphotos.json"
+          if [ ! -f "$CONFIG" ]; then
+            echo "Missing $CONFIG"
+            exit 1
+          fi
+
+          count=$(jq '.items | length' "$CONFIG")
+          echo "Items: $count"
+          if [ "$count" -eq 0 ]; then
+            echo "No items to download."
+            exit 0
+          fi
+
+          # Download each image
+          for i in $(seq 0 $((count-1))); do
+            filename=$(jq -r ".items[$i].filename" "$CONFIG")
+            url=$(jq -r ".items[$i].url" "$CONFIG")
+
+            if [ -z "$filename" ] || [ "$filename" = "null" ]; then
+              echo "Missing filename at index $i"
+              exit 1
+            fi
+            if [ -z "$url" ] || [ "$url" = "null" ]; then
+              echo "Missing url for $filename (index $i)"
+              exit 1
+            fi
+
+            echo "Downloading: $filename"
+            # Follow redirects; fail on non-200; set a browser-like UA
+            curl -L --fail \
+              -H "User-Agent: Mozilla/5.0" \
+              -o "Images/teamphoto/$filename" \
+              "$url"
+
+            # Basic sanity: file should not be tiny (SharePoint sometimes returns HTML if blocked)
+            size=$(stat -c%s "Images/teamphoto/$filename" || echo 0)
+            if [ "$size" -lt 2000 ]; then
+              echo "File too small ($size bytes). Likely not an image. URL may not be public."
+              echo "Failing: $filename"
+              exit 1
+            fi
+          done
+
+      - name: Commit & push if changed
+        run: |
+          set -e
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          if git status --porcelain | grep -q .; then
+            git add Images/teamphoto data/teamphotos.json
+            git commit -m "chore: sync team photos from SharePoint links"
+            git push
+          else
+            echo "No changes to commit."
+          fi

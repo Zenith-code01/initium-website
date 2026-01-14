@@ -133,7 +133,8 @@
 
   contain: layout paint style;
   content-visibility: auto;
-  contain-intrinsic-size: 320px; /* 预估高度，防止跳动 */
+  contain-intrinsic-size: 320px;
+  /* 预估高度，防止跳动 */
 }
 
 .prodx-media {
@@ -141,7 +142,8 @@
   background: #0b2230;
 
   overflow: hidden;
-  transform: translateZ(0); /* 只作用在图片容器，不要作用在整页/父级 */
+  transform: translateZ(0);
+  /* 只作用在图片容器，不要作用在整页/父级 */
 }
 
 .prodx-media img {
@@ -160,14 +162,15 @@
   gap: 8px;
 }
 
-.prodx-badge{
-  background: rgba(0, 51, 69, 0.92); /* 视觉上仍然像玻璃但不 blur */
+.prodx-badge {
+  background: rgba(0, 51, 69, 0.92);
+  /* 视觉上仍然像玻璃但不 blur */
   color: #fff;
-  border: 1px solid rgba(255,255,255,.14);
+  border: 1px solid rgba(255, 255, 255, .14);
   padding: 6px 10px;
   border-radius: 999px;
   font-size: 11px;
-  font-weight: 700;
+  font-weight: 500;
   /* backdrop-filter: blur(8px);  删掉 */
 }
 
@@ -175,6 +178,9 @@
   padding: 14px 14px 16px;
   display: grid;
   gap: 10px;
+
+  /* ✅ 关键：intro 用 1fr 占位，把 kpis 顶到同一位置 */
+  grid-template-rows: auto 1fr auto auto;
 }
 
 .prodx-address {
@@ -197,25 +203,33 @@
   grid-template-columns: repeat(2, minmax(0, 1fr));
   gap: 10px;
   margin-top: 4px;
+
+  max-height: 130px;
 }
 
 .prodx-kpi {
   border-radius: 14px;
   border: 1px solid rgba(0, 51, 69, 0.12);
-  background: rgba(0, 51, 69, 0.04);
+  background: #003345;
   padding: 10px 10px;
+}
+
+/* KPI text color override */
+.prodx-kpi p.t {
+  color: #ffffff !important;
 }
 
 .prodx-kpi .t {
   font-size: 11px;
-  opacity: 0.8;
+  font-weight: 500;
   margin: 0 0 6px;
 }
 
 .prodx-kpi .v {
   font-size: 14px;
-  font-weight: 800;
+  font-weight: 500;
   margin: 0;
+  color: #ffffff !important;
 }
 
 .prodx-foot {
@@ -268,7 +282,7 @@
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
 }
 
 .img-panel img {
@@ -284,7 +298,7 @@
   top: 10px;
   right: 12px;
   border: none;
-  background: rgba(255,255,255,.9);
+  background: rgba(255, 255, 255, .9);
   width: 36px;
   height: 36px;
   border-radius: 50%;
@@ -305,9 +319,11 @@
   .prodx-controls {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
+
   .prodx-btn {
     grid-column: 1 / -1;
   }
+
   .prodx-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
@@ -326,24 +342,24 @@
 
 
 /* ===== Image Modal (Lightbox) ===== */
-.img-modal{
+.img-modal {
   position: fixed;
   inset: 0;
   z-index: 9999;
   display: none;
 }
 
-.img-modal.is-open{
+.img-modal.is-open {
   display: block;
 }
 
-.img-backdrop{
+.img-backdrop {
   position: absolute;
   inset: 0;
-  background: rgba(0,0,0,.6);
+  background: rgba(0, 0, 0, .6);
 }
 
-.img-panel{
+.img-panel {
   position: relative;
   width: min(920px, calc(100% - 32px));
   max-height: min(80vh, 720px);
@@ -351,10 +367,10 @@
   background: #fff;
   border-radius: 16px;
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0,0,0,.4);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .4);
 }
 
-#imgModalImg{
+#imgModalImg {
   display: block;
   width: 100%;
   height: auto;
@@ -363,17 +379,16 @@
   background: #081726;
 }
 
-.img-close{
+.img-close {
   position: absolute;
   top: 10px;
   right: 12px;
   width: 36px;
   height: 36px;
   border-radius: 999px;
-  border: 1px solid rgba(0,0,0,.12);
-  background: rgba(255,255,255,.9);
+  border: 1px solid rgba(0, 0, 0, .12);
+  background: rgba(255, 255, 255, .9);
   cursor: pointer;
   font-size: 18px;
   line-height: 1;
 }
-

@@ -10,7 +10,7 @@
       "LVR": 84,
       "FacilityAmount": 1000000,
       "ProductionIntroduction": "To assist with property settlement for commercial property in Ashfield.",
-      "ImageUrl": "./Images/productsPhoto/1.jpg",
+      "ImageUrl": "/Images/productsPhoto/1.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -23,7 +23,7 @@
       "LVR": 71,
       "FacilityAmount": 900000,
       "ProductionIntroduction": "To assist with renovations, working capital and clearance of unsecured debts.",
-      "ImageUrl": "./Images/productsPhoto/2.jpg",
+      "ImageUrl": "/Images/productsPhoto/2.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -36,7 +36,7 @@
       "LVR": 87,
       "FacilityAmount": 480000,
       "ProductionIntroduction": "Short term bridging facility to assist with a refinance.",
-      "ImageUrl": "./Images/productsPhoto/3.jpg",
+      "ImageUrl": "/Images/productsPhoto/3.jpg",
       "LastUpdate": "2026-01-14"
     },
     {

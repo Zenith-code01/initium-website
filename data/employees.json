@@ -69,6 +69,16 @@
       "email": "",
       "linkedin": "",
       "bio": "Aurora Li is an emerging professional in the marketing and communications field, bringing cross-sector experience spanning finance, sports, and corporate organizations. She is completing her Master of Commerce (Marketing) at the University of New South Wales, following a Bachelor of International Business from the University of Newcastle, and has developed strong capabilities in digital strategy, brand development, and stakeholder engagement through her diverse roles.\n\nAurora has played an important role in strengthening Initium Capital’s marketing operations, contributing to investor-focused communication, managing the firm’s LinkedIn presence, and coordinating media exposure with leading Chinese-language financial platforms such as Australian Financial News. Her work in producing marketing materials, supporting fundraising initiatives, and ensuring consistent brand presentation reflects a highly organized and detail-oriented approach aligned with the firm’s professional standards.\n\nPrior to joining Initium Capital, Aurora supported digital engagement and brand design projects with the Newcastle Knights, where her contributions were incorporated into the club’s strategic roadmap. Across these environments, she has consistently demonstrated strong communication ability, adaptability, and professionalism, operating confidently across English, Mandarin, Cantonese, and Hakka. She further gained experience in corporate marketing and client communication through her role at the Postal Savings Bank of China and has provided additional support to cultural events through her involvement with the Chongqing Youth Film Festival."
+    },
+    {
+      "id": "zezhong-ma",
+      "name": "Zezhong Ma",
+      "title": "Digital Systems & Web Lead",
+      "order": 8,
+      "photo": "./Images/teamphoto/Zezhong_Ma.jpg",
+      "email": "",
+      "linkedin": "",
+      "bio": "Zezhong Ma is responsible for digital platforms and system development at Initium Capital, focusing on the design and implementation of the firm’s website, data infrastructure, and internal automation processes.\n\nAt Initium, he built and continues to maintain the company website from the ground up, covering frontend structure, UI/UX design, multilingual support, and automated data integration using tools such as GitHub, SharePoint, and Power Automate. He also supports the structuring and visualisation of investment-related data, helping transform fragmented information into clear and usable insights.\n\nHis work sits at the intersection of technology and finance, applying structured, engineering-driven approaches to improve data transparency, operational efficiency, and digital capabilities within a lean investment team."
     }
   ]
 }

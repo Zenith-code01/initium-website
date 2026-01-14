@@ -212,12 +212,11 @@
 
 /* ---------- RIGHT GLASS CARD ---------- */
 .inv2 .inv2-glass-card {
-    background: rgba(255, 255, 255, 0.72);
+    background: #ECE3D5;
     border: 1px solid var(--inv-border);
     border-radius: 22px;
     padding: 18px 18px 16px;
-    box-shadow: var(--inv-shadow);
-    backdrop-filter: blur(8px);
+
 }
 
 .inv2 .inv2-glass-head {
@@ -634,7 +633,6 @@
 }
 
 /* ================= CARDS (safety unify) ================= */
-.inv2 .inv2-glass-card,
 .inv2 .metric-card,
 .inv2 .trust-card,
 .inv2 .edge-card,

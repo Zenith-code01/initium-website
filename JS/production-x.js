@@ -1,6 +1,6 @@
 /* =========================
    Production X (Initium)
-   - Data source: GitHub raw projects.json (your file is /data/projects.json)
+   - Data source: GitHub raw products.json (/data/products.json)
    - JSON shape: { "products": [ ... ] }
    - Filter: MortgageType + ProjectStatus
    - Sort: LastUpdate / TargetReturn / FacilityAmount / LVR / Term
@@ -145,7 +145,6 @@
     els.grid.innerHTML = items
       .map((it) => {
         const title = it.title || it.address || "Untitled Project";
-        const address = it.address || it.title || "—";
         const mortgageType = normalizeText(it.mortgageType) || "—";
         const status = normalizeText(it.projectStatus) || "—";
         const intro = normalizeText(it.productionIntroduction) || "";
@@ -157,8 +156,10 @@
         const lvr = it.lvr;
         const facility = it.facilityAmount;
 
+        const safeTitle = title.replace(/"/g, "&quot;");
+
         const imgTag = img
-          ? `<img src="${img}" alt="${title.replace(/"/g, "&quot;")}" loading="lazy" />`
+          ? `<img src="${img}" alt="${safeTitle}" loading="lazy" />`
           : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(234,243,247,0.85);font-weight:800;">IM Capital</div>`;
 
         return `
@@ -198,7 +199,7 @@
                 <span>Last updated: ${lastUpdate}</span>
                 ${
                   img
-                    ? `<a class="prodx-link" href="${img}" target="_blank" rel="noreferrer noopener">Image</a>`
+                    ? `<a class="prodx-link prodx-image-btn" href="javascript:void(0)" data-image="${img}">Image</a>`
                     : `<span></span>`
                 }
               </div>
@@ -246,13 +247,13 @@
       }
     } catch (e) {
       console.error(e);
-      if (els.state) els.state.textContent = "Failed to load projects.json (check URL / path).";
+      if (els.state) els.state.textContent = "Failed to load products.json (check URL / path).";
       els.grid.innerHTML = "";
       if (els.count) els.count.textContent = "0 items";
     }
   }
 
-  // events
+  // ---------- events ----------
   ["change"].forEach((evt) => {
     els.mortgageType?.addEventListener(evt, load);
     els.status?.addEventListener(evt, load);
@@ -261,5 +262,55 @@
   });
   els.refresh?.addEventListener("click", load);
 
+  // =========================
+  // Image Modal (Event Delegation)
+  // =========================
+  const modal = document.getElementById("imgModal");
+  const modalImg = document.getElementById("imgModalImg");
+
+  function openImgModal(src, altText) {
+    if (!modal || !modalImg) return;
+    modalImg.src = src;
+    modalImg.alt = altText || "Preview";
+    modal.classList.add("is-open");
+    modal.setAttribute("aria-hidden", "false");
+    document.documentElement.style.overflow = "hidden";
+  }
+
+  function closeImgModal() {
+    if (!modal || !modalImg) return;
+    modal.classList.remove("is-open");
+    modal.setAttribute("aria-hidden", "true");
+    modalImg.src = "";
+    modalImg.alt = "";
+    document.documentElement.style.overflow = "";
+  }
+
+  document.addEventListener("click", (e) => {
+    // open
+    const btn = e.target.closest(".prodx-image-btn");
+    if (btn) {
+      e.preventDefault();
+      const src = btn.getAttribute("data-image");
+      const card = btn.closest(".prodx-card");
+      const title =
+        card?.querySelector(".prodx-address")?.textContent?.trim() || "Preview";
+      if (src) openImgModal(src, title);
+      return;
+    }
+
+    // close (click backdrop or close button)
+    if (e.target.matches('[data-close="1"]')) {
+      closeImgModal();
+    }
+  });
+
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape" && modal?.classList.contains("is-open")) {
+      closeImgModal();
+    }
+  });
+
+  // ---------- init ----------
   load();
 })();

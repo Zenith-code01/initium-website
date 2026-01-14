@@ -11,28 +11,16 @@
     <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
-
     <link rel="icon" href="./Images/000011.jpg" />
     <link rel="stylesheet" href="./CSS/style.css" />
     <link rel="stylesheet" href="./CSS/company-snapshot.css" />
     <link rel="stylesheet" href="./CSS/products.css" />
-
     <link rel="stylesheet" href="./CSS/production-x.css" />
-
-
-
-
 </head>
 
-
-
-
 <body>
-
     <!-- 导航栏 -->
     <header class="navbar">
-
-        <!-- 左侧：品牌（整体可点击回 Home） -->
         <div class="nav-left">
             <a href="./Initium.html" class="brand" aria-label="Go to home">
                 <span class="brand-logo">
@@ -41,7 +29,6 @@
             </a>
         </div>
 
-        <!-- 中间：导航 -->
         <nav class="nav-mid" aria-label="Primary">
             <a href="./AboutUs.html" class="nav-link" data-i18n="nav_about">About Us</a>
             <a href="./investor.html" class="nav-link" data-i18n="nav_investors">Investors</a>
@@ -49,11 +36,7 @@
             <a href="./ContactUs.html" class="nav-link" data-i18n="nav_contact">Contact Us</a>
         </nav>
 
-        <!-- 右侧：语言 + 登录（左右平均） -->
         <div class="nav-right">
-
-
-
             <div class="nav-right-half lang-selector">
                 <button class="lang-btn" type="button">EN ▾</button>
                 <ul class="lang-dropdown">
@@ -61,26 +44,15 @@
                     <li data-lang="zh">中文</li>
                 </ul>
             </div>
-
-
         </div>
-
     </header>
 
-
-
     <main class="products">
-
-
-
         <!-- ================= HERO ================= -->
         <section class="prd-hero">
             <div class="prd-container prd-hero-grid">
                 <div class="prd-hero-copy">
                     <p class="prd-kicker" data-i18n="prd_kicker">Our Philosophy</p>
-                    <!-- <h1 class="prd-title" data-i18n="prd_title">
-                        Private Credit Strategies Backed by Real Assets
-                    </h1> -->
                     <p class="prd-sub" data-i18n="prd_sub">
                         At IM Capital, understanding and achieving our clients’ goals are at the core of our
                         company values. Our philosophy has always been to back our beliefs with actions.We spent a year
@@ -131,24 +103,11 @@
                         <div class="prd-metric-num" data-i18n="prd_metric_5_num">10-16% P.A.</div>
                         <div class="prd-metric-lbl" data-i18n="prd_metric_5_lbl">Investor Target Return</div>
                     </div>
-
-
-                    <!-- <div class="prd-hero-note" data-i18n="prd_hero_note">
-                        We prioritise downside protection through conservative structuring, robust due diligence, and
-                        active monitoring.
-                    </div> -->
                 </div>
             </div>
         </section>
 
-
-
-
-
-
-
-
-
+        <!-- ================= PRODUCTION X ================= -->
         <section class="prodx" id="production">
             <div class="prodx-container">
                 <header class="prodx-head">
@@ -198,9 +157,8 @@
                             </select>
                         </div>
 
-                        <button class="prodx-btn" id="prodRefresh" type="button" data-i18n="prod_refresh">
-                            Refresh
-                        </button>
+                        <button class="prodx-btn" id="prodRefresh" type="button"
+                            data-i18n="prod_refresh">Refresh</button>
                     </div>
                 </header>
 
@@ -212,31 +170,6 @@
                 <div class="prodx-grid" id="prodGrid"></div>
             </div>
         </section>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
         <!-- ================= WHY THESE PRODUCTS ================= -->
         <section class="prd-why">
@@ -271,7 +204,6 @@
             </div>
         </section>
 
-
         <!-- ================= RISK & PROTECTION ================= -->
         <section class="prd-risk">
             <div class="prd-container prd-risk-grid">
@@ -294,10 +226,6 @@
             </div>
         </section>
 
-
-
-
-
         <!-- ================= CTA ================= -->
         <section class="prd-cta">
             <div class="prd-container prd-cta-box">
@@ -314,13 +242,31 @@
                 </div>
             </div>
         </section>
-
     </main>
 
+    <!-- 页脚（必须在 body 内） -->
+    <footer class="footer-investor" aria-label="Investor footer">
+        <!-- 这里保持你原来的 footer 内容不变（省略：请直接粘贴你的 footer 原文） -->
+    </footer>
 
+    <!-- Image Modal (必须在 body 内) -->
+    <div class="img-modal" id="imgModal" aria-hidden="true">
+        <div class="img-backdrop" data-close="1"></div>
+        <div class="img-panel" role="dialog" aria-modal="true" aria-label="Image preview">
+            <button class="img-close" type="button" data-close="1" aria-label="Close">✕</button>
+            <img id="imgModalImg" src="" alt="Preview" />
+        </div>
+    </div>
 
-
+    <!-- scripts（必须在 body 内，建议放最后） -->
+    <script src="./JS/carousel.js"></script>
+    <script src="./JS/i18n.js"></script>
+    <script src="./JS/sa-carousel.js"></script>
+    <script src="./JS/company-snapshot.js"></script>
+    <script src="./JS/production-x.js"></script>
 </body>
+
+
 
 
 
@@ -437,14 +383,6 @@
 
 
 </footer>
-
-
-<script src="./JS/carousel.js"></script>
-<script src="./JS/i18n.js"></script>
-<script src="./JS/sa-carousel.js"></script>
-<script src="./JS/company-snapshot.js"></script>
-
-<script src="./JS/production-x.js"></script>
 
 
 

@@ -1,17 +1,16 @@
 /* =========================
    Production X (Initium)
-   - Data source: GitHub raw projects.json
-   - Filter: Mortgage Type + Project Status
-   - Sort: LastUpdated / TargetReturn / FacilityAmount / LVR / Term
+   - Data source: GitHub raw projects.json (your file is /data/projects.json)
+   - JSON shape: { "products": [ ... ] }
+   - Filter: MortgageType + ProjectStatus
+   - Sort: LastUpdate / TargetReturn / FacilityAmount / LVR / Term
    - Render into #prodGrid
    ========================= */
 
 (() => {
-  // ✅ 1) 改成你自己的 raw 链接（你现在这一行看起来是对的）
   const DATA_URL =
-    "https://raw.githubusercontent.com/Zenith-code01/initium-website/main/data/projects.json";
+    "https://raw.githubusercontent.com/Zenith-code01/initium-website/main/data/products.json";
 
-  // 2) DOM
   const els = {
     mortgageType: document.getElementById("prodMortgageType"),
     status: document.getElementById("prodProjectStatus"),
@@ -23,10 +22,9 @@
     state: document.getElementById("prodState"),
   };
 
-  // 如果页面没有这个模块，直接退出（避免其他页面报错）
   if (!els.grid) return;
 
-  // 3) helpers
+  // ---------- helpers ----------
   const normalizeText = (v) => (v == null ? "" : String(v)).trim();
 
   const pickText = (v) => {
@@ -36,6 +34,12 @@
   };
 
   function safeNumber(v) {
+    // support "$1,200,000" style strings
+    if (typeof v === "string") {
+      const cleaned = v.replace(/[^0-9.-]/g, "");
+      const n = Number(cleaned);
+      return Number.isFinite(n) ? n : null;
+    }
     const n = Number(v);
     return Number.isFinite(n) ? n : null;
   }
@@ -67,41 +71,49 @@
     });
   };
 
-  // ✅ 统一字段（兼容大写/小写）
+  // ---------- normalize ----------
   function normalizeItem(it) {
     return {
+      title: normalizeText(it.title ?? it.Title),
       address: normalizeText(it.address ?? it.Address),
+
       mortgageType: pickText(it.mortgageType ?? it.MortgageType),
       projectStatus: pickText(it.projectStatus ?? it.ProjectStatus),
-      productionIntroduction: normalizeText(it.productionIntroduction ?? it.ProductionIntroduction),
+
+      productionIntroduction: normalizeText(
+        it.productionIntroduction ?? it.ProductionIntroduction
+      ),
       imageUrl: normalizeText(it.imageUrl ?? it.ImageUrl),
 
-      lastUpdated: normalizeText(it.lastUpdated ?? it.LastUpdated),
-      targetReturn: it.targetReturn ?? it.TargetReturn,
-      facilityAmount: it.facilityAmount ?? it.FacilityAmount,
-      lvr: it.lvr ?? it.LVR,
-      term: it.term ?? it.Term,
+      // ✅ your JSON field is LastUpdate
+      lastUpdate: normalizeText(
+        it.lastUpdate ?? it.LastUpdate ?? it.lastUpdated ?? it.LastUpdated
+      ),
 
-      title: it.title ?? it.Title ?? null,
+      targetReturn: safeNumber(it.targetReturn ?? it.TargetReturn),
+      facilityAmount: safeNumber(it.facilityAmount ?? it.FacilityAmount),
+      lvr: safeNumber(it.lvr ?? it.LVR),
+      term: safeNumber(it.term ?? it.Term),
     };
   }
 
-  function sortItemsLowercase(items, sortBy, sortDir) {
+  // ---------- sort ----------
+  function sortItems(items, sortBy, sortDir) {
     const dir = sortDir === "asc" ? 1 : -1;
 
     const key = (it) => {
       switch (sortBy) {
         case "TargetReturn":
-          return safeNumber(it.targetReturn);
+          return it.targetReturn;
         case "FacilityAmount":
-          return safeNumber(it.facilityAmount);
+          return it.facilityAmount;
         case "LVR":
-          return safeNumber(it.lvr);
+          return it.lvr;
         case "Term":
-          return safeNumber(it.term);
-        case "LastUpdated":
+          return it.term;
+        case "LastUpdate":
         default: {
-          const d = new Date(it.lastUpdated);
+          const d = new Date(it.lastUpdate);
           return Number.isNaN(d.getTime()) ? null : d.getTime();
         }
       }
@@ -117,8 +129,9 @@
     });
   }
 
+  // ---------- render ----------
   function render(items) {
-    els.count.textContent = `${items.length} items`;
+    if (els.count) els.count.textContent = `${items.length} items`;
 
     if (!items.length) {
       els.grid.innerHTML = `
@@ -131,20 +144,21 @@
 
     els.grid.innerHTML = items
       .map((it) => {
-        const address = normalizeText(it.address) || "Untitled Project";
+        const title = it.title || it.address || "Untitled Project";
+        const address = it.address || it.title || "—";
         const mortgageType = normalizeText(it.mortgageType) || "—";
         const status = normalizeText(it.projectStatus) || "—";
         const intro = normalizeText(it.productionIntroduction) || "";
         const img = normalizeText(it.imageUrl);
-        const lastUpdated = fmtDate(it.lastUpdated);
+        const lastUpdate = fmtDate(it.lastUpdate);
 
-        const term = safeNumber(it.term);
-        const targetReturn = safeNumber(it.targetReturn);
-        const lvr = safeNumber(it.lvr);
-        const facility = safeNumber(it.facilityAmount);
+        const term = it.term;
+        const targetReturn = it.targetReturn;
+        const lvr = it.lvr;
+        const facility = it.facilityAmount;
 
         const imgTag = img
-          ? `<img src="${img}" alt="${address.replace(/"/g, "&quot;")}" loading="lazy" />`
+          ? `<img src="${img}" alt="${title.replace(/"/g, "&quot;")}" loading="lazy" />`
           : `<div style="width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:rgba(234,243,247,0.85);font-weight:800;">IM Capital</div>`;
 
         return `
@@ -158,8 +172,8 @@
             </div>
 
             <div class="prodx-body">
-              <h3 class="prodx-address">${address}</h3>
-              <p class="prodx-intro">${intro}</p>
+              <h3 class="prodx-address">${title}</h3>
+              ${intro ? `<p class="prodx-intro">${intro}</p>` : ""}
 
               <div class="prodx-kpis">
                 <div class="prodx-kpi">
@@ -181,7 +195,7 @@
               </div>
 
               <div class="prodx-foot">
-                <span>Last updated: ${lastUpdated}</span>
+                <span>Last updated: ${lastUpdate}</span>
                 ${
                   img
                     ? `<a class="prodx-link" href="${img}" target="_blank" rel="noreferrer noopener">Image</a>`
@@ -195,26 +209,17 @@
       .join("");
   }
 
+  // ---------- load ----------
   async function load() {
-    els.state.textContent = "Loading…";
+    if (els.state) els.state.textContent = "Loading…";
 
     try {
       const res = await fetch(`${DATA_URL}?v=${Date.now()}`, { cache: "no-store" });
       if (!res.ok) throw new Error(`DATA HTTP ${res.status}`);
       const data = await res.json();
 
-      // ✅ 兼容多种结构
-      const rawItems =
-        Array.isArray(data?.projects?.body)
-          ? data.projects.body
-          : Array.isArray(data?.projects)
-          ? data.projects
-          : Array.isArray(data?.items)
-          ? data.items
-          : Array.isArray(data)
-          ? data
-          : [];
-
+      // ✅ your file shape: { products: [...] }
+      const rawItems = Array.isArray(data?.products) ? data.products : [];
       const items = rawItems.map(normalizeItem);
 
       // Filter
@@ -228,18 +233,22 @@
       });
 
       // Sort
-      const sorted = sortItemsLowercase(filtered, els.sortBy.value, els.sortDir.value);
+      const sortBy = els.sortBy?.value || "LastUpdate";
+      const sortDir = els.sortDir?.value || "desc";
+      const sorted = sortItems(filtered, sortBy, sortDir);
 
-      // Render
       render(sorted);
 
-      // Status
-      els.state.textContent = data.updatedAt ? `Last updated: ${fmtDate(data.updatedAt)}` : "";
+      // Status (use first item's LastUpdate)
+      if (els.state) {
+        const top = items[0]?.lastUpdate || "";
+        els.state.textContent = top ? `Last updated: ${fmtDate(top)}` : "";
+      }
     } catch (e) {
       console.error(e);
-      els.state.textContent = "Failed to load projects.json (check URL / path).";
+      if (els.state) els.state.textContent = "Failed to load projects.json (check URL / path).";
       els.grid.innerHTML = "";
-      els.count.textContent = "0 items";
+      if (els.count) els.count.textContent = "0 items";
     }
   }
 
@@ -252,6 +261,5 @@
   });
   els.refresh?.addEventListener("click", load);
 
-  // init
   load();
 })();

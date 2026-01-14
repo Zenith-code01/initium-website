@@ -1,7 +1,7 @@
 /* ================= OUR TEAM ================= */
 
 // ✅ 确保路径正确（你的 employees.json 在 /data）
-const DATA_URL = "./data/employees.json";
+const DATA_URL = "https://raw.githubusercontent.com/Zenith-code01/initium-website/main/data/employees.json";
 
 // Utils
 const escapeHtml = (s) =>

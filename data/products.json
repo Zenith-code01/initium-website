@@ -23,7 +23,7 @@
       "LVR": 71,
       "FacilityAmount": 900000,
       "ProductionIntroduction": "To assist with renovations, working capital and clearance of unsecured debts.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/2.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -36,7 +36,7 @@
       "LVR": 87,
       "FacilityAmount": 480000,
       "ProductionIntroduction": "Short term bridging facility to assist with a refinance.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/3.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -49,7 +49,7 @@
       "LVR": 80,
       "FacilityAmount": 5600000,
       "ProductionIntroduction": "Short-term bridging facility to assist with a refinance and working capital.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/4.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -62,7 +62,7 @@
       "LVR": 85,
       "FacilityAmount": 1250000,
       "ProductionIntroduction": "To assist with property settlement for a residential and commercial property in Inner-West Sydney.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/5.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -75,7 +75,7 @@
       "LVR": 72,
       "FacilityAmount": 1000000,
       "ProductionIntroduction": "To assist with renovations, working capital and clearance of unsecured debts.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/6.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -88,7 +88,7 @@
       "LVR": 65,
       "FacilityAmount": 4000000,
       "ProductionIntroduction": "Second mortgage over Point Piper property to assist with renovation and business working capital.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/7.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -101,7 +101,7 @@
       "LVR": null,
       "FacilityAmount": 1320000,
       "ProductionIntroduction": "",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/8.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -114,7 +114,7 @@
       "LVR": null,
       "FacilityAmount": 500000,
       "ProductionIntroduction": "Mezzanine loan secured against two Canberra apartments and one Griffith owner-occupied property to assist with business working capital. Investor return 18% p.a.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/9.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -127,7 +127,7 @@
       "LVR": 57,
       "FacilityAmount": 2200000,
       "ProductionIntroduction": "Second mortgage over Hunters Hill property to assist client with working capital needs.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/10.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -140,7 +140,7 @@
       "LVR": 80,
       "FacilityAmount": 1200000,
       "ProductionIntroduction": "Equity release of a Federation-style 6-bed, 3-bath home in Burwood NSW.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/11.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -153,7 +153,7 @@
       "LVR": 82,
       "FacilityAmount": 2550000,
       "ProductionIntroduction": "Refinance and equity release of a double-brick 6-bed, 4-bath home in Bardwell Park NSW.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/12.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -166,7 +166,7 @@
       "LVR": 80,
       "FacilityAmount": 8300000,
       "ProductionIntroduction": "First mortgage facility to refinance the existing facility.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/13.jpg",
       "LastUpdate": "2026-01-14"
     },
     {
@@ -179,7 +179,7 @@
       "LVR": 65,
       "FacilityAmount": 30000000,
       "ProductionIntroduction": "Refinance of first mortgage from other private lender over Point Piper property. Investor return 10% p.a.",
-      "ImageUrl": "",
+      "ImageUrl": "./Images/productsPhoto/14.jpg",
       "LastUpdate": "2026-01-14"
     }
   ]

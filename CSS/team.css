@@ -277,8 +277,15 @@ body {
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  background: linear-gradient(180deg, rgba(255, 255, 255, .55), rgba(255, 255, 255, 0) 48%);
-  opacity: .55;
+
+  background: linear-gradient(
+    180deg,
+    rgba(15, 173, 230, 0.18),   /* cyan 高光 */
+    rgba(15, 173, 230, 0.04) 40%,
+    rgba(15, 173, 230, 0) 65%
+  );
+
+  opacity: 0.6;
 }
 
 .avatar {

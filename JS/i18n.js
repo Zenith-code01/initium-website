@@ -604,7 +604,7 @@ const translations = {
     inv2_form_title: "Quick request",
     inv2_form_name_ph: "Full name",
     inv2_form_email_ph: "Email",
-    inv2_form_submit: "Send",
+    inv2_form_submit: "Submit",
     inv2_form_note: "We’ll respond within 1 business day.",
 
     // LEGAL mini footer

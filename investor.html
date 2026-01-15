@@ -363,11 +363,12 @@
                 <div class="inv2-mini-form">
                     <div class="mini-title" data-i18n="inv2_form_title">Quick request</div>
 
-                    <input class="mini-input" data-i18n-placeholder="inv2_form_name_ph" placeholder="Full name" />
-                    <input class="mini-input" data-i18n-placeholder="inv2_form_email_ph" placeholder="Email" />
-                    <input class="mini-input" data-i18n-placeholder="inv2_form_phone_ph" placeholder="Phone" />
+                    <input class="mini-input" id="invfullname" data-i18n-placeholder="inv2_form_name_ph" placeholder="Full name" />
+                    <input class="mini-input" id="invemail" data-i18n-placeholder="inv2_form_email_ph" placeholder="Email" />
+                    <input class="mini-input" id="invphone" data-i18n-placeholder="inv2_form_phone_ph" placeholder="Phone" />
 
-                    <button class="btn btn-primary btn-full" type="button" data-i18n="inv2_form_submit">Send</button>
+                    <button class="btn btn-primary btn-full" id="invsubmit" type="button" data-i18n="inv2_form_submit">Submit</button>
+                    <div class="mini-toast" id="invToast" role="status" aria-live="polite"></div>
                     <div class="mini-foot" data-i18n="inv2_form_note">We’ll respond within 1 business day.</div>
                 </div>
             </div>
@@ -403,6 +404,8 @@
                 </div>
             </div>
         </section>
+
+
 
         <!-- Main grid -->
         <section class="fi-main">
@@ -498,6 +501,8 @@
     <script src="./JS/i18n.js"></script>
     <script src="./JS/sa-carousel.js"></script>
     <script src="./JS/company-snapshot.js"></script>
+    <script src="./JS/invSubmit.js"></script>
+    
 
 
 

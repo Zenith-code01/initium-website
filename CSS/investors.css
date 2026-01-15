@@ -713,3 +713,27 @@
 .inv2 .inv2-final {
     background: #ffffff;
 }
+
+
+
+.mini-toast{
+  margin-top: 10px;
+  font-size: 13px;
+  padding: 10px 12px;
+  border-radius: 10px;
+  display: none;
+  border: 1px solid rgba(0,0,0,.08);
+}
+.mini-toast.is-ok{
+  display:block;
+  background: rgba(16, 185, 129, .12);
+}
+.mini-toast.is-bad{
+  display:block;
+  background: rgba(239, 68, 68, .12);
+}
+.mini-toast code{
+  font-size: 12px;
+  opacity: .85;
+  word-break: break-word;
+}

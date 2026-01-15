@@ -519,3 +519,14 @@ body {
 .card .hint::after {
   content: none !important;
 }
+
+/* =========================
+   Team Modal – Mobile image size fix
+   ========================= */
+@media (max-width: 860px){
+  .modal__left img{
+    width: 50%;          /* ✅ 缩小到原来的 50% */
+    max-width: 180px;    /* ✅ 360 → 180，对应一半 */
+    margin: 0 auto;      /* ✅ 居中 */
+  }
+}
